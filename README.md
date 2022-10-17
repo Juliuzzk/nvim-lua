@@ -1,2 +1,2 @@
-# nvim-lua
+# Nvim-Lua
 Configuracion personal de Nvim
