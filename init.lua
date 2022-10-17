@@ -23,7 +23,7 @@ require('plugins/packer')                -- plugin manager
 require('plugins/autosave')              -- autosave
 
 
--- UI
+-- Themes
 require('plugins/lualine')               -- statusline
 require('plugins/bufferline')            --  bufferline
 require('plugins/nightfox')               -- dracula
@@ -38,7 +38,12 @@ require('plugins/nvim-cmp')              -- autocomplete
 require('plugins/nvim-lspconfig')        -- LSP settings
 require('plugins/nvim-treesitter')       -- tree-sitter interface
 require('plugins/sidebar-nvim')          -- sidebar
- 
+
+
+--  Terminal
+require('plugins/toggleterm') -- toggleterm plugin
+
+--  File Explorer
 require('plugins/telescope-media-files') -- telescope media files
 require('plugins/telescope-nvim')        -- telescope
 require('plugins/telescope-ui-select')   -- telescope select

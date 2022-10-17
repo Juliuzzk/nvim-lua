@@ -22,16 +22,16 @@ map('n', '<leader>c', ':nohl<CR>', default_opts)
 map('n', '<leader>r', ':source % <CR>', default_opts)
 
 -- don't use arrow keys
+--<nop>  
+map('', '<up>', '<up>', {noremap = true})
+map('', '<down>', '<down>', {noremap = true})
+map('', '<left>', '<left>', {noremap = true})
+map('', '<right>', '<right>', {noremap = true})
 
-map('', '<up>', '<nop>', {noremap = true})
-map('', '<down>', '<nop>', {noremap = true})
-map('', '<left>', '<nop>', {noremap = true})
-map('', '<right>', '<nop>', {noremap = true})
-
-map('i', '<C-h>', '<left>', default_opts)
-map('i', '<C-j>', '<down>', default_opts)
-map('i', '<C-k>', '<up>', default_opts)
-map('i', '<C-l>', '<right>', default_opts)
+--map('i', '<C-h>', '<left>', default_opts)
+--map('i', '<C-j>', '<down>', default_opts)
+--map('i', '<C-k>', '<up>', default_opts)
+--map('i', '<C-l>', '<right>', default_opts)
 
 -- fast saving with <leader> and s
 map('n', '<leader>s', ':w<CR>', default_opts)
@@ -42,6 +42,12 @@ map('n', '<C-h>', '<C-w>h', default_opts)
 map('n', '<C-j>', '<C-w>j', default_opts)
 map('n', '<C-k>', '<C-w>k', default_opts)
 map('n', '<C-l>', '<C-w>l', default_opts)
+
+map('n', '<C-h>', '<C-w>h', default_opts)
+map('n', '<C-j>', '<C-w>j', default_opts)
+map('n', '<C-k>', '<C-w>k', default_opts)
+map('n', '<C-l>', '<C-w>l', default_opts)
+
 
 -- close all windows and exit from neovim
 map('n', '<leader>q', ':quitall<CR>', default_opts)
