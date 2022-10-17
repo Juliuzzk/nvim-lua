@@ -11,7 +11,7 @@ Neovim init file
 
 Version: 0.1.1 - 2022/10/14
 Maintainer: JuliuzDev
-Website: https://github.com/nvim/neovim-lua
+Website: https://github.com/Juliuzk/nvim-lua   
 --]]
 
 -----------------------------------------------------------
