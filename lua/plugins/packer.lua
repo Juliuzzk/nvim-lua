@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   -- buffer control
     use {'ojroques/nvim-bufdel'}
 
--- buffer linea
+  -- buffer linea
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'kyazdani42/nvim-web-devicons'}
   -- file explorer
   --use 'kyazdani42/nvim-tree.lua'
@@ -55,10 +55,10 @@ return require('packer').startup(function(use)
   use 'p00f/nvim-ts-rainbow'
 
   -- color theme
-use "EdenEast/nightfox.nvim" -- Packer
+  use "EdenEast/nightfox.nvim" -- Packer
  
 
--- Terminal
+    -- Terminal
     use {
          "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
@@ -92,29 +92,9 @@ use "EdenEast/nightfox.nvim" -- Packer
   use {'onsails/lspkind-nvim'}
 
 
--- statusline
---use {
---    'nvim-lualine/lualine.nvim',
---     requires = { 'kyazdani42/nvim-web-devicons' , opt = true},
---   }
+  -- statusline
+  use 'nvim-lualine/lualine.nvim' -- Statusline
 
---use ('Iron-E/nvim-highlite')
---  use {
---     'feline-nvim/feline.nvim',
---      requires = {
---        'nvim-web-devicons'
---    },
---  }
- use 'nvim-lualine/lualine.nvim' -- Statusline
-
-
-  -- cokeline - buffers
-  --  use {
-  --      'noib3/nvim-cokeline',
-  --      requires = 'kyazdani42/nvim-web-devicons',
-  --  }
-    -- TODO: remoxe
-    -- FIX: fix
 
   -- fuzzy finder
   use 'nvim-lua/popup.nvim'
@@ -124,7 +104,6 @@ use "EdenEast/nightfox.nvim" -- Packer
   use 'nvim-telescope/telescope-symbols.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
-
   use 'ibhagwan/fzf-lua'
 
 
@@ -163,7 +142,7 @@ use "EdenEast/nightfox.nvim" -- Packer
 	})
 
 
-use 'norcalli/nvim-colorizer.lua'
+  use 'norcalli/nvim-colorizer.lua'
   require'colorizer'.setup()
 
   use 'soywod/himalaya.vim'
@@ -171,4 +150,5 @@ use 'norcalli/nvim-colorizer.lua'
   if packer_bootstrap then
     require('packer').sync()
   end
+    
 end)

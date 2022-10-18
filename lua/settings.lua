@@ -152,3 +152,17 @@ cmd [[autocmd FileType markdown let g:indentLine_enabled=0]]
 -- Not used here, option defined on /plugins/nvim-cmp.lua
 --opt.completeopt = 'menuone,noselect,noinsert'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

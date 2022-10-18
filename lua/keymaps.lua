@@ -71,25 +71,14 @@ map('n', '<C-p>', ':FzfLua files<CR>', default_opts)       -- open/close
 -- nvim-tree
 map('n', '<C-n>', ':Neotree toggle<CR>', default_opts)       -- open/close
 
+--  Telescope
 map('n', '<leader>ff', ':Telescope find_files<CR>', default_opts)
 map('n', '<leader>fr', ':Telescope live_grep<CR>', default_opts)
-
-
 --map('n', '<leader>ts', ':Telescope symbols<CR>', default_opts)
 
 -- on hesitation, bring up the panel
 map('n', '<C-s>', ':SidebarNvimToggle<CR>', default_opts)
 
 
--- cokeline  tab management
---map('n', '<S-Tab>',   '<Plug>(cokeline-focus-prev)',  { silent = true })
---map('n', '<Tab>',     '<Plug>(cokeline-focus-next)',  { silent = true })
---map('n', '<Leader>p', '<Plug>(cokeline-switch-prev)', { silent = true })
---map('n', '<Leader>n', '<Plug>(cokeline-switch-next)', { silent = true })
-
---for i = 1,9 do
---  map('n', ('<F%s>'):format(i),      ('<Plug>(cokeline-focus-%s)'):format(i),  { silent = true })
---  map('n', ('<Leader>%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
---end
 
 
