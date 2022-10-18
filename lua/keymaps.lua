@@ -56,6 +56,15 @@ map('n', '<leader>q', ':quitall<CR>', default_opts)
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
 
+-- Toggle Term
+map('n', '<leader>ot', ':ToggleTerm<CR>',  default_opts) 
+map('t', '<leader>ot', '<Cmd>:ToggleTerm<CR>',  default_opts)
+map('t', '<esc>', [[<C-\><C-n>]], default_opts)
+map('t', '<C-h>', [[<Cmd>wincmd h<CR>]], default_opts)
+map('t', '<C-j>', [[<Cmd>wincmd j<CR>]], default_opts)
+map('t', '<C-k>', [[<Cmd>wincmd k<CR>]], default_opts)
+map('t', '<C-l>', [[<Cmd>wincmd l<CR>]], default_opts)
+
 --nvim-fzf-lua
 map('n', '<C-p>', ':FzfLua files<CR>', default_opts)       -- open/close
 
