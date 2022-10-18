@@ -1,3 +1,4 @@
+
 --[[
 
   ██╗███╗   ██╗██╗████████╗██╗     ██╗   ██╗ █████╗
@@ -31,14 +32,19 @@ require('plugins/nightfox')               -- dracula
 
 require('plugins/gitsigns')              -- git decorations
 require('plugins/diffview')              -- git diffview
-require('plugins/luasnip')               -- snippets
+--require('plugins/luasnip')               -- snippets
 require('plugins/neo-tree')              -- filebrowser
 require('plugins/nvim-autopairs')        -- autopairs
-require('plugins/nvim-cmp')              -- autocomplete
+--require('plugins/nvim-cmp')              -- autocomplete
 require('plugins/nvim-lspconfig')        -- LSP settings
 require('plugins/nvim-treesitter')       -- tree-sitter interface
 require('plugins/sidebar-nvim')          -- sidebar
 
+
+-- LSP 
+require('plugins/lsp')
+require('plugins/completition')
+require('plugins/colors')
 
 --  Terminal
 require('plugins/toggleterm') -- toggleterm plugin

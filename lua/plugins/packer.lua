@@ -39,12 +39,6 @@ return require('packer').startup(function(use)
   }
   use 'sidebar-nvim/sidebar.nvim'
 
-  -- indent line
-  -- use 'lukas-reineke/indent-blankline.nvim'
-
-  -- autopair
-  use 'windwp/nvim-autopairs'
-
   -- icons
   use 'kyazdani42/nvim-web-devicons'
 
@@ -58,38 +52,45 @@ return require('packer').startup(function(use)
   use "EdenEast/nightfox.nvim" -- Packer
  
 
+    -- Completition
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "saadparwaiz1/cmp_luasnip"
+    use "onsails/lspkind-nvim"
+    use "hrsh7th/cmp-nvim-lsp-signature-help"
+    use "windwp/nvim-autopairs"
+    use {
+        "ray-x/lsp_signature.nvim",
+    }
+    
+    use 'L3MON4D3/LuaSnip'
+    use{
+        'neovim/nvim-lspconfig',
+        'williamboman/nvim-lsp-installer',
+    } 
+
+     use "tjdevries/colorbuddy.nvim"
     -- Terminal
     use {
          "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
         end
     }
-  -- LSP
- use 'neovim/nvim-lspconfig'
- use {
-     'lvimuser/lsp-inlayhints.nvim',
-     config = function()
-        require("lsp-inlayhints").setup()
-    end
- }
+    -- LSP
+    use {
+         'lvimuser/lsp-inlayhints.nvim',
+        config = function()
+          require("lsp-inlayhints").setup()
+        end
+    }
 
   use 'folke/lsp-colors.nvim'
   use 'kkoomen/vim-doge'
 
-  -- autocomplete
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-     'L3MON4D3/LuaSnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-buffer',
-      'f3fora/cmp-spell',
-      'saadparwaiz1/cmp_luasnip',
-    },
-  }
   use 'rafamadriz/friendly-snippets'
-  use {'onsails/lspkind-nvim'}
 
 
   -- statusline
