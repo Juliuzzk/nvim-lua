@@ -1,46 +1,217 @@
-local function on_attach()
-    -- keymaps for lsp
-    vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<cr>', {noremap = true})
-    vim.api.nvim_set_keymap('n', '<leader>vd', ':lua vim.lsp.buf.definition()<cr>', {noremap = true})
+-- Lenguaje Server Avaibles
+--  https://microsoft.github.io/language-server-protocol/implementors/servers/
+--  :LspInstallInfo      ---> Ver servidores instalados
+--  :LspInfo        -->  Ver servidores funcionando
 
 
-    vim.api.nvim_set_keymap('n', '<leader>vo', ':LspRestart<cr>', {noremap = true})
 
-    -- diagnostics to move between info and errors
-    vim.api.nvim_set_keymap('n', '<leader>vn', ':lua vim.lsp.diagnostic.goto_next()<cr>', {noremap = true})
-    vim.api.nvim_set_keymap('n', '<leader>vp', ':lua vim.lsp.diagnostic.goto_prev()<cr>', {noremap = true})
 
-    vim.api.nvim_set_keymap('n', '<leader>vca', ':lua vim.lsp.buf.code_action()<cr>', {noremap = true})
-    vim.api.nvim_set_keymap('n', '<leader>vf', ':lua vim.lsp.buf.formatting()<cr>', {noremap = true})
 
-    vim.api.nvim_set_keymap('n', '<leader>vi', ':lua vim.lsp.buf.implementation()<cr>', {noremap = true})
-    vim.api.nvim_set_keymap('n', '<leader>vrn', ':lua vim.lsp.buf.rename()<cr>', {noremap = true})
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
 
-    require "lsp_signature".on_attach()
+local lsp_formatting = function(bufnr, allowed_clientes)
+    vim.lsp.buf.format({
+        filter = function(client)
+            for _, value in pairs(allowed_clientes) do
+                if client.name == value then
+                    return true
+                end
+            end
 
-    vim.cmd [[au Filetype php setl omnifunc=v:lua.vim.lsp.omnifunc]]
-    vim.cmd [[autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc]]
-
-    vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
-
+            return false
+        end,
+        bufnr = bufnr,
+    })
 end
 
-local lsp_installer = require("nvim-lsp-installer")
+-- if you want to set up formatting on save, you can use this as a callback
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-
-    -- (optional) Customize the options passed to the server
-    if server.name == "emmet_ls" then
-        opts.filetypes = {"html", "css", "blade"}
+local format_on_save = function(allowed_clients)
+    return function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    lsp_formatting(bufnr, allowed_clients)
+                end,
+            })
+        end
     end
+end
 
-    opts.on_attach = on_attach
-    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-    server:setup(opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
+local filetype_attach = setmetatable({
+    go = format_on_save({ "gopls" }),
+    -- php = format_on_save,
+    lua = format_on_save,
+
+    gdscript = function(_) end,
+}, {
+    __index = function()
+        return function() end
+    end,
+})
+
+-- Since I use null os this allows to have the format and actions
+-- in all buffers not just configured servers
+vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, {})
+
+vim.keymap.set("n", "<leader>vf", function()
+    return vim.lsp.buf.format({ async = true })
+end, {})
 
 
---  :LspInstallInfo      ---> Ver servidores instalados
---  :LspInfo        -->  Ver servidores funcionando 
+vim.keymap.set("n", "<leader>vn", vim.diagnostic.goto_next, {})
+vim.keymap.set("n", "<leader>vp", vim.diagnostic.goto_prev, {})
+
+local function on_attach(client, bufnr)
+    local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+    -- keymaps for lsp
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+    vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, { buffer = 0 })
+    vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help, { buffer = 0 })
+    vim.keymap.set("n", "<leader>vo", ":LspRestart<cr>", { noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader>vd', ':lua vim.lsp.buf.definition()<cr>', { noremap = true })
+    -- deprecated
+    --vim.api.nvim_set_keymap('n', '<leader>vf', ':lua vim.lsp.buf.formatting()<cr>', { noremap = true })
+
+
+
+    --telescope_mapper("gr", "lsp_references", nil, true)
+    --telescope_mapper("<leader>pv", "find_symbol", nil, true)
+    --telescope_mapper("<leader>pd", "lsp_document_symbols", nil, true)
+    --telescope_mapper("<c-]>", "lsp_definitions", nil, true)
+
+    vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
+
+    -- Attach any filetype specific options to the client
+    filetype_attach[filetype](client, bufnr)
+end
+
+vim.diagnostic.config({
+    virtual_text = false,
+})
+
+local signs = { Error = "?", Warn = "??", Hint = "??", Info = "??" }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
+-- Actual configs
+local lsp_flags = {
+    debounce_text_changes = 150,
+}
+
+-- Server configurations
+
+lspconfig["rust_analyzer"].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    -- Server-specific settings...
+    settings = {
+        ["rust-analyzer"] = {},
+    },
+})
+
+lspconfig.dockerls.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+-- lspconfig["intelephense"].setup({
+-- 	on_attach = on_attach,
+-- 	flags = lsp_flags,
+-- })
+
+lspconfig["phpactor"].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = { "php", "cucumber" },
+})
+
+lspconfig.jsonls.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+lspconfig.html.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+lspconfig.html.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.emmet_ls.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "blade", "vue" },
+})
+
+
+
+lspconfig.gopls.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+lspconfig.gdscript.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+lspconfig.tsserver.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+lspconfig.volar.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+lspconfig.vuels.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+
+lspconfig["sumneko_lua"].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    settings = {
+        Lua = {
+            runtime = {
+                version = "LuaJIT",
+            },
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+})
+
+configs.blade = {
+    default_config = {
+        cmd = { "laravel-dev-tools", "lsp" },
+        filetypes = { "blade" },
+        root_dir = function(fname)
+            return lspconfig.util.find_git_ancestor(fname)
+        end,
+        settings = {},
+    },
+}
