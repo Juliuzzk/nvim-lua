@@ -76,10 +76,8 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "<leader>vo", ":LspRestart<cr>", { noremap = true })
     vim.api.nvim_set_keymap('n', '<leader>vd', ':lua vim.lsp.buf.definition()<cr>', { noremap = true })
     -- deprecated
+
     --vim.api.nvim_set_keymap('n', '<leader>vf', ':lua vim.lsp.buf.formatting()<cr>', { noremap = true })
-
-
-
     --telescope_mapper("gr", "lsp_references", nil, true)
     --telescope_mapper("<leader>pv", "find_symbol", nil, true)
     --telescope_mapper("<leader>pd", "lsp_document_symbols", nil, true)

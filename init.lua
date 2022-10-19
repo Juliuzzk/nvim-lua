@@ -20,7 +20,7 @@ Website: https://github.com/Juliuzk/nvim-lua
 require('settings') -- settings
 require('keymaps') -- keymaps
 require('plugins/packer') -- plugin manager
-       require('plugins/autosave') -- autosave
+require('plugins/autosave') -- autosave
 
 
 -- Themes
@@ -39,11 +39,15 @@ require('plugins/nvim-lspconfig') -- LSP settings
 require('plugins/nvim-treesitter') -- tree-sitter interface
 require('plugins/sidebar-nvim') -- sidebar
 
-
+--  Formatters
+require('plugins/null-ls')
+require('plugins/formatter')
 -- LSP
---require('plugins/lsp')
+require('plugins/lsp')
 require('plugins/completition')
 require('plugins/colors')
+require('plugins/mason')
+
 
 --  Terminal
 require('plugins/toggleterm') -- toggleterm plugin

@@ -10,9 +10,6 @@ local cmd = vim.cmd
 -----------------------------------------------------------
 -- Neovim shortcmts:
 -----------------------------------------------------------
--- remap copy and paste
-map("n", "<c-c>", '"*y :let @+=@*<CR>', { noremap = true, silent = true })
-map("n", "<c-v>", '"+p', { noremap = true, silent = true })
 
 --  close buffer tab
 map('n', '<leader>bd', ':BufDel<CR>', default_opts)
@@ -29,10 +26,10 @@ map('', '<down>', '<down>', { noremap = true })
 map('', '<left>', '<left>', { noremap = true })
 map('', '<right>', '<right>', { noremap = true })
 
---map('i', '<C-h>', '<left>', default_opts)
---map('i', '<C-j>', '<down>', default_opts)
---map('i', '<C-k>', '<up>', default_opts)
---map('i', '<C-l>', '<right>', default_opts)
+map('i', '<C-h>', '<left>', default_opts)
+map('i', '<C-j>', '<down>', default_opts)
+map('i', '<C-k>', '<up>', default_opts)
+map('i', '<C-l>', '<right>', default_opts)
 
 -- fast saving with <leader> and s
 map('n', '<leader>s', ':w<CR>', default_opts)
@@ -53,8 +50,60 @@ map('n', '<C-l>', '<C-w>l', default_opts)
 -- close all windows and exit from neovim
 map('n', '<leader>q', ':quitall<CR>', default_opts)
 
+-- back tab
+map('i', '<S-Tab>', '<C-d>', default_opts)
+
+
+
+-- normal copy, paste
+
+
+--" Select with shift + arrows
+map('i', '<S-Left>', '<Left><C-o>v', default_opts)
+map('i', '<S-Right>', '<C-o>v', default_opts)
+map('i', '<S-Up>', '<Left><C-o>v<Up><Right>', default_opts)
+map('i', '<S-Down>', '<C-o>v<Down><Left>', default_opts)
+map('i', '<C-S-Left>', '<S-Left><C-Left>',  {})
+map('i', '<C-S-Right>', '<S-Right><C-Right>', {}) 
+map('v', '<S-Left>', '<Left>', default_opts)
+map('v', '<S-Right>', '<Right>', default_opts)
+map('v', '<S-Up>', '<Up>', default_opts)
+map('v', '<S-Down>', '<Down>', default_opts)
+
+--" Auto unselect when not holding shift
+map('v', '<Left>', '<Esc>', {})
+map('v', '<Right>', '<Esc><Right>', {})
+map('v', '<Up>', '<Esc><Up>', {})
+map('v', '<Down>', '<Esc><Down>', {})
+
+
+--  original
+
+--" Select with shift + arrows
+--inoremap    <S-Left>              <Left><C-o>v
+--inoremap    <S-Right>             <C-o>v
+--inoremap    <S-Up>                <Left><C-o>v<Up><Right>
+--inoremap    <S-Down>              <C-o>v<Down><Left>
+--imap        <C-S-Left>            <S-Left><C-Left>
+--imap        <C-S-Right>           <S-Right><C-Right>
+--vnoremap    <S-Left>              <Left>
+--vnoremap    <S-Right>             <Right>
+--vnoremap    <S-Up>                <Up>
+--vnoremap    <S-Down>              <Down>
+
+--" Auto unselect when not holding shift
+--vmap        <Left>                <Esc>
+--vmap        <Right>               <Esc><Right>
+--vmap        <Up>                  <Esc><Up>
+--vmap        <Down>                <Esc><Down>
+
+
+
 -- desactivar algunos mapping
 map('', 'J', '<nop>', { noremap = true })
+
+
+
 
 
 
@@ -72,7 +121,7 @@ map('t', '<C-k>', [[<Cmd>wincmd k<CR>]], default_opts)
 map('t', '<C-l>', [[<Cmd>wincmd l<CR>]], default_opts)
 
 --nvim-fzf-lua
-map('n', '<C-p>', ':FzfLua files<CR>', default_opts) -- open/close
+--map('n', '<C-p>', ':FzfLua files<CR>', default_opts) -- open/close
 
 -- nvim-tree
 map('n', '<C-n>', ':Neotree toggle<CR>', default_opts) -- open/close
