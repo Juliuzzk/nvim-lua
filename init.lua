@@ -17,43 +17,45 @@ Website: https://github.com/Juliuzk/nvim-lua
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
-require('settings') -- settings
-require('keymaps') -- keymaps
-require('plugins/packer') -- plugin manager
-require('plugins/autosave') -- autosave
-
+require("settings") -- settings
+require("core/keymaps") -- keymaps
+require("plugins/packer") -- plugin manager
+require("plugins/autosave") -- autosave
 
 -- Themes
-require('plugins/lualine') -- statusline
-require('plugins/bufferline') --  bufferline
-require('plugins/nightfox') -- dracula
+require("plugins/lualine") -- statusline
+require("plugins/bufferline") --  bufferline
+require("plugins/nightfox") -- dracula
 
-
-require('plugins/gitsigns') -- git decorations
-require('plugins/diffview') -- git diffview
+require("plugins/gitsigns") -- git decorations
+require("plugins/diffview") -- git diffview
 --require('plugins/luasnip')               -- snippets
-require('plugins/neo-tree') -- filebrowser
-require('plugins/nvim-autopairs') -- autopairs
+require("plugins/neo-tree") -- filebrowser
+require("plugins/nvim-autopairs") -- autopairs
 --require('plugins/nvim-cmp')              -- autocomplete
-require('plugins/nvim-lspconfig') -- LSP settings
-require('plugins/nvim-treesitter') -- tree-sitter interface
-require('plugins/sidebar-nvim') -- sidebar
+require("plugins/nvim-lspconfig") -- LSP settings
+require("plugins/nvim-treesitter") -- tree-sitter interface
+require("plugins/sidebar-nvim") -- sidebar
 
 --  Formatters
-require('plugins/null-ls')
-require('plugins/formatter')
+require("plugins/null-ls")
+require("plugins/formatter")
+require("plugins/formatter")               
 -- LSP
-require('plugins/lsp')
-require('plugins/completition')
-require('plugins/colors')
-require('plugins/mason')
+require("plugins/lsp")
+require("plugins/completition")
+require("plugins/colors")
+require("plugins/mason")
 
+-- Comment's
+require("plugins/comment")
 
 --  Terminal
-require('plugins/toggleterm') -- toggleterm plugin
+require("plugins/toggleterm") -- toggleterm plugin
 
 --  File Explorer
-require('plugins/telescope-media-files') -- telescope media files
-require('plugins/telescope-nvim') -- telescope
-require('plugins/telescope-ui-select') -- telescope select
-require('plugins/harpoon') -- telescope select
+require("plugins/telescope-media-files") -- telescope media files
+require("plugins/telescope-nvim") -- telescope
+require("plugins/telescope-ui-select") -- telescope select
+
+require("plugins/harpoon") -- telescope select

@@ -17,7 +17,7 @@ require("neo-tree").setup({
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = "rounded",
   enable_git_status = true,
-  enable_diagnostics = true,
+      enable_diagnostics = true,
   default_component_configs = {
     indent = {
       indent_size = 2,
@@ -94,8 +94,8 @@ require("neo-tree").setup({
       hide_gitignored = true,
       hide_by_name = {
         ".DS_Store",
-        "thumbs.db"
-        --"node_modules"
+        "thumbs.db",
+        "node_modules"
       },
       never_show = { -- remains hidden even if visible is toggled to true
         --".DS_Store",

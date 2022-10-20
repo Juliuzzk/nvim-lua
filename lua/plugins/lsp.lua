@@ -3,10 +3,6 @@
 --  :LspInstallInfo      ---> Ver servidores instalados
 --  :LspInfo        -->  Ver servidores funcionando
 
-
-
-
-
 local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
 
@@ -92,6 +88,7 @@ end
 vim.diagnostic.config({
     virtual_text = false,
 })
+
 
 local signs = { Error = "?", Warn = "??", Hint = "??", Info = "??" }
 for type, icon in pairs(signs) do
