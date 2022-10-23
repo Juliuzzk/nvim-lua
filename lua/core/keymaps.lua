@@ -1,4 +1,4 @@
------------------------------------------------------------
+-----------------------------------------------------
 -- Keymaps configuration file: keymaps of neovim
 -- and plugins.
 -----------------------------------------------------------
@@ -34,7 +34,7 @@ map("i", "<C-l>", "<right>", default_opts)
 -- fast saving with <leader> and s
 map("n", "<leader>s", ":w<CR>", default_opts)
 --map("i", "<leader>s", "<C-c>:w<CR>", default_opts)
- 
+
 -- move around splits using Ctrl + {h,j,k,l}
 map("n", "<C-h>", "<C-w>h", default_opts)
 map("n", "<C-j>", "<C-w>j", default_opts)
@@ -93,7 +93,6 @@ map("v", "<Down>", "<Esc><Down>", {})
 --vmap        <Up>                  <Esc><Up>
 --vmap        <Down>                <Esc><Down>
 
-
 -- Comment
 --[[ map("n", "<leader>/", "<cmd>lua require('Comment').toggle()<CR>", default_opts) ]]
 --[[ map("v", "<leader>/", ":lua require(\"Comment.api\").gc(vim.fn.visualmode())<cr>", default_opts) ]]
@@ -102,20 +101,18 @@ map("v", "<Down>", "<Esc><Down>", {})
 map("", "J", "<nop>", { noremap = true })
 map("", "q", "<nop>", { noremap = true }) -- recording
 
-
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
 
 -- Toggle Term
 map("n", "<leader>ot", ":ToggleTerm<CR>", default_opts)
-map("t", "<leader>ot", "<Cmd>:ToggleTerm<CR>", default_opts)
+map("t", "xxt", "<Cmd>:ToggleTerm<CR>", default_opts)
 map("t", "<esc>", [[<C-\><C-n>]], default_opts)
 map("t", "<C-h>", [[<Cmd>wincmd h<CR>]], default_opts)
 map("t", "<C-j>", [[<Cmd>wincmd j<CR>]], default_opts)
 map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], default_opts)
 map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], default_opts)
-
 
 -- nvim-tree
 map("n", "<C-n>", ":Neotree toggle<CR>", default_opts) -- open/close

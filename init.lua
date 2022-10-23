@@ -7,7 +7,7 @@
   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
 
-Neovim init file
+Neim init file
 
 Version: 0.1.1 - 2022/10/14
 Maintainer: JuliuzDev

@@ -15,7 +15,7 @@ local opt = vim.opt -- global/buffer/windows-scoped options
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-g.mapleader = " "--change leader to a comma
+g.mapleader = " " --change leader to a comma
 opt.mouse = "a" -- enable mouse support
 opt.clipboard = "unnamedplus" -- copy/paste to system clipboard
 opt.swapfile = false -- don't use swapfile
@@ -66,8 +66,6 @@ opt.backspace = { "start", "eol", "indent" }
 opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 opt.wildignore:append({ "*/node_modules/*" })
 
-file_ignore_patterns = { "node_modules" }
-
 opt.formatoptions:append({ "r" })
 
 -- fin devaslife
@@ -81,14 +79,14 @@ opt.listchars = "tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»"
 --   set spell
 --   ]], false)
 exec(
-    [[
+	[[
     augroup markdownSpell
         autocmd!
         autocmd FileType markdown setlocal spell spelllang=es
         autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
     augroup END
-  ]] ,
-    false
+  ]],
+	false
 )
 
 -- remove whitespace on save
@@ -96,26 +94,26 @@ exec(
 
 -- highlight on yank
 exec(
-    [[
+	[[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
   augroup end
-]]   ,
-    false
+]],
+	false
 )
 
 -- autoexec
 exec(
-    [[
+	[[
   augroup execute
     autocmd FileType javascript map <buffer> <F5> :w<CR>:exec '!gjs' shellescape(@%, 1)<CR>
     autocmd FileType javascript imap <buffer> <F5> <esc>:w<CR>:exec '!gjs' shellescape(@%, 1)<CR>
     autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
     autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
   augroup END
-]]   ,
-    false
+]],
+	false
 )
 
 -----------------------------------------------------------
