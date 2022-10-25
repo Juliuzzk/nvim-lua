@@ -79,7 +79,8 @@ map("v", "<Down>", "<Esc><Down>", {})
 --inoremap    <S-Left>              <Left><C-o>v
 --inoremap    <S-Right>             <C-o>v
 --inoremap    <S-Up>                <Left><C-o>v<Up><Right>
---inoremap    <S-Down>              <C-o>v<Down><Left>
+
+--" Auto unselect when not holding shift
 --imap        <C-S-Left>            <S-Left><C-Left>
 --imap        <C-S-Right>           <S-Right><C-Right>
 --vnoremap    <S-Left>              <Left>
@@ -87,7 +88,6 @@ map("v", "<Down>", "<Esc><Down>", {})
 --vnoremap    <S-Up>                <Up>
 --vnoremap    <S-Down>              <Down>
 
---" Auto unselect when not holding shift
 --vmap        <Left>                <Esc>
 --vmap        <Right>               <Esc><Right>
 --vmap        <Up>                  <Esc><Up>
@@ -97,8 +97,20 @@ map("v", "<Down>", "<Esc><Down>", {})
 --[[ map("n", "<leader>/", "<cmd>lua require('Comment').toggle()<CR>", default_opts) ]]
 --[[ map("v", "<leader>/", ":lua require(\"Comment.api\").gc(vim.fn.visualmode())<cr>", default_opts) ]]
 
+-- Move text up and down
+map("v", "<A-j>", ":m .+1<CR>==", default_opts)
+map("v", "<A-k>", ":m .-2<CR>==", default_opts)
+map("v", "p", '"_dP', default_opts)
+
+-- Visual Block --
+-- Move text up and down
+map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
+map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
+map("x", "<A-j>", ":move '>+1<CR>gv-gv", default_opts)
+map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
+
 -- Desactivar algunos mapping
-map("", "J", "<nop>", { noremap = true })
+-- map("", "J", "<nop>", { noremap = true })
 map("", "q", "<nop>", { noremap = true }) -- recording
 
 -----------------------------------------------------------

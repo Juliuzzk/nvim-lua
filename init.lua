@@ -7,7 +7,7 @@
   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
 
-Neim init file
+Nvim init file
 
 Version: 0.1.1 - 2022/10/14
 Maintainer: JuliuzDev
@@ -40,7 +40,7 @@ require("plugins/sidebar-nvim") -- sidebar
 --  Formatters
 require("plugins/null-ls")
 require("plugins/formatter")
-require("plugins/formatter")               
+require("plugins/formatter")
 -- LSP
 require("plugins/lsp")
 require("plugins/completition")
@@ -57,5 +57,9 @@ require("plugins/toggleterm") -- toggleterm plugin
 require("plugins/telescope-media-files") -- telescope media files
 require("plugins/telescope-nvim") -- telescope
 require("plugins/telescope-ui-select") -- telescope select
-
 require("plugins/harpoon") -- telescope select
+
+-- Alpha Startup
+
+require("plugins/alpha")
+require("plugins/project") -- Best project management
