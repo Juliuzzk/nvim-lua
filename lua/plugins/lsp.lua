@@ -59,7 +59,6 @@ vim.keymap.set("n", "<leader>vf", function()
     return vim.lsp.buf.format({ async = true })
 end, {})
 
-
 vim.keymap.set("n", "<leader>vn", vim.diagnostic.goto_next, {})
 vim.keymap.set("n", "<leader>vp", vim.diagnostic.goto_prev, {})
 
@@ -70,7 +69,7 @@ local function on_attach(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, { buffer = 0 })
     vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help, { buffer = 0 })
     vim.keymap.set("n", "<leader>vo", ":LspRestart<cr>", { noremap = true })
-    vim.api.nvim_set_keymap('n', '<leader>vd', ':lua vim.lsp.buf.definition()<cr>', { noremap = true })
+    vim.api.nvim_set_keymap("n", "<leader>vd", ":lua vim.lsp.buf.definition()<cr>", { noremap = true })
     -- deprecated
 
     --vim.api.nvim_set_keymap('n', '<leader>vf', ':lua vim.lsp.buf.formatting()<cr>', { noremap = true })
@@ -88,7 +87,6 @@ end
 vim.diagnostic.config({
     virtual_text = false,
 })
-
 
 local signs = { Error = "?", Warn = "??", Hint = "??", Info = "??" }
 for type, icon in pairs(signs) do
@@ -110,22 +108,6 @@ lspconfig["rust_analyzer"].setup({
     settings = {
         ["rust-analyzer"] = {},
     },
-})
-
-lspconfig.dockerls.setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-
--- lspconfig["intelephense"].setup({
--- 	on_attach = on_attach,
--- 	flags = lsp_flags,
--- })
-
-lspconfig["phpactor"].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-    filetypes = { "php", "cucumber" },
 })
 
 lspconfig.jsonls.setup({
@@ -150,8 +132,6 @@ lspconfig.emmet_ls.setup({
     capabilities = capabilities,
     filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "blade", "vue" },
 })
-
-
 
 lspconfig.gopls.setup({
     on_attach = on_attach,
@@ -178,7 +158,6 @@ lspconfig.vuels.setup({
     flags = lsp_flags,
 })
 
-
 lspconfig["sumneko_lua"].setup({
     on_attach = on_attach,
     flags = lsp_flags,
@@ -200,13 +179,3 @@ lspconfig["sumneko_lua"].setup({
     },
 })
 
-configs.blade = {
-    default_config = {
-        cmd = { "laravel-dev-tools", "lsp" },
-        filetypes = { "blade" },
-        root_dir = function(fname)
-            return lspconfig.util.find_git_ancestor(fname)
-        end,
-        settings = {},
-    },
-}
