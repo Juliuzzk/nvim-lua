@@ -5,6 +5,7 @@
 -- Plugin: nvim-autopairs
 -- https://github.com/windwp/nvim-autopairs
 
+
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 cmp.event:on(

@@ -95,9 +95,11 @@ map("v", "<Down>", "<Esc><Down>", {})
 
 -- Comment
 --[[ map("n", "<leader>/", "<cmd>lua require('Comment').toggle()<CR>", default_opts) ]]
---[[ map("v", "<leader>/", ":lua require(\"Comment.api\").gc(vim.fn.visualmode())<cr>", default_opts) ]]
+--[[ map("v", "<leader>c", ":lua require(\"Comment.api\").gc(vim.fn.visualmode())<cr>", default_opts) ]]
 
 -- Move text up and down
+
+--  A = shift
 map("v", "<A-j>", ":m .+1<CR>==", default_opts)
 map("v", "<A-k>", ":m .-2<CR>==", default_opts)
 map("v", "p", '"_dP', default_opts)

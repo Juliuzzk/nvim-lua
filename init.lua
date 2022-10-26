@@ -6,7 +6,6 @@
   ██║██║╚██╗██║██║   ██║   ██║     ██║   ██║██╔══██║
   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
-
 Nvim init file
 
 Version: 0.1.1 - 2022/10/14
@@ -27,19 +26,16 @@ require("plugins/lualine") -- statusline
 require("plugins/bufferline") --  bufferline
 require("plugins/nightfox") -- dracula
 
+-- Extras
 require("plugins/gitsigns") -- git decorations
 require("plugins/diffview") -- git diffview
---require('plugins/luasnip')               -- snippets
 require("plugins/neo-tree") -- filebrowser
 require("plugins/nvim-autopairs") -- autopairs
---require('plugins/nvim-cmp')              -- autocomplete
-require("plugins/nvim-lspconfig") -- LSP settings
 require("plugins/nvim-treesitter") -- tree-sitter interface
 require("plugins/sidebar-nvim") -- sidebar
 
 --  Formatters
 require("plugins/null-ls")
-require("plugins/formatter")
 require("plugins/formatter")
 -- LSP
 require("plugins/lsp")
