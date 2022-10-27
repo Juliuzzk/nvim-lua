@@ -28,7 +28,6 @@ require("plugins/nightfox") -- dracula
 
 -- Extras
 require("plugins/gitsigns") -- git decorations
--- require("plugins/diffview") -- git diffview
 require("plugins/neo-tree") -- filebrowser
 require("plugins/nvim-autopairs") -- autopairs
 require("plugins/nvim-treesitter") -- tree-sitter interface
@@ -49,9 +48,9 @@ require("plugins/comment")
 require("plugins/toggleterm") -- toggleterm plugin
 
 --  File Explorer
-require("plugins/telescope-media-files") -- telescope media files
+--require("plugins/telescope-media-files") -- telescope media files
 require("plugins/telescope-nvim") -- telescope
-require("plugins/telescope-ui-select") -- telescope select
+--require("plugins/telescope-ui-select") -- telescope select
 require("plugins/harpoon") -- telescope select
 
 -- Alpha Startup
