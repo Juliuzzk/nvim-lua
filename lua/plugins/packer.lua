@@ -44,12 +44,8 @@ return require("packer").startup(function(use)
     use("EdenEast/nightfox.nvim")
 
 
-    --------------------------------------------------------
-
-    -- buffer linea
-    use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
-    -- file explorer
-    --use 'kyazdani42/nvim-tree.lua'
+    -- Neo Tree
+    -- Explorador de Archivos
     use({
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -59,7 +55,32 @@ return require("packer").startup(function(use)
             "MunifTanjim/nui.nvim",
         },
     })
+
+
+    -- Git Sidebar
+    -- Barra lateral para visualizar cambios en git y otros
     use("sidebar-nvim/sidebar.nvim")
+
+    -- Terminal
+    use({
+        "akinsho/toggleterm.nvim",
+        tag = "*",
+        config = function()
+            require("toggleterm").setup()
+        end,
+    })
+
+
+    --------------------------------------------------------
+
+    -- buffer linea
+    use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
+
+
+
+
+
+
 
     use("numToStr/Comment.nvim") -- Easily comment stuff
     use("JoosepAlviste/nvim-ts-context-commentstring")
@@ -71,6 +92,8 @@ return require("packer").startup(function(use)
     use("nvim-treesitter/nvim-treesitter")
     use("nvim-treesitter/nvim-tree-docs")
     use("p00f/nvim-ts-rainbow")
+
+
     -- Completition
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-buffer")
@@ -106,14 +129,7 @@ return require("packer").startup(function(use)
     use({ "mhartington/formatter.nvim" })
     use("MunifTanjim/prettier.nvim")
     use("tjdevries/colorbuddy.nvim")
-    -- Terminal
-    use({
-        "akinsho/toggleterm.nvim",
-        tag = "*",
-        config = function()
-            require("toggleterm").setup()
-        end,
-    })
+
     -- LSP
     use({
         "lvimuser/lsp-inlayhints.nvim",
@@ -151,10 +167,10 @@ return require("packer").startup(function(use)
     -- help for git
     use("kdheepak/lazygit.nvim")
     -- diffview
-    use({
-        "sindrets/diffview.nvim",
-        requires = "nvim-lua/plenary.nvim",
-    })
+    --use({
+    --    "sindrets/diffview.nvim",
+    --    requires = "nvim-lua/plenary.nvim",
+    --})
 
     -- autosave
     use("Pocco81/auto-save.nvim")

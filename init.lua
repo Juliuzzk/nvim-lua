@@ -10,7 +10,7 @@ Nvim init file
 
 Version: 0.1.1 - 2022/10/14
 Maintainer: JuliuzDev
-Website: https://github.com/Juliuzk/nvim-lua   
+Website: https://github.com/Juliuzk/nvim-lua
 --]]
 
 -----------------------------------------------------------
@@ -28,11 +28,10 @@ require("plugins/nightfox") -- dracula
 
 -- Extras
 require("plugins/gitsigns") -- git decorations
-require("plugins/diffview") -- git diffview
+-- require("plugins/diffview") -- git diffview
 require("plugins/neo-tree") -- filebrowser
 require("plugins/nvim-autopairs") -- autopairs
 require("plugins/nvim-treesitter") -- tree-sitter interface
-require("plugins/sidebar-nvim") -- sidebar
 
 --  Formatters
 require("plugins/null-ls")
@@ -59,3 +58,20 @@ require("plugins/harpoon") -- telescope select
 
 require("plugins/alpha")
 require("plugins/project") -- Best project management
+
+-- Git Sidebar
+require("plugins/sidebar-nvim")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
