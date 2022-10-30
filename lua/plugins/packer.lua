@@ -94,53 +94,11 @@ return require("packer").startup(function(use)
     use("p00f/nvim-ts-rainbow")
 
 
-    -- Completition
-    use("hrsh7th/nvim-cmp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-nvim-lua")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("saadparwaiz1/cmp_luasnip")
-    use("onsails/lspkind-nvim")
-    use("hrsh7th/cmp-nvim-lsp-signature-help")
-    use("windwp/nvim-autopairs")
-    use({
-        "ray-x/lsp_signature.nvim",
-    })
-
-    use("L3MON4D3/LuaSnip")
     use({
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
-        --        'neovim/nvim-lspconfig',
-        --       'williamboman/nvim-lsp-installer',
     })
-
-    -- formatter
-    use({
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-            require("null-ls").setup()
-        end,
-        require = { "nvim-lua/plenary.nvim" },
-    })
-
-    use("MunifTanjim/prettier.nvim")
-    use("tjdevries/colorbuddy.nvim")
-
-    -- LSP
-    use({
-        "lvimuser/lsp-inlayhints.nvim",
-        config = function()
-            require("lsp-inlayhints").setup()
-        end,
-    })
-
-    use("folke/lsp-colors.nvim")
-    use("kkoomen/vim-doge")
-
-    use("rafamadriz/friendly-snippets")
 
     -- statusline
     use("nvim-lualine/lualine.nvim") -- Statusline

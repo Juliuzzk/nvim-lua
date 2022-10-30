@@ -28,22 +28,15 @@ require("plugins/nightfox") -- dracula
 
 -- Extras
 require("plugins/gitsigns") -- git decorations
-require("plugins/neo-tree") -- filebrowser
+require("plugins/neo-tree") -- file_browser
 require("plugins/nvim-autopairs") -- autopairs
 require("plugins/nvim-treesitter") -- tree-sitter interface
 
---  Formatters
-require("plugins/null-ls")
 
--- LSP
-require("plugins/lsp")
-require("plugins/completition")
-require("plugins/colors")
 require("plugins/mason")
 
 -- Comment's
 require("plugins/comment")
-
 --  Terminal
 require("plugins/toggleterm") -- toggleterm plugin
 
