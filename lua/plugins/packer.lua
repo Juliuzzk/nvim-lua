@@ -126,7 +126,6 @@ return require("packer").startup(function(use)
         require = { "nvim-lua/plenary.nvim" },
     })
 
-    use({ "mhartington/formatter.nvim" })
     use("MunifTanjim/prettier.nvim")
     use("tjdevries/colorbuddy.nvim")
 

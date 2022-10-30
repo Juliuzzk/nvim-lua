@@ -34,7 +34,7 @@ require("plugins/nvim-treesitter") -- tree-sitter interface
 
 --  Formatters
 require("plugins/null-ls")
-require("plugins/formatter")
+
 -- LSP
 require("plugins/lsp")
 require("plugins/completition")
