@@ -24,19 +24,20 @@ require("plugins/autosave") -- autosave
 -- Themes
 require("plugins/lualine") -- statusline
 require("plugins/bufferline") --  bufferline
-require("plugins/nightfox") -- dracula
+require("core/themes/nightfox") -- dracula
+require("core/themes/colors") -- colorbuddy
 
 -- Extras
 require("plugins/gitsigns") -- git decorations
 require("plugins/neo-tree") -- file_browser
-require("plugins/nvim-autopairs") -- autopairs
 require("plugins/nvim-treesitter") -- tree-sitter interface
 
-
+-- LSP Helper
 require("plugins/mason")
 
 -- Comment's
 require("plugins/comment")
+
 --  Terminal
 require("plugins/toggleterm") -- toggleterm plugin
 
@@ -53,8 +54,6 @@ require("plugins/project") -- Best project management
 
 -- Git Sidebar
 require("plugins/sidebar-nvim")
-
-
 
 
 

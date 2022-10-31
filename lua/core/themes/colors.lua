@@ -15,3 +15,4 @@ Group.new('NonText' , groups.Comment    , groups.Comment   , groups.Comment)
 
 -- Define highlights in relative terms of other colors
 Group.new('Error'           , colors.red:light() , nil               , styles.bold)
+--[[ require('colorbuddy').colorscheme('snazzybuddy') ]]

@@ -70,20 +70,23 @@ return require("packer").startup(function(use)
         end,
     })
 
+	-- Comment
+	-- Plugins para realizar comentarios en varios lenguajes
+	use	'numToStr/Comment.nvim'
+	use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+
+	--[[ use { 'lalitmee/cobalt2.nvim', requires = 'tjdevries/colorbuddy.nvim' } ]]
+
+	-- With packer
+	use 'tjdevries/colorbuddy.nvim'
+	use 'bbenzikry/snazzybuddy.nvim'
 
     --------------------------------------------------------
+	--------------------------------------------------------
 
     -- buffer linea
     use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
-
-
-
-
-
-
-
-    use("numToStr/Comment.nvim") -- Easily comment stuff
-    use("JoosepAlviste/nvim-ts-context-commentstring")
 
     -- icons
     use("kyazdani42/nvim-web-devicons")
@@ -111,7 +114,8 @@ return require("packer").startup(function(use)
     use("nvim-telescope/telescope-symbols.nvim")
     use("nvim-telescope/telescope-media-files.nvim")
     use("nvim-telescope/telescope-file-browser.nvim")
-    --use 'ibhagwan/fzf-lua'
+
+	--use 'ibhagwan/fzf-lua'
 
     -- git labels
     use({

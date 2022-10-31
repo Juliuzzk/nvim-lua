@@ -38,10 +38,13 @@ require("nvim-treesitter.configs").setup({
     tree_docs = {
         enable = true,
     },
+
+	-- Comment plugin extra
     context_commentstring = {
         enable = true,
         enable_autocmd = false,
     },
+
 })
 
 
