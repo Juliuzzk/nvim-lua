@@ -7,12 +7,10 @@
   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
 Nvim init file
-
 Version: 0.1.1 - 2022/10/14
 Maintainer: JuliuzDev
 Website: https://github.com/Juliuzk/nvim-lua
 --]]
-
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
@@ -33,7 +31,7 @@ require("plugins/neo-tree") -- file_browser
 require("plugins/nvim-treesitter") -- tree-sitter interface
 
 -- LSP Helper
-require("plugins/mason")
+require("core/lsp/init")
 
 -- Comment's
 require("plugins/comment")
@@ -56,8 +54,8 @@ require("plugins/project") -- Best project management
 require("plugins/sidebar-nvim")
 
 
-
-
+-- Completition
+require("core/cmp/cmp")
 
 
 
