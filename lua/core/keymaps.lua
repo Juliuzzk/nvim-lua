@@ -47,7 +47,8 @@ map("n", "<C-k>", "<C-w>k", default_opts)
 map("n", "<C-l>", "<C-w>l", default_opts)
 
 -- close all windows and exit from neovim
-map("n", "<leader>q", ":quitall<CR>", default_opts)
+map("n", "<leader>qq", ":quitall<CR>", default_opts)
+map("n", "<leader>wq", ":wq<CR>", default_opts)
 
 -- back tab
 map("i", "<S-Tab>", "<C-d>", default_opts)
@@ -118,15 +119,6 @@ map("", "q", "<nop>", { noremap = true }) -- recording
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
-
--- Toggle Term
-map("n", "<leader>ot", ":ToggleTerm<CR>", default_opts)
-map("t", "xxt", "<Cmd>:ToggleTerm<CR>", default_opts)
-map("t", "<esc>", [[<C-\><C-n>]], default_opts)
-map("t", "<C-h>", [[<Cmd>wincmd h<CR>]], default_opts)
-map("t", "<C-j>", [[<Cmd>wincmd j<CR>]], default_opts)
-map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], default_opts)
-map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], default_opts)
 
 -- nvim-tree
 map("n", "<C-n>", ":Neotree toggle<CR>", default_opts) -- open/close
