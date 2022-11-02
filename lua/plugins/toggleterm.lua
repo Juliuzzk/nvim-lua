@@ -8,9 +8,7 @@ local cmd = vim.cmd
 
 -- Toggle Term
 map("n", "<leader>ot", ":ToggleTerm<CR>", default_opts)
-map("t", "<leader>t1", "<Cmd>:ToggleTerm<CR>", default_opts)
-map("n", "<leader>t1", "<Cmd>:ToggleTerm<CR>", default_opts)
-map("i", "<leader>t1", "<Cmd>:ToggleTerm<CR>", default_opts)
+map("t", "<esc><esc>", "<Cmd>:ToggleTerm<CR>", default_opts)
 
 
 map("t", "<esc>", [[<C-\><C-n>]], default_opts)

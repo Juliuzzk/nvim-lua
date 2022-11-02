@@ -2,6 +2,7 @@
 -- Treesitter configuration file
 -----------------------------------------------------------
 
+-- Cada cierto tiempo hay que realizar un :TSupdate
 -- Plugin: nvim-treesitter
 --- https://github.com/nvim-treesitter/nvim-treesitter
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")

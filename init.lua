@@ -26,6 +26,7 @@ require("core/themes/init")
 --require("core/themes/nightfox") -- dracula
 --require("core/themes/colors") -- colorbuddy
 
+
 -- Extras
 require("plugins/gitsigns") -- git decorations
 require("plugins/neo-tree") -- file_browser
@@ -58,10 +59,5 @@ require("plugins/sidebar-nvim")
 -- Completition
 require("core/cmp/cmp")
 
-
-
-
-
-
-
-
+-- AutoPairs
+require("plugins/autopairs")
