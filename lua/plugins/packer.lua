@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 -----------------------------------------------------------
 -- Plugin manager configuration file
 -----------------------------------------------------------

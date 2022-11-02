@@ -40,18 +40,16 @@ M.setup = function()
 		},
 	}
 
-
 	vim.diagnostic.config(config)
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "rounded",
 	})
 
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with({
 		border = "rounded",
-	})
+	}, vim.lsp.handlers.signature_help)
 end
-
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
