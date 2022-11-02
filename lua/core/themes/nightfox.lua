@@ -33,6 +33,3 @@ require('nightfox').setup({
   groups = {},
 })
 
--- setup must be called before loading
-vim.cmd("colorscheme nightfox")
-

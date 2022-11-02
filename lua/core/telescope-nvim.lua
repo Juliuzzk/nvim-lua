@@ -58,3 +58,7 @@ map('n', '<leader>fgb', '<cmd>lua require("telescope.builtin").git_branches()<cr
 map('n', '<leader>fgc', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
 map('n', '<leader>fgs', '<cmd>lua require("telescope.builtin").git_status()<cr>', opts)
 map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
+
+
+
+

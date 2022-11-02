@@ -42,7 +42,7 @@ return require("packer").startup(function(use)
 
 	-- Color theme
 	use("EdenEast/nightfox.nvim")
-
+	use 'folke/tokyonight.nvim'
 
 	-- Neo Tree
 	-- Explorador de Archivos
@@ -97,15 +97,36 @@ return require("packer").startup(function(use)
 	use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
 	use { "RRethy/vim-illuminate" }
 
+
+	-- AutoSave
+	-- Guardado automatico
+	use("Pocco81/auto-save.nvim")
+
+	-- BufferLine
+	-- Linea superior de tabs llamadas buffer
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
+
+
+	-- LuaLine
+	-- Linea inferior con informacion
+	use("nvim-lualine/lualine.nvim") -- Statusline
+
+	--  Telescope
+	--  Buscador de archivos, y textos de un protecto
+	use("nvim-lua/popup.nvim")
+	use("nvim-lua/plenary.nvim")
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-ui-select.nvim")
+	use("nvim-telescope/telescope-symbols.nvim")
+	use("nvim-telescope/telescope-media-files.nvim")
+	use("nvim-telescope/telescope-file-browser.nvim")
+
 	--------------------------------------------------------
 	--------------------------------------------------------
 
 	-- With packer
 	use 'tjdevries/colorbuddy.nvim'
 	use 'bbenzikry/snazzybuddy.nvim'
-	-- buffer linea
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
-
 	-- icons
 	use("kyazdani42/nvim-web-devicons")
 
@@ -115,19 +136,7 @@ return require("packer").startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 
 
-	-- statusline
-	use("nvim-lualine/lualine.nvim") -- Statusline
 
-	-- fuzzy finder
-	use("nvim-lua/popup.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-ui-select.nvim")
-	use("nvim-telescope/telescope-symbols.nvim")
-	use("nvim-telescope/telescope-media-files.nvim")
-	use("nvim-telescope/telescope-file-browser.nvim")
-
-	--use 'ibhagwan/fzf-lua'
 
 	-- git labels
 	use({
@@ -139,14 +148,6 @@ return require("packer").startup(function(use)
 	})
 	-- help for git
 	use("kdheepak/lazygit.nvim")
-	-- diffview
-	--use({
-	--    "sindrets/diffview.nvim",
-	--    requires = "nvim-lua/plenary.nvim",
-	--})
-
-	-- autosave
-	use("Pocco81/auto-save.nvim")
 
 	-- just
 	use("NoahTheDuke/vim-just")

@@ -20,10 +20,11 @@ require("plugins/packer") -- plugin manager
 require("plugins/autosave") -- autosave
 
 -- Themes
-require("plugins/lualine") -- statusline
-require("plugins/bufferline") --  bufferline
-require("core/themes/nightfox") -- dracula
-require("core/themes/colors") -- colorbuddy
+require("core/themes/init")
+--require("plugins/lualine") -- statusline
+--require("core/themes/bufferline") --  bufferline
+--require("core/themes/nightfox") -- dracula
+--require("core/themes/colors") -- colorbuddy
 
 -- Extras
 require("plugins/gitsigns") -- git decorations
@@ -41,7 +42,7 @@ require("plugins/toggleterm") -- toggleterm plugin
 
 --  File Explorer
 --require("plugins/telescope-media-files") -- telescope media files
-require("plugins/telescope-nvim") -- telescope
+require("core/telescope-nvim") -- telescope
 --require("plugins/telescope-ui-select") -- telescope select
 require("plugins/harpoon") -- telescope select
 
