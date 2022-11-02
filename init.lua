@@ -61,3 +61,12 @@ require("core/cmp/cmp")
 
 -- AutoPairs
 require("plugins/autopairs")
+
+-- Indetline
+require("plugins/indentline")
+
+
+
+
+
+

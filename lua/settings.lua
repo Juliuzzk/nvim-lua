@@ -69,10 +69,6 @@ opt.formatoptions:append({ "r" })
 
 -- fin devaslife
 
-opt.list = true
-opt.listchars = "tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»"
-
-
 -- remove whitespace on save
 cmd [[au BufWritePre * :%s/\s\+$//e]]
 
@@ -98,10 +94,38 @@ cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 -- remove line lenght marker for selected filetypes
 cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
 
--- IndentLine
---g.indentLine_setColors = 0  -- set indentLine color
-g.indentLine_char = "|" -- set indentLine character
 
--- disable IndentLine for markdown files (avoid concealing)
-cmd([[autocmd FileType markdown let g:indentLine_enabled=0]])
+
+
+vim.opt.termguicolors = true
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
+
+
+opt.list = false
+opt.listchars = "tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»"
+vim.opt.listchars:append "space:?"
+vim.opt.listchars:append "eol:?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

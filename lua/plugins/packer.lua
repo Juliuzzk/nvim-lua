@@ -39,6 +39,8 @@ return require("packer").startup(function(use)
 		},
 	})
 
+-- IndentLin
+	use { "lukas-reineke/indent-blankline.nvim" }
 	-- Color theme
 	use("EdenEast/nightfox.nvim")
 	use 'folke/tokyonight.nvim'
