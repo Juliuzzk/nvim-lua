@@ -7,7 +7,6 @@ end
 
 toggleterm.setup({
 	size = 20,
-	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_terminals = true,
 	shading_factor = 2,
@@ -18,7 +17,7 @@ toggleterm.setup({
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
-		border = "",
+		border = "double",
 	},
 })
 
