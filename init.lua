@@ -7,28 +7,28 @@
   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
 Nvim init file
-Version: 0.1.1 - 2022/10/14
+Version: v1.0 - 2022/10/14
 Maintainer: JuliuzDev
 Website: https://github.com/Juliuzk/nvim-lua
 --]]
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
+-- Settings
 require("settings") -- settings
-require("core/keymaps") -- keymaps
-require("plugins/packer") -- plugin manager
-require("plugins/autosave") -- autosave
 
+-- Keymaps
+require("core/keymaps") -- keymaps
+
+-- Packe Manager
+require("core/packer") -- plugin manager
 -- Themes
 require("core/themes/init")
---require("plugins/lualine") -- statusline
---require("core/themes/bufferline") --  bufferline
---require("core/themes/nightfox") -- dracula
---require("core/themes/colors") -- colorbuddy
 
--- Extras
+-- Utils
 require("plugins/gitsigns") -- git decorations
 require("plugins/nvim-treesitter") -- tree-sitter interface
+require("plugins/autosave") -- autosave
 
 -- LSP Helper
 require("core/lsp/init")
@@ -36,10 +36,10 @@ require("core/lsp/init")
 -- Comment's
 require("plugins/comment")
 
---  Terminal
-require("plugins/toggleterm") -- toggleterm plugin
+-- Terminal
+require("plugins/toggleterm") -- toggleterm
 
---  File Explorer
+-- File Explorer
 require("core/explorer/neo-tree") -- file_browser
 require("core/explorer/telescope-nvim") -- telescope
 require("core/explorer/harpoon") -- telescope select

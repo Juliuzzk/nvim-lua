@@ -13,7 +13,6 @@ indent_blankline.setup {
 	filetype_exclude = {
 		"help",
 		"packer",
-		"NvimTree",
 	},
 	space_char_blankline = " ",
     char_highlight_list = {

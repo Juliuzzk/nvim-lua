@@ -11,6 +11,9 @@ local cmd = vim.cmd
 -- Neovim shortcmts:
 -----------------------------------------------------------
 
+-- close all windows and exit from neovim
+map("n", "<leader>qq", ":quitall<CR>", default_opts)
+map("n", "<leader>wq", ":wq<CR>", default_opts)
 --  close buffer tab
 map("n", "<leader>bd", ":BufDel<CR>", default_opts)
 
@@ -45,10 +48,6 @@ map("n", "<C-h>", "<C-w>h", default_opts)
 map("n", "<C-j>", "<C-w>j", default_opts)
 map("n", "<C-k>", "<C-w>k", default_opts)
 map("n", "<C-l>", "<C-w>l", default_opts)
-
--- close all windows and exit from neovim
-map("n", "<leader>qq", ":quitall<CR>", default_opts)
-map("n", "<leader>wq", ":wq<CR>", default_opts)
 
 -- back tab
 map("i", "<S-Tab>", "<C-d>", default_opts)
