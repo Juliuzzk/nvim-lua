@@ -28,7 +28,6 @@ require("core/themes/init")
 
 -- Extras
 require("plugins/gitsigns") -- git decorations
-require("plugins/neo-tree") -- file_browser
 require("plugins/nvim-treesitter") -- tree-sitter interface
 
 -- LSP Helper
@@ -41,9 +40,9 @@ require("plugins/comment")
 require("plugins/toggleterm") -- toggleterm plugin
 
 --  File Explorer
+require("core/explorer/neo-tree") -- file_browser
 require("core/explorer/telescope-nvim") -- telescope
 require("core/explorer/harpoon") -- telescope select
-require("core/explorer/nvim-tree")
 
 -- Alpha Startup
 

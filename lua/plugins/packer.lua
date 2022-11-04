@@ -47,12 +47,7 @@ return require("packer").startup(function(use)
 	use("EdenEast/nightfox.nvim")
 	use("folke/tokyonight.nvim")
 
-	--NvimTree
-	-- Explorador de archivos
-	use({ "kyazdani42/nvim-tree.lua" })
 	-- Neo Tree
-
-
 	-- Explorador de Archivos
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
