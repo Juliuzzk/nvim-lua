@@ -50,7 +50,6 @@ opt.backup = false
 opt.showcmd = true
 opt.cmdheight = 1
 opt.laststatus = 2
-opt.expandtab = true
 opt.scrolloff = 10
 opt.shell = "fish"
 opt.backupskip = { "/tmp/*", "/private/tmp/*" }
@@ -58,8 +57,6 @@ opt.inccommand = "split"
 opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
 opt.smarttab = true
 opt.breakindent = true
-opt.shiftwidth = 2
-opt.tabstop = 2
 opt.wrap = false -- No Wrap lines
 opt.backspace = { "start", "eol", "indent" }
 opt.path:append({ "**" }) -- Finding files - Search down into subfolders
@@ -92,11 +89,9 @@ opt.smartindent = true -- autoindent new lines
 cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 
 -- remove line lenght marker for selected filetypes
-cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
+--cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
 
-
-
-
+-- Lineas de seguimiento
 vim.opt.termguicolors = true
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
@@ -106,6 +101,8 @@ vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 
 
+
+-- Character for show tabs, space, others
 opt.list = false
 opt.listchars = "tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»"
 vim.opt.listchars:append "space:?"
