@@ -1,13 +1,30 @@
-require("toggleterm").setup({
+
+local status_ok, toggleterm = pcall(require, "toggleterm")
+if not status_ok then
+	return
+end
+
+
+toggleterm.setup({
+	size = 20,
+	open_mapping = [[<c-\>]],
+	hide_numbers = true,
+	shade_terminals = true,
+	shading_factor = 2,
+	start_in_insert = true,
+	insert_mappings = true,
+	persist_size = true,
 	direction = "float",
+	close_on_exit = true,
+	shell = vim.o.shell,
 	float_opts = {
-		border = "double",
+		border = "",
 	},
 })
 
 local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
-local cmd = vim.cmd
+
 
 -- Toggle Term
 map("n", "<leader>ot", ":ToggleTerm<CR>", default_opts)

@@ -9,7 +9,8 @@
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+	packer_bootstrap =
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 end
 
 return require("packer").startup(function(use)
@@ -40,13 +41,18 @@ return require("packer").startup(function(use)
 		},
 	})
 
--- IndentLin
-	use { "lukas-reineke/indent-blankline.nvim" }
+	-- IndentLin
+	use({ "lukas-reineke/indent-blankline.nvim" })
 	-- Color theme
 	use("EdenEast/nightfox.nvim")
-	use 'folke/tokyonight.nvim'
+	use("folke/tokyonight.nvim")
 
+	--NvimTree
+	-- Explorador de archivos
+	use({ "kyazdani42/nvim-tree.lua" })
 	-- Neo Tree
+
+
 	-- Explorador de Archivos
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
@@ -59,7 +65,7 @@ return require("packer").startup(function(use)
 	})
 
 	--  AutoPairs
-	use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
+	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
 	-- Git Sidebar
 	-- Barra lateral para visualizar cambios en git y otros
 	use("sidebar-nvim/sidebar.nvim")
@@ -75,31 +81,28 @@ return require("packer").startup(function(use)
 
 	-- Comment
 	-- Plugins para realizar comentarios en varios lenguajes
-	use 'numToStr/Comment.nvim'
-	use 'JoosepAlviste/nvim-ts-context-commentstring'
-
-
+	use("numToStr/Comment.nvim")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Completition plugins
 	-- Plugins necesarios para realizar sugerencias de autocompletado
-	use { "hrsh7th/nvim-cmp" } -- The completion plugin
-	use { "hrsh7th/cmp-buffer" } -- buffer completions
-	use { "hrsh7th/cmp-path" } -- path completions
-	use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
-	use { "hrsh7th/cmp-nvim-lsp" }
-	use { "hrsh7th/cmp-nvim-lua" }
+	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
+	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
+	use({ "hrsh7th/cmp-path" }) -- path completions
+	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-nvim-lua" })
 
 	-- snippets
-	use { "L3MON4D3/LuaSnip" } --snippet engine
-	use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
+	use({ "L3MON4D3/LuaSnip" }) --snippet engine
+	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
 	-- LSP
-	use { "neovim/nvim-lspconfig" } -- enable LSP
-	use { "williamboman/mason.nvim" }
-	use { "williamboman/mason-lspconfig.nvim" }
-	use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
-	use { "RRethy/vim-illuminate" }
-
+	use({ "neovim/nvim-lspconfig" }) -- enable LSP
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
+	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	use({ "RRethy/vim-illuminate" })
 
 	-- AutoSave
 	-- Guardado automatico
@@ -108,7 +111,6 @@ return require("packer").startup(function(use)
 	-- BufferLine
 	-- Linea superior de tabs llamadas buffer
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
-
 
 	-- LuaLine
 	-- Linea inferior con informacion
@@ -128,8 +130,8 @@ return require("packer").startup(function(use)
 	--------------------------------------------------------
 
 	-- With packer
-	use 'tjdevries/colorbuddy.nvim'
-	use 'bbenzikry/snazzybuddy.nvim'
+	use("tjdevries/colorbuddy.nvim")
+	use("bbenzikry/snazzybuddy.nvim")
 	-- icons
 	use("kyazdani42/nvim-web-devicons")
 
@@ -137,9 +139,6 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-treesitter/nvim-tree-docs")
 	use("p00f/nvim-ts-rainbow")
-
-
-
 
 	-- git labels
 	use({

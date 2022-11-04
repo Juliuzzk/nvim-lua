@@ -119,6 +119,8 @@ map("", "q", "<nop>", { noremap = true }) -- recording
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
+-- NvimTree
+map("n", "<leader>e", ":NvimTreeToggle<CR>", default_opts)
 
 -- nvim-tree
 map("n", "<C-n>", ":Neotree toggle<CR>", default_opts) -- open/close

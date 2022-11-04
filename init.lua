@@ -26,7 +26,6 @@ require("core/themes/init")
 --require("core/themes/nightfox") -- dracula
 --require("core/themes/colors") -- colorbuddy
 
-
 -- Extras
 require("plugins/gitsigns") -- git decorations
 require("plugins/neo-tree") -- file_browser
@@ -42,10 +41,9 @@ require("plugins/comment")
 require("plugins/toggleterm") -- toggleterm plugin
 
 --  File Explorer
---require("plugins/telescope-media-files") -- telescope media files
-require("core/telescope-nvim") -- telescope
---require("plugins/telescope-ui-select") -- telescope select
-require("plugins/harpoon") -- telescope select
+require("core/explorer/telescope-nvim") -- telescope
+require("core/explorer/harpoon") -- telescope select
+require("core/explorer/nvim-tree")
 
 -- Alpha Startup
 
@@ -55,7 +53,6 @@ require("plugins/project") -- Best project management
 -- Git Sidebar
 require("plugins/sidebar-nvim")
 
-
 -- Completition
 require("core/cmp/cmp")
 
@@ -64,6 +61,3 @@ require("plugins/autopairs")
 
 -- Indetline
 require("plugins/indentline")
-
-
-
