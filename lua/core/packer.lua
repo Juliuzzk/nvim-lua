@@ -40,7 +40,6 @@ return require("packer").startup(function(use)
 			"nvim-lua/popup.nvim",
 		},
 	})
-
 	-- IndentLin
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	-- Color theme

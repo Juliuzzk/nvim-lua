@@ -9,10 +9,15 @@ local default_opts = { noremap = true, silent = true }
 -----------------------------------------------------------
 -- Neovim shortcmts:
 -----------------------------------------------------------
+-- Move selected line / block of text in visual mode
+map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
+map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 
+-- Keep visual mode indenting
+map("v", "<", "<gv", default_opts)
+map("v", ">", ">gv", default_opts)
 --  close buffer tab
 map("n", "<leader>bd", ":BufDel<CR>", default_opts)
-
 -- clear search highlighting
 map("n", "<leader>c", ":nohl<CR>", default_opts)
 -- reload configuracion
@@ -52,7 +57,17 @@ map("n", "<leader>wq", ":wq<CR>", default_opts)
 -- back tab
 map("i", "<S-Tab>", "<C-d>", default_opts)
 
+
 -- normal copy, paste
+-- Don't yank on delete char
+map("n", "x", '"_x', default_opts)
+map("n", "X", '"_X', default_opts)
+map("v", "x", '"_x', default_opts)
+map("v", "X", '"_X', default_opts)
+
+-- Don't yank on visual paste
+map("v", "p", '"_dP', default_opts)
+
 
 --" Select with shift + arrows
 
@@ -73,29 +88,6 @@ map("v", "<Right>", "<Esc><Right>", {})
 map("v", "<Up>", "<Esc><Up>", {})
 map("v", "<Down>", "<Esc><Down>", {})
 
---  original
-
---" Select with shift + arrows
---inoremap    <S-Left>              <Left><C-o>v
---inoremap    <S-Right>             <C-o>v
---inoremap    <S-Up>                <Left><C-o>v<Up><Right>
-
---" Auto unselect when not holding shift
---imap        <C-S-Left>            <S-Left><C-Left>
---imap        <C-S-Right>           <S-Right><C-Right>
---vnoremap    <S-Left>              <Left>
---vnoremap    <S-Right>             <Right>
---vnoremap    <S-Up>                <Up>
---vnoremap    <S-Down>              <Down>
-
---vmap        <Left>                <Esc>
---vmap        <Right>               <Esc><Right>
---vmap        <Up>                  <Esc><Up>
---vmap        <Down>                <Esc><Down>
-
--- Comment
---[[ map("n", "<leader>/", "<cmd>lua require('Comment').toggle()<CR>", default_opts) ]]
---[[ map("v", "<leader>c", ":lua require(\"Comment.api\").gc(vim.fn.visualmode())<cr>", default_opts) ]]
 
 -- Move text up and down
 

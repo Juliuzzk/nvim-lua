@@ -69,7 +69,6 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
-
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
@@ -83,6 +82,10 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = true
 	end
 
+	if client.name == "html" then
+		client.server_capabilities.documentFormattingProvider = true
+	end
+
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
@@ -92,7 +95,3 @@ M.on_attach = function(client, bufnr)
 end
 
 return M
-
-
-
-
