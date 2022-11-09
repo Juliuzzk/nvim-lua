@@ -7,7 +7,9 @@ local servers = {
 	"bashls",
 	"jsonls",
 	"yamlls",
-	"volar"
+	"volar",
+	"tailwindcss",
+
 }
 
 local settings = {

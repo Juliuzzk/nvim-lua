@@ -9,6 +9,25 @@ M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
+-- Add additional capabilities supported by nvim-cmp
+M.capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities.textDocument.completion.completionItem.preselectSupport = true
+M.capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+M.capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+M.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+M.capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+M.capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+M.capabilities.textDocument.completion.completionItem.resolveSupport = {
+
+	properties = {
+		"documentation",
+		"detail",
+		"additionalTextEdits",
+	},
+}
+M.protocol = require("vim.lsp.protocol")
+
 M.setup = function()
 	local signs = {
 
@@ -83,6 +102,14 @@ M.on_attach = function(client, bufnr)
 	end
 
 	if client.name == "html" then
+		client.server_capabilities.documentFormattingProvider = true
+	end
+
+	if client.name == "tailwindcss" then
+		client.server_capabilities.documentFormattingProvider = true
+	end
+
+	if client.name == "vue" then
 		client.server_capabilities.documentFormattingProvider = true
 	end
 

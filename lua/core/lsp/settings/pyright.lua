@@ -1,5 +1,5 @@
 return {
-  settings = {
+   settings = {
     python = {
       analysis = {
         typeCheckingMode = "off",

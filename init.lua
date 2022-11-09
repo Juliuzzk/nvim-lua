@@ -16,10 +16,8 @@ Website: https://github.com/Juliuzk/nvim-lua
 -----------------------------------------------------------
 -- Settings
 require("settings") -- settings
-
 -- Keymaps
 require("core/keymaps") -- keymaps
-
 -- Packe Manager
 require("core/packer") -- plugin manager
 -- Themes
@@ -55,8 +53,13 @@ require("plugins/sidebar-nvim")
 -- Completition
 require("core/cmp/cmp")
 
+
+-- LuaSnip
+require("plugins/luasnip")
 -- AutoPairs
 require("plugins/autopairs")
 
 -- Indetline
 require("plugins/indentline")
+
+

@@ -9,9 +9,9 @@ Color.new('green',       '#99cc99')
 Color.new('yellow',      '#f0c674')
 
 -- Define highlights in terms of `colors` and `groups`
-Group.new('Comment' , colors.yellow      , colors.background , styles.bold)
-Group.new('Special' , groups.Comment    , groups.Comment   , groups.Comment)
-Group.new('NonText' , groups.Comment    , groups.Comment   , groups.Comment)
+--Group.new('Comment' , colors.yellow      , colors.background , styles.bold)
+--Group.new('Special' , groups.Comment    , groups.Comment   , groups.Comment)
+--Group.new('NonText' , groups.Comment    , groups.Comment   , groups.Comment)
 
 -- Define highlights in relative terms of other colors
 Group.new('Error'           , colors.red:light() , nil               , styles.bold)

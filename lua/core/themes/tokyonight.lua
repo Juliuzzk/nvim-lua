@@ -16,10 +16,10 @@ tokyonight.setup({
 	styles = {
 		-- Style to be applied to different syntax groups
 		-- Value is any valid attr-list value `:help attr-list`
-		comments = "italic",
-		keywords = "italic",
-		functions = "NONE",
-		variables = "NONE",
+		comments = { italic = true },
+		keywords = { italic = true },
+		functions = { italic = true },
+		variables = { italic = true },
 		-- Background styles. Can be "dark", "transparent" or "normal"
 		sidebars = "dark", -- style for sidebars, see below
 		floats = "dark", -- style for floating windows
@@ -63,4 +63,3 @@ tokyonight.setup({
 		}
 	end,
 })
-
