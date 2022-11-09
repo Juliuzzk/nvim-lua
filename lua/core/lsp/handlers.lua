@@ -5,12 +5,9 @@ if not status_cmp_ok then
 	return
 end
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
 -- Add additional capabilities supported by nvim-cmp
-M.capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities.textDocument.completion.completionItem.preselectSupport = true
 M.capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
@@ -26,6 +23,8 @@ M.capabilities.textDocument.completion.completionItem.resolveSupport = {
 		"additionalTextEdits",
 	},
 }
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 M.protocol = require("vim.lsp.protocol")
 
 M.setup = function()
@@ -102,7 +101,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	if client.name == "html" then
-		client.server_capabilities.documentFormattingProvider = true
+		client.server.capabilities.textDocument.completion.completionItem.snippetSupport = true
 	end
 
 	if client.name == "tailwindcss" then
@@ -112,6 +111,7 @@ M.on_attach = function(client, bufnr)
 	if client.name == "vue" then
 		client.server_capabilities.documentFormattingProvider = true
 	end
+
 
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")

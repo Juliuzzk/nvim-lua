@@ -53,9 +53,6 @@ require("plugins/sidebar-nvim")
 -- Completition
 require("core/cmp/cmp")
 
-
--- LuaSnip
-require("plugins/luasnip")
 -- AutoPairs
 require("plugins/autopairs")
 

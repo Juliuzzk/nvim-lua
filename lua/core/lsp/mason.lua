@@ -9,7 +9,6 @@ local servers = {
 	"yamlls",
 	"volar",
 	"tailwindcss",
-
 }
 
 local settings = {

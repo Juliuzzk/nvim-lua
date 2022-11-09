@@ -8,6 +8,11 @@ if not snip_status_ok then
 	return
 end
 
+-- Charge custom snippets from friendly-snuppets into luasnip
+luasnip.filetype_extend("javascript", { "html" })
+luasnip.filetype_extend("javascriptreact", { "html" })
+luasnip.filetype_extend("typescriptreact", { "html" })
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -43,7 +48,6 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
-
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -53,13 +57,6 @@ cmp.setup({
 
 	mapping = cmp.mapping.preset.insert({
 
-		-- Devaslife
---[[
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.close(),
- ]]
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
@@ -109,23 +106,34 @@ cmp.setup({
 	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
+		--[[ format = function(entry, vim_item) ]]
+		--[[ 	vim_item.kind = kind_icons[vim_item.kind] ]]
+		--[[ 	vim_item.menu = ({ ]
+		--[[ 		nvim_lsp = "", ]]
+		--[[ 		nvim_lua = "", ]]
+		--[[ 		luasnip = "", ]]
+		--[[ 		buffer = "", ]]
+		--[[ 		path = "", ]]
+		--[[ 		emoji = "", ]]
+		--[[ 	})[entry.source.name] ]]
+		--[[ 	return vim_item ]]
+		--[[ end, ]]
 		format = function(entry, vim_item)
-			vim_item.kind = kind_icons[vim_item.kind]
+			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.menu = ({
-				nvim_lsp = "",
-				nvim_lua = "",
-				luasnip = "",
-				buffer = "",
-				path = "",
-				emoji = "",
+				buffer = "[buf]",
+				nvim_lsp = "[lsp]",
+				nvim_lua = "[api]",
+				luasnip = "[snip]",
+				path = "[path]",
 			})[entry.source.name]
 			return vim_item
 		end,
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
 		{ name = "luasnip" },
+		{ name = "nvim_lua" },
 		{ name = "buffer" },
 		{ name = "path" },
 	},
@@ -136,6 +144,9 @@ cmp.setup({
 	window = {
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
+	},
+	view = {
+		entries = { "native" },
 	},
 	experimental = {
 		ghost_text = true,
