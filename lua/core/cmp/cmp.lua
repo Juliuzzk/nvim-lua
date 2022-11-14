@@ -13,6 +13,13 @@ luasnip.filetype_extend("javascript", { "html" })
 luasnip.filetype_extend("javascriptreact", { "html" })
 luasnip.filetype_extend("typescriptreact", { "html" })
 
+-- Charge custom snippets
+--[[ require("luasnip.loaders.from_vscode").load { ]]
+--[[   paths = vim.fn.stdpath "config" .. "/snippets", ]]
+--[[ } ]]
+
+require("luasnip.loaders.from_vscode").load({ paths = { "./snippets" } })
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()

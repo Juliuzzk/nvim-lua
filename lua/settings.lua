@@ -85,7 +85,7 @@ cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 -- remove line lenght marker for selected filetypes
 cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
 
-
+vim.o.termguicolors = true
 vim.opt.termguicolors = true
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
