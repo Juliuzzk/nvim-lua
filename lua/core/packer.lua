@@ -45,7 +45,7 @@ return require("packer").startup(function(use)
 	-- Color theme
 	use("EdenEast/nightfox.nvim")
 	use("folke/tokyonight.nvim")
-
+	use("Mofiqul/dracula.nvim")
 	-- Neo Tree
 	-- Explorador de Archivos
 	use({

@@ -9,6 +9,8 @@ local default_opts = { noremap = true, silent = true }
 -----------------------------------------------------------
 -- Neovim shortcmts:
 -----------------------------------------------------------
+
+--
 -- Move selected line / block of text in visual mode
 map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
 map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
