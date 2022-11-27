@@ -7,7 +7,7 @@ local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 
 -----------------------------------------------------------
--- Neovim shortcmts:
+-- Neovim general keymaps:
 -----------------------------------------------------------
 
 --
@@ -105,12 +105,8 @@ map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", default_opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 
--- Desactivar algunos mapping
--- map("", "J", "<nop>", { noremap = true })
-map("", "q", "<nop>", { noremap = true }) -- recording
-
 -----------------------------------------------------------
--- Applications & Plugins shortcuts:
+-- Aplicaciones y plugins keymaps:
 -----------------------------------------------------------
 
 -- Neo-Tree
@@ -123,3 +119,11 @@ map("n", "<leader>fr", ":Telescope live_grep<CR>", default_opts)
 
 -- on hesitation, bring up the panel
 map("n", "<C-s>", ":SidebarNvimToggle<CR>", default_opts)
+
+-----------------------------------------------------------
+-- Desactivar algunos keymaps:
+-----------------------------------------------------------
+
+-- Desactivar algunos mapping map("", "J", "<nop>", { noremap = true })
+map("", "q", "<nop>", { noremap = true }) -- recording
+

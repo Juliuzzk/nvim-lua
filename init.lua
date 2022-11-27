@@ -8,8 +8,6 @@
   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
 Nvim init file
 Version: v1.0 - 2022/10/14
-Maintainer: JuliuzDev
-Website: https://github.com/Juliuzk/nvim-lua
 --]]
 -----------------------------------------------------------
 -- Import Lua modules
@@ -38,9 +36,9 @@ require("plugins/comment")
 require("plugins/toggleterm") -- toggleterm
 
 -- File Explorer
-require("core/explorer/neo-tree") -- file_browser
-require("core/explorer/telescope-nvim") -- telescope
-require("core/explorer/harpoon") -- telescope select
+require("plugins/explorer/neo-tree") -- file_browser
+require("plugins/explorer/telescope-nvim") -- telescope
+require("plugins/explorer/harpoon") -- telescope select
 
 -- Alpha Startup
 
@@ -58,5 +56,24 @@ require("plugins/autopairs")
 
 -- Indetline
 require("plugins/indentline")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

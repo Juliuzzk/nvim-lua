@@ -29,7 +29,7 @@ opt.splitright = true -- vertical split to the right
 opt.splitbelow = true -- orizontal split to the bottom
 opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.linebreak = true -- wrap on word boundary
-opt.conceallevel = 0
+-- opt.conceallevel = 0
 --g.neovide_cursor_vfx_mode = "railgun"
 
 --devaslife
@@ -57,7 +57,7 @@ opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 opt.wildignore:append({ "*/node_modules/*" })
 
 opt.formatoptions:append({ "r" })
-
+opt.undofile = true
 -- fin devaslife
 
 -- remove whitespace on save
@@ -101,13 +101,7 @@ vim.opt.listchars:append "space:?"
 vim.opt.listchars:append "eol:?"
 
 
-
-
-
-
-
-
-
+cmd([[au BufWritePre /tmp/* setlocal noundofile]])
 
 
 
