@@ -25,4 +25,18 @@ Nvim Personal Config
 
 df <letra>
 
+- Buscar desde punto hasta letra
+f <letra>: buscar hacia adelante
+<shift>f: buscar hacia atras
 
+
+-- Insertar
+<shift> i -- Insertar al principio de la linea
+<shift> a -- Insertar al final de la linea
+<shift> o -- Crear una linea antes y entrar en modo insertar
+o -- Crear una linea despues y entrar en modo insertar
+
+
+
+Notas:
+<shift> + letra -- shift = mayuscula

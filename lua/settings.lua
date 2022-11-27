@@ -15,7 +15,7 @@ local opt = vim.opt -- global/buffer/windows-scoped options
 g.mapleader = " " --change leader to a space
 opt.mouse = "a" -- enable mouse support
 opt.clipboard = "unnamedplus" -- copy/paste to system clipboard
-opt.swapfile = false -- don't use swapfile
+opt.swapfile = true -- don't use swapfile
 
 -----------------------------------------------------------
 -- Neovim UI
@@ -29,7 +29,7 @@ opt.splitright = true -- vertical split to the right
 opt.splitbelow = true -- orizontal split to the bottom
 opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.linebreak = true -- wrap on word boundary
--- opt.conceallevel = 0
+opt.conceallevel = 0
 --g.neovide_cursor_vfx_mode = "railgun"
 
 --devaslife
@@ -104,6 +104,7 @@ vim.opt.listchars:append "eol:?"
 cmd([[au BufWritePre /tmp/* setlocal noundofile]])
 
 
+cmd([[au Colorscheme yourcolorschemename :hi Keyword gui=italic cterm=italic]])
 
 
 
