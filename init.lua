@@ -36,9 +36,9 @@ require("plugins/comment")
 require("plugins/toggleterm") -- toggleterm
 
 -- File Explorer
-require("plugins/explorer/neo-tree") -- file_browser
-require("plugins/explorer/telescope-nvim") -- telescope
-require("plugins/explorer/harpoon") -- telescope select
+require("core/explorer/neo-tree") -- file_browser
+require("core/explorer/telescope-nvim") -- telescope
+require("core/explorer/harpoon") -- telescope select
 
 -- Alpha Startup
 
