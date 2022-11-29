@@ -13,7 +13,6 @@ Nvim Personal Config
   * '<,'>: dentro del bloque visual
 
 
-
 #### Ejecutar Comando
 
 * :g/palabra/normal dd
@@ -22,6 +21,8 @@ Nvim Personal Config
 ##### Borrar desde puntero hasta letra
 
 * df \<letra\>
+* diw: Elimina palabra bajo el cursor
+* dw: Elimina desde cursor hasta el final de la palabra
 
 #### Buscar desde punto hasta letra
 * f \<letra\>: buscar hacia adelante

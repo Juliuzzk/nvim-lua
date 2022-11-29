@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 autosave.setup({
-	enabled = true,
+	enabled = false,
 	execution_message = {
 		message = function()
 			return "AutoSave: guardado a las " .. vim.fn.strftime("%H:%M:%S")

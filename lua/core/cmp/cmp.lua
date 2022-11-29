@@ -79,6 +79,11 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
+		["<esc>"] = cmp.mapping({
+			i = cmp.mapping.abort(),
+			c = cmp.mapping.close(),
+		}),
+
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		--["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -111,6 +116,7 @@ cmp.setup({
 			"s",
 		}),
 	}),
+
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		--[[ format = function(entry, vim_item) ]]
@@ -128,8 +134,8 @@ cmp.setup({
 		format = function(entry, vim_item)
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.menu = ({
-				buffer = "[buf]",
 				nvim_lsp = "[lsp]",
+				buffer = "[buf]",
 				nvim_lua = "[api]",
 				luasnip = "[snip]",
 				path = "[path]",
