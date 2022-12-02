@@ -12,4 +12,7 @@ require("core.themes.dracula")
 -- Lua
 --vim.cmd[[colorscheme tokyonight]]
 
-vim.cmd[[colorscheme dracula]]
+ vim.cmd[[colorscheme dracula]]
+
+
+-- UI theme

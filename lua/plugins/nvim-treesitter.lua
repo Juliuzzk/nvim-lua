@@ -1,27 +1,84 @@
------------------------------------------------------------
--- Treesitter configuration file
------------------------------------------------------------
+local _treesitter, treesitter = pcall(require, "nvim-treesitter.configs")
 
--- Cada cierto tiempo hay que realizar un :TSupdate
--- Plugin: nvim-treesitter
---- https://github.com/nvim-treesitter/nvim-treesitter
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
+if not _treesitter then
 	return
 end
-configs.setup({
+
+local colors = {
+	bg = "#2e3440",
+	fg = "#ECEFF4",
+	red = "#bf616a",
+	orange = "#d08770",
+	yellow = "#ebcb8b",
+	blue = "#5e81ac",
+	green = "#a3be8c",
+	cyan = "#88c0d0",
+	magenta = "#b48ead",
+	purple = "#534671",
+	pink = "#FFA19F",
+	grey1 = "#f8fafc",
+	grey2 = "#f0f1f4",
+	grey3 = "#eaecf0",
+	grey4 = "#d9dce3",
+	grey5 = "#c4c9d4",
+	grey6 = "#b5bcc9",
+	grey7 = "#929cb0",
+	grey8 = "#8e99ae",
+	grey9 = "#74819a",
+	grey10 = "#616d85",
+	grey11 = "#464f62",
+	grey12 = "#3a4150",
+	grey13 = "#333a47",
+	grey14 = "#242932",
+	grey15 = "#1e222a",
+	grey16 = "#1c1f26",
+	grey17 = "#0f1115",
+	grey18 = "#0d0e11",
+	grey19 = "#020203",
+}
+treesitter.setup({
+	autotag = {
+		enable = true,
+	},
+	indent = {
+		enable = true,
+		disable = { "python", "css", "rust" },
+	},
+	--ensure_installed = "all",
+	ensure_installed = {
+		"java",
+		"rust",
+		"python",
+		"go",
+		"lua",
+		"html",
+		"json",
+		"sql",
+		"dockerfile",
+		"yaml",
+		"css",
+		"javascript",
+		"typescript",
+	},
+	rainbow = {
+		colors = {
+			colors.magenta,
+			colors.cyan,
+			colors.yellow,
+			colors.orange,
+			colors.red,
+			colors.blue,
+			colors.green,
+		},
+		enable = true,
+		extended_mode = true,
+		max_file_lines = nil,
+	},
+
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "" }, -- list of language that will be disabled
 		additional_vim_regex_highlighting = true,
-	},
-	rainbow = {
-		enable = true,
-		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-		max_file_lines = nil, -- Do not enable for files with more than n lines, int
-		-- colors = {}, -- table of hex strings
-		-- termcolors = {} -- table of colour name strings
 	},
 	incremental_selection = {
 		enable = true,
@@ -32,12 +89,10 @@ configs.setup({
 			node_decremental = "<S-TAB>",
 		},
 	},
-	indent = {
-		enable = true,
-	},
 	tree_docs = {
 		enable = true,
 	},
+
 	-- Comment plugin extra
 	context_commentstring = {
 		enable = true,

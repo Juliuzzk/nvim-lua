@@ -98,6 +98,9 @@ return require("packer").startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate" })
 
+	-- Lsp Java
+	use({ "mfussenegger/nvim-jdtls" })
+
 	-- AutoSave
 	-- Guardado automatico
 	use("Pocco81/auto-save.nvim")

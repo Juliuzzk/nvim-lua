@@ -5,8 +5,8 @@ if not status_cmp_ok then
 	return
 end
 
-
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
+
 -- Add additional capabilities supported by nvim-cmp
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities.textDocument.completion.completionItem.preselectSupport = true
@@ -40,6 +40,7 @@ M.setup = function()
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 	end
 
+	-- Muestra texto en pantalla
 	local config = {
 		virtual_text = true, -- disable virtual text
 		signs = {
@@ -67,6 +68,7 @@ M.setup = function()
 		border = "rounded",
 	}, vim.lsp.handlers.signature_help)
 end
+
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
@@ -115,7 +117,6 @@ M.on_attach = function(client, bufnr)
 	if client.name == "sqlls" then
 		client.server_capabilities.documentFormattingProvider = true
 	end
-
 
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")

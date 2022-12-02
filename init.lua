@@ -9,7 +9,6 @@
 Nvim init file
 Version: v1.0 - 2022/10/14
 --]]
-
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
@@ -57,24 +56,3 @@ require("plugins/autopairs")
 
 -- Indetline
 require("plugins/indentline")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -35,6 +35,8 @@ Nvim Personal Config
 * \<shift\> o: Crear una linea antes y entrar en modo insertar
 * o: Crear una linea despues y entrar en modo insertar
 
+#### Seleccionar
+* gv: volver a seleccionar ultima
 
 ##### Notas:
 * \<shift\> + letra: letra en mayuscula§

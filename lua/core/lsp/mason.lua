@@ -9,7 +9,7 @@ local servers = {
 	"yamlls",
 	"volar",
 	"tailwindcss",
-	"sqlls"
+	"sqlls",
 }
 
 local settings = {
@@ -45,7 +45,6 @@ for _, server in pairs(servers) do
 	}
 
 	server = vim.split(server, "@")[1]
-
 	local require_ok, conf_opts = pcall(require, "core.lsp.settings." .. server)
 	if require_ok then
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
