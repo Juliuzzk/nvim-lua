@@ -24,11 +24,15 @@ Nvim Personal Config
 * diw: Elimina palabra bajo el cursor
 * dw: Elimina desde cursor hasta el final de la palabra
 
+#### Borrar entre medio de corchetes, parentesis
+
+* di\<caracter\>: Elimina lo que este entremedio
 #### Buscar desde punto hasta letra
 * f \<letra\>: buscar hacia adelante
 * \<shift\>f: buscar hacia atras
 
-
+#### Saltar entre cambios
+* <CTRL>o: vuelve hacia atras
 #### Insertar
 * \<shift\> i: Insertar al principio de la linea
 * \<shift\> a: Insertar al final de la linea
@@ -37,6 +41,11 @@ Nvim Personal Config
 
 #### Seleccionar
 * gv: volver a seleccionar ultima
-
+* vip: selecciona todo el parrafo
 ##### Notas:
 * \<shift\> + letra: letra en mayuscula§
+
+
+
+
+

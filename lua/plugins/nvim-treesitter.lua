@@ -59,6 +59,8 @@ treesitter.setup({
 		"css",
 		"javascript",
 		"typescript",
+		"vim",
+		"help"
 	},
 	rainbow = {
 		colors = {
