@@ -39,6 +39,7 @@ local colors = {
 treesitter.setup({
 	autotag = {
 		enable = true,
+		filetypes = { "*" }
 	},
 	indent = {
 		enable = true,
@@ -60,7 +61,7 @@ treesitter.setup({
 		"javascript",
 		"typescript",
 		"vim",
-		"help"
+		"help",
 	},
 	rainbow = {
 		colors = {
@@ -94,10 +95,22 @@ treesitter.setup({
 	tree_docs = {
 		enable = true,
 	},
-
 	-- Comment plugin extra
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
 	},
 })
+
+
+local status_autotag_ok, autotag = pcall(require, "nvim-ts-autotag")
+
+if not status_autotag_ok then
+	vim.notify("nvim-ts-autotag: desactivado.");
+	return
+end
+
+autotag.setup({
+	filetypes = { "*" },
+})
+

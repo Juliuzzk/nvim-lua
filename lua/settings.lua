@@ -77,7 +77,7 @@ opt.synmaxcol = 1000 -- max column for syntax highlight
 opt.expandtab = false -- use spaces instead of tabs
 opt.shiftwidth = 4 -- shift 4 spaces when tab
 opt.tabstop = 4 -- 1 tab == 4 spaces
-opt.smartindent = true -- autoindent new lines
+opt.smartindent = false -- autoindent new lines
 
 -- don't auto commenting new lines
 cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
@@ -105,11 +105,3 @@ cmd([[au BufWritePre /tmp/* setlocal noundofile]])
 
 
 cmd([[au Colorscheme yourcolorschemename :hi Keyword gui=italic cterm=italic]])
-
-
-
-
-
-
-
-

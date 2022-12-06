@@ -57,9 +57,6 @@ return require("packer").startup(function(use)
 			"MunifTanjim/nui.nvim",
 		},
 	})
-
-	--  AutoPairs
-	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
 	-- Git Sidebar
 	-- Barra lateral para visualizar cambios en git y otros
 	use("sidebar-nvim/sidebar.nvim")
@@ -123,6 +120,8 @@ return require("packer").startup(function(use)
 	use("nvim-telescope/telescope-media-files.nvim")
 	use("nvim-telescope/telescope-file-browser.nvim")
 
+	-- Vim Surround
+	use("tpope/vim-surround")
 	--------------------------------------------------------
 	--------------------------------------------------------
 
@@ -136,6 +135,10 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-treesitter/nvim-tree-docs")
 	use("p00f/nvim-ts-rainbow")
+	-- AutoTags
+	use("windwp/nvim-ts-autotag")
+	--  AutoPairs
+	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
 
 	-- git labels
 	use({

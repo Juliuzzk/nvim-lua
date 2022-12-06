@@ -107,7 +107,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	if client.name == "tailwindcss" then
-		client.server_capabilities.documentFormattingProvider = true
+		client.server_capabilities.documentFormattingProvider = false
 	end
 
 	if client.name == "vue" then
