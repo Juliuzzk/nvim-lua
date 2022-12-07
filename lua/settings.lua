@@ -103,5 +103,11 @@ vim.opt.listchars:append "eol:?"
 
 cmd([[au BufWritePre /tmp/* setlocal noundofile]])
 
+cmd([[au InsertEnter * set cul ]])
+cmd([[au InsertLeave * set nocul ]])
 
-cmd([[au Colorscheme yourcolorschemename :hi Keyword gui=italic cterm=italic]])
+
+
+
+
+

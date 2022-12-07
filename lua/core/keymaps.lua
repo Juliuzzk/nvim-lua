@@ -38,7 +38,7 @@ map("i", "<C-k>", "<up>", default_opts)
 map("i", "<C-l>", "<right>", default_opts)
 
 -- fast saving with <leader> and s
-map("n", "<leader>s", ":w<CR>", default_opts)
+map("n", "<leader>ss", ":w<CR>", default_opts)
 --map("i", "<leader>s", "<C-c>:w<CR>", default_opts)
 
 -- move around splits using Ctrl + {h,j,k,l}
@@ -60,15 +60,16 @@ map("n", "<leader>wq", ":wq<CR>", default_opts)
 map("i", "<S-Tab>", "<C-d>", default_opts)
 
 
+
 -- normal copy, paste
 -- Don't yank on delete char
-map("n", "x", '"_x', default_opts)
-map("n", "X", '"_X', default_opts)
-map("v", "x", '"_x', default_opts)
-map("v", "X", '"_X', default_opts)
+--map("n", "x", '"_x', default_opts)
+--map("n", "X", '"_X', default_opts)
+--map("v", "x", '"_x', default_opts)
+--map("v", "X", '"_X', default_opts)
 
 -- Don't yank on visual paste
-map("v", "p", '"_dP', default_opts)
+--map("v", "p", '"_dP', default_opts)
 
 
 --" Select with shift + arrows
