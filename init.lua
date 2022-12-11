@@ -56,3 +56,15 @@ require("plugins/autopairs")
 
 -- Indetline
 require("plugins/indentline")
+
+--Copilot
+require("plugins/copilot")
+
+
+
+
+
+
+
+
+

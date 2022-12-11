@@ -42,6 +42,7 @@ M.setup = function()
 
 	-- Muestra texto en pantalla
 	local config = {
+
 		virtual_text = true, -- disable virtual text
 		signs = {
 			active = signs, -- show signs

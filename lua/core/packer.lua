@@ -122,6 +122,11 @@ return require("packer").startup(function(use)
 
 	-- Vim Surround
 	use("tpope/vim-surround")
+
+	-- Copilot
+
+	use("github/copilot.vim")
+
 	--------------------------------------------------------
 	--------------------------------------------------------
 

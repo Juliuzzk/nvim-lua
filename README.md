@@ -56,9 +56,8 @@ Nvim Personal Config
   -i: Corresponde a la cantidad de palabras a encerrar, i = 1, se puede cambiar por 2,3,4..n
 - yss\<a\>: Encierra la linea completa en a
 - ds\<a\>: Borra a que encierren al punto en donde se encuentre el cursor
+- S\<a\>: Encierra seleccion en a
 
 ##### Notas:
 
 - \<shift\> + letra: letra en mayuscula
-
-test test ssss

@@ -7,10 +7,16 @@ local b = null_ls.builtins
 
 local sources = {
 	-- forma
+
+	--[[ b.formatting.prettierd.with({
+		extra_filetypes = { "toml" },
+		extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+	}), ]]
 	b.formatting.prettierd,
-	-- markdown diagnostic
-	-- Lua formatting
-	--b.formatting.stylua,
+	b.formatting.stylua,
+	b.formatting.sql_formatter,
+	b.formatting.sqlfluff,
+
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -22,16 +28,17 @@ local on_attach = function(client, bufnr)
 			buffer = bufnr,
 			callback = function()
 				-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-				vim.lsp.buf.formatting_sync()
+				--vim.lsp.buf.formatting_sync()
+				vim.lsp.buf.format { async = true }
 			end,
 		})
 	end
 end
 
 null_ls.setup({
-	debug = true,
+	debug = false,
 	sources = sources,
-	on_attach = on_attach,
+	--on_attach = on_attach,
 })
 
 if true then
