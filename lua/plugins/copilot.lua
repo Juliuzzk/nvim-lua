@@ -1,14 +1,13 @@
 -- use this table to disable/enable filetypes
-vim.g.copilot_filetypes = { xml = false }
+--vim.g.copilot_filetypes = { xml = false }
 
 -- since most are enabled by default you can turn them off
 -- using this table and only enable for a few filetypes
 -- vim.g.copilot_filetypes = { ["*"] = false, python = true }
-local map = vim.api.nvim_set_keymap
 
 vim.cmd([[ imap <silent><script><expr> <C-a> copilot#Accept("\<CR>") ]])
---vim.g.copilot_no_tab_map = true
-map("i", "<C-a>", ":copilot#Accept('\\<CR>')<CR>", { silent = true })
+vim.g.copilot_no_tab_map = false
+--vim.keymap.set.keymap("i", "<C-a>", ":copilot#Accept('\\<CR>')<CR>", { silent = true })
 
 -- <C-]>                   Dismiss the current suggestion.
 -- <Plug>(copilot-dismiss)

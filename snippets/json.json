@@ -1,0 +1,7 @@
+{
+	"prettierrc": {
+		"prefix": "prettierrc",
+		"body": "{ \"semi\": true, \"tabWidth\": 4,\"printWidth\": 80,\"singleQuote\": true,\"trailingComma\": \"all\",\"jsxSingleQuote\": true,\"bracketSpacing\": true }"
+	}
+
+}

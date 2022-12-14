@@ -11,7 +11,7 @@ Nvim Personal Config
 
 - :%s/palabra/reemplazo
   - %: todo el archivo
-  - '<,'>: dentro del bloque visual
+  - '<,'>s: dentro del bloque visual
 
 #### Ejecutar Comando
 

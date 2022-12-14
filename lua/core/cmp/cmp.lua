@@ -119,18 +119,6 @@ cmp.setup({
 
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
-		--[[ format = function(entry, vim_item) ]]
-		--[[ 	vim_item.kind = kind_icons[vim_item.kind] ]]
-		--[[ 	vim_item.menu = ({ ]
-		--[[ 		nvim_lsp = "", ]]
-		--[[ 		nvim_lua = "", ]]
-		--[[ 		luasnip = "", ]]
-		--[[ 		buffer = "", ]]
-		--[[ 		path = "", ]]
-		--[[ 		emoji = "", ]]
-		--[[ 	})[entry.source.name] ]]
-		--[[ 	return vim_item ]]
-		--[[ end, ]]
 		format = function(entry, vim_item)
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.menu = ({
@@ -144,6 +132,7 @@ cmp.setup({
 		end,
 	},
 	sources = {
+		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
@@ -165,3 +154,5 @@ cmp.setup({
 		ghost_text = true,
 	},
 })
+
+
