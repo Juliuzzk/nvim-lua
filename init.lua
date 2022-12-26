@@ -12,6 +12,8 @@ Version: v1.0 - 2022/10/14
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
+-- Improve performance impatient
+require("impatient")
 -- Settings
 require("settings") -- settings
 -- Keymaps
@@ -59,9 +61,3 @@ require("plugins/indentline")
 
 --Copilot
 require("plugins/copilot")
-
-
-
-
-
-

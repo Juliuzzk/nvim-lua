@@ -10,6 +10,7 @@ local servers = {
 	"volar",
 	"tailwindcss",
 	"sqlls",
+	"jsonls"
 }
 
 local settings = {

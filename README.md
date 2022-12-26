@@ -47,7 +47,8 @@ Nvim Personal Config
 #### Seleccionar
 
 - gv: volver a seleccionar ultima
-- vip: selecciona todo el parrafo
+- vip: seleccionar todo el parrafo
+- ggVG: seleccionar todo el archivo
 
 #### Vim Surround
 

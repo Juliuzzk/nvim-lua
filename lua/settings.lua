@@ -108,7 +108,8 @@ cmd([[au InsertEnter * set cul ]])
 cmd([[au InsertLeave * set nocul ]])
 
 
-
+-- Cambia internamente los archivos .json a .jsonc con el fin de poder desactivar diagnosticos de lsp en los commentarios
+cmd([[autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc]])
 
 
 

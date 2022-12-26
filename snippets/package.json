@@ -1,18 +1,14 @@
 {
-	"name": "juliuzs-snippets",
-	"engines": {
-		"vscode": "^1.0.0"
-	},
-	"contributes": {
-		"snippets": [
-			{
-				"language": "all",
-				"path": "./general.json"
-			},
-			{
-				"language": "json",
-				"path": "./json.json"
-			}
-		]
-	}
+  "name": "juliuzs-snippets",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "all",
+        "path": "./general.json"
+      }
+    ]
+  }
 }

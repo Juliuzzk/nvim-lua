@@ -26,6 +26,9 @@ return require("packer").startup(function(use)
 		},
 	})
 
+	-- Improve performance on startup
+	use("lewis6991/impatient.nvim")
+
 	-- Nvim BufDel
 	-- Permite borrar buffer tab
 	use({ "ojroques/nvim-bufdel" })
@@ -164,7 +167,10 @@ return require("packer").startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	require("colorizer").setup()
 
-	use("soywod/himalaya.vim")
+
+	use("brooth/far.vim")
+
+
 
 	-- Put this at the end after all plugins
 	use("wbthomason/packer.nvim")

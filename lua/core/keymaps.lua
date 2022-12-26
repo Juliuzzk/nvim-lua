@@ -126,5 +126,10 @@ map("n", "<C-s>", ":SidebarNvimToggle<CR>", default_opts)
 -----------------------------------------------------------
 
 -- Desactivar algunos mapping map("", "J", "<nop>", { noremap = true })
-map("", "q", "<nop>", { noremap = true }) -- recording
+--[[ map("", "q", "<nop>", { noremap = true }) -- recording ]]
+
+
+
+
+
 

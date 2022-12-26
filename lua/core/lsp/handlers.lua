@@ -92,32 +92,10 @@ end
 
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
-		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentformattingprovider = false
 	end
 
-	if client.name == "sumneko_lua" then
-		client.server_capabilities.documentFormattingProvider = true
-	end
-
-	if client.name == "volar" then
-		client.server_capabilities.documentFormattingProvider = true
-	end
-
-	if client.name == "html" then
-		client.server.capabilities.textDocument.completion.completionItem.snippetSupport = true
-	end
-
-	if client.name == "tailwindcss" then
-		client.server_capabilities.documentFormattingProvider = false
-	end
-
-	if client.name == "vue" then
-		client.server_capabilities.documentFormattingProvider = true
-	end
-
-	if client.name == "sqlls" then
-		client.server_capabilities.documentFormattingProvider = true
-	end
+	client.server_capabilities.documentFormattingProvider = false
 
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
