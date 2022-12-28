@@ -45,7 +45,6 @@ treesitter.setup({
 		enable = true,
 		disable = { "python", "css", "rust" },
 	},
-	--ensure_installed = "all",
 	ensure_installed = {
 		"java",
 		"rust",
@@ -60,6 +59,7 @@ treesitter.setup({
 		"css",
 		"javascript",
 		"typescript",
+		"tsx",
 		"vim",
 		"help",
 	},

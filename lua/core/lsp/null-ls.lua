@@ -8,10 +8,6 @@ local b = null_ls.builtins
 local sources = {
 	-- forma
 
-	--[[ b.formatting.prettierd.with({
-		extra_filetypes = { "toml" },
-		extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-	}), ]]
 	b.formatting.prettierd,
 	b.formatting.stylua,
 	b.formatting.sql_formatter,
