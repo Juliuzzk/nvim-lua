@@ -63,7 +63,7 @@ neotree.setup({
 	},
 	window = {
 		position = "left",
-		width = 40,
+		width = 30,
 		mappings = {
 			["<2-LeftMouse>"] = "open",
 			["<cr>"] = "open",

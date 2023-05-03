@@ -61,7 +61,7 @@ opt.undofile = true
 -- fin devaslife
 
 -- remove whitespace on save
-cmd [[au BufWritePre * :%s/\s\+$//e]]
+cmd([[au BufWritePre * :%s/\s\+$//e]])
 
 -----------------------------------------------------------
 -- Memory, CPU
@@ -87,19 +87,17 @@ cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
 
 vim.o.termguicolors = true
 vim.opt.termguicolors = true
-vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
-
+vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
+vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
 
 opt.list = false
 opt.listchars = "tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»"
-vim.opt.listchars:append "space:?"
-vim.opt.listchars:append "eol:?"
-
+vim.opt.listchars:append("space:?")
+vim.opt.listchars:append("eol:?")
 
 cmd([[au BufWritePre /tmp/* setlocal noundofile]])
 
@@ -107,9 +105,5 @@ cmd([[au BufWritePre /tmp/* setlocal noundofile]])
 cmd([[au InsertEnter * set cul ]])
 cmd([[au InsertLeave * set nocul ]])
 
-
 -- Cambia internamente los archivos .json a .jsonc con el fin de poder desactivar diagnosticos de lsp en los commentarios
 cmd([[autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc]])
-
-
-

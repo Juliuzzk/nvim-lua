@@ -12,55 +12,66 @@ Version: v1.0 - 2022/10/14
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
--- Improve performance impatient
-require("impatient")
--- Settings
-require("settings") -- settings
--- Keymaps
-require("core/keymaps") -- keymaps
--- Packe Manager
-require("core/packer") -- plugin manager
--- Themes
-require("core/themes/init")
 
--- Utils
-require("plugins/gitsigns") -- git decorations
-require("plugins/nvim-treesitter") -- tree-sitter interface
-require("plugins/autosave") -- autosave
+if vim.g.vscode then
+    -- VSCode extension
+	-- Settings
+	require("settings") -- settings
 
--- LSP Helper
-require("core/lsp/init")
+else
+    -- Ordinary Neovim
+	-- Improve performance impatient
+	require("impatient")
+	-- Settings
+	require("settings") -- settings
+	-- Keymaps
+	require("core/keymaps") -- keymaps
+	-- Packe Manager
+	require("core/packer") -- plugin manager
+	-- Themes
+	require("core/themes/init")
 
--- Comment's
-require("plugins/comment")
+	-- Utils
+	require("plugins/gitsigns") -- git decorations
+	require("plugins/nvim-treesitter") -- tree-sitter interface
+	require("plugins/autosave") -- autosave
 
--- Terminal
-require("plugins/toggleterm") -- toggleterm
+	-- LSP Helper
+	require("core/lsp/init")
 
--- File Explorer
-require("core/explorer/neo-tree") -- file_browser
-require("core/explorer/telescope-nvim") -- telescope
-require("core/explorer/harpoon") -- telescope select
+	-- Comment's
+	require("plugins/comment")
 
--- Alpha Startup
+	-- Terminal
+	require("plugins/toggleterm") -- toggleterm
 
-require("plugins/alpha")
-require("plugins/project") -- Best project management
+	-- File Explorer
+	require("core/explorer/neo-tree") -- file_browser
+	require("core/explorer/telescope-nvim") -- telescope
+	require("core/explorer/harpoon") -- telescope select
 
--- Git Sidebar
-require("plugins/sidebar-nvim")
+	-- Alpha Startup
 
--- Completition
-require("core/cmp/cmp")
+	require("plugins/alpha")
+	require("plugins/project") -- Best project management
 
--- AutoPairs
-require("plugins/autopairs")
+	-- Git Sidebar
+	require("plugins/sidebar-nvim")
 
--- Indetline
-require("plugins/indentline")
+	-- Completition
+	require("core/cmp/cmp")
 
-require("plugins/copilot")
+	-- AutoPairs
+	require("plugins/autopairs")
+
+	-- Indetline
+	require("plugins/indentline")
+
+	require("plugins/copilot")
 
 
+	-- Xbase
+	require("plugins/xbase")
 
+end
 

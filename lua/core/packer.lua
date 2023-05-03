@@ -132,7 +132,18 @@ return require("packer").startup(function(use)
 
 	--------------------------------------------------------
 	--------------------------------------------------------
-
+	use({
+		"xbase-lab/xbase",
+		run = "make install", -- make free_space (not recommended, longer build time)
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("xbase").setup({}) -- see default configuration bellow
+		end,
+	})
 	-- With packer
 	use("tjdevries/colorbuddy.nvim")
 	use("bbenzikry/snazzybuddy.nvim")
@@ -167,10 +178,7 @@ return require("packer").startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	require("colorizer").setup()
 
-
 	use("brooth/far.vim")
-
-
 
 	-- Put this at the end after all plugins
 	use("wbthomason/packer.nvim")
