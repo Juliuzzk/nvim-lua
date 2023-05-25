@@ -1,0 +1,9 @@
+{
+  "dracula.nvim": { "branch": "main", "commit": "26d04c8ced02f02207e7aec1d5730c3a9ebadeeb" },
+  "lazy.nvim": { "branch": "main", "commit": "761b8388af5bcb451e30d886163fcd129278e1d1" },
+  "lualine.nvim": { "branch": "master", "commit": "05d78e9fd0cdfb4545974a5aa14b1be95a86e9c9" },
+  "neo-tree.nvim": { "branch": "v2.x", "commit": "e5594d53986b34e584e8afe2ea6ad99d6f6d2105" },
+  "nui.nvim": { "branch": "main", "commit": "698e75814cd7c56b0dd8af4936bcef2d13807f3c" },
+  "nvim-web-devicons": { "branch": "master", "commit": "e283ab937e0197b37ec5d8013e49495193407324" },
+  "plenary.nvim": { "branch": "master", "commit": "52544825d6b8be677eb395983515ad5e30ae1f2e" }
+}

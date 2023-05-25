@@ -113,14 +113,6 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 -- Neo-Tree
 map("n", "<C-n>", ":Neotree toggle<CR>", default_opts) -- open/close
 
---  Telescope
-map("n", "<leader>ff", ":Telescope find_files<CR>", default_opts)
-map("n", "<leader>fw", ":Telescope live_grep<CR>", default_opts)
---map('n', '<leader>ts', ':Telescope symbols<CR>', default_opts)
-
--- on hesitation, bring up the panel
-map("n", "<C-s>", ":SidebarNvimToggle<CR>", default_opts)
-
 -----------------------------------------------------------
 -- Desactivar algunos keymaps:
 -----------------------------------------------------------
