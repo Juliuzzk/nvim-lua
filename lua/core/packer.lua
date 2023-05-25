@@ -1,4 +1,3 @@
----@diagnostic disable: lowercase-global
 -----------------------------------------------------------
 -- Plugin manager configuration file
 -----------------------------------------------------------
@@ -16,38 +15,7 @@ end
 return require("packer").startup(function(use)
 	-- Plugins a continuacion:
 	-------------------------------------------------------
-	-- Alpha Nvim - Startup Page
-	-- Pantalla de Inicio al abrir Nvim
-	use({
-		"goolord/alpha-nvim",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
-			"ahmedkhalf/project.nvim",
-		},
-	})
-
-	-- Improve performance on startup
-	use("lewis6991/impatient.nvim")
-
-	-- Nvim BufDel
-	-- Permite borrar buffer tab
-	use({ "ojroques/nvim-bufdel" })
-
-	-- Harpoon
-	-- Plugin Utilizado para guardar marks
-	-- esto permite volver a puntos que uno quiera radidamente
-	use({
-		"ThePrimeagen/harpoon",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-lua/popup.nvim",
-		},
-	})
-	-- IndentLin
-	use({ "lukas-reineke/indent-blankline.nvim" })
 	-- Color theme
-	use("EdenEast/nightfox.nvim")
-	use("folke/tokyonight.nvim")
 	use("Mofiqul/dracula.nvim")
 	-- Neo Tree
 	-- Explorador de Archivos
@@ -60,10 +28,6 @@ return require("packer").startup(function(use)
 			"MunifTanjim/nui.nvim",
 		},
 	})
-	-- Git Sidebar
-	-- Barra lateral para visualizar cambios en git y otros
-	use("sidebar-nvim/sidebar.nvim")
-
 	-- Terminal
 	use({
 		"akinsho/toggleterm.nvim",
@@ -74,9 +38,6 @@ return require("packer").startup(function(use)
 	})
 
 	-- Comment
-	-- Plugins para realizar comentarios en varios lenguajes
-	use("numToStr/Comment.nvim")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Completition plugins
 	-- Plugins necesarios para realizar sugerencias de autocompletado
@@ -87,27 +48,12 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
 
-	-- snippets
-	use({ "L3MON4D3/LuaSnip" }) --snippet engine
-	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
-
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
 	use({ "williamboman/mason.nvim" })
 	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate" })
-
-	-- Lsp Java
-	use({ "mfussenegger/nvim-jdtls" })
-
-	-- AutoSave
-	-- Guardado automatico
-	use("Pocco81/auto-save.nvim")
-
-	-- BufferLine
-	-- Linea superior de tabs llamadas buffer
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
 
 	-- LuaLine
 	-- Linea inferior con informacion
@@ -123,27 +69,9 @@ return require("packer").startup(function(use)
 	use("nvim-telescope/telescope-media-files.nvim")
 	use("nvim-telescope/telescope-file-browser.nvim")
 
-	-- Vim Surround
-	use("tpope/vim-surround")
-
-	-- Copilot
-
-	use("github/copilot.vim")
 
 	--------------------------------------------------------
 	--------------------------------------------------------
-	use({
-		"xbase-lab/xbase",
-		run = "make install", -- make free_space (not recommended, longer build time)
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"neovim/nvim-lspconfig",
-		},
-		config = function()
-			require("xbase").setup({}) -- see default configuration bellow
-		end,
-	})
 	-- With packer
 	use("tjdevries/colorbuddy.nvim")
 	use("bbenzikry/snazzybuddy.nvim")
@@ -156,29 +84,9 @@ return require("packer").startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 	-- AutoTags
 	use("windwp/nvim-ts-autotag")
+
 	--  AutoPairs
 	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
-
-	-- git labels
-	use({
-		"lewis6991/gitsigns.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-		config = function()
-			---@diagnostic disable-next-line: different-requires
-			require("gitsigns").setup()
-		end,
-	})
-	-- help for git
-	use("kdheepak/lazygit.nvim")
-
-	-- just
-	use("NoahTheDuke/vim-just")
-	use("IndianBoy42/tree-sitter-just")
-	-- require('tree-sitter-just').setup()
-	use("norcalli/nvim-colorizer.lua")
-	require("colorizer").setup()
-
-	use("brooth/far.vim")
 
 	-- Put this at the end after all plugins
 	use("wbthomason/packer.nvim")

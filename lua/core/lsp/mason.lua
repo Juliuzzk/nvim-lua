@@ -1,5 +1,5 @@
 local servers = {
-	"lua_ls",
+	--[[ "lua_ls", ]]
 	"cssls",
 	"html",
 	"tsserver",
@@ -10,7 +10,9 @@ local servers = {
 	"volar",
 	"tailwindcss",
 	"sqlls",
-	"jsonls"
+	"jsonls",
+	"rust_analyzer",
+	"gopls"
 }
 
 local settings = {

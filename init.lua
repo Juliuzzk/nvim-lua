@@ -12,16 +12,6 @@ Version: v1.0 - 2022/10/14
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
-
-if vim.g.vscode then
-    -- VSCode extension
-	-- Settings
-	require("settings") -- settings
-
-else
-    -- Ordinary Neovim
-	-- Improve performance impatient
-	require("impatient")
 	-- Settings
 	require("settings") -- settings
 	-- Keymaps
@@ -32,15 +22,10 @@ else
 	require("core/themes/init")
 
 	-- Utils
-	require("plugins/gitsigns") -- git decorations
 	require("plugins/nvim-treesitter") -- tree-sitter interface
-	require("plugins/autosave") -- autosave
 
 	-- LSP Helper
 	require("core/lsp/init")
-
-	-- Comment's
-	require("plugins/comment")
 
 	-- Terminal
 	require("plugins/toggleterm") -- toggleterm
@@ -50,28 +35,10 @@ else
 	require("core/explorer/telescope-nvim") -- telescope
 	require("core/explorer/harpoon") -- telescope select
 
-	-- Alpha Startup
-
-	require("plugins/alpha")
-	require("plugins/project") -- Best project management
-
-	-- Git Sidebar
-	require("plugins/sidebar-nvim")
-
 	-- Completition
 	require("core/cmp/cmp")
 
 	-- AutoPairs
 	require("plugins/autopairs")
 
-	-- Indetline
-	require("plugins/indentline")
-
-	require("plugins/copilot")
-
-
-	-- Xbase
-	require("plugins/xbase")
-
-end
 
