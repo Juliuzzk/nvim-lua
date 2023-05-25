@@ -16,19 +16,18 @@ local plugins = {
 		-- Plugins a continuacion:
 	-------------------------------------------------------
 	-- Color theme
-	"Mofiqul/dracula.nvim",
-	-- Neo Tree
-	-- Explorador de Archivos
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-		}
-	},
+	{ "catppuccin/nvim", name = "catppuccin" },
 	-- Linea inferior con informacion
-	"nvim-lualine/lualine.nvim" -- Statusline
+	"nvim-lualine/lualine.nvim", -- Statusline
+	{'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+
+	{
+	"nvim-tree/nvim-tree.lua",
+	  version = "*",
+	  dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	  }
+	}
 
 }
 

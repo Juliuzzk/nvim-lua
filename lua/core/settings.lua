@@ -17,6 +17,7 @@ opt.mouse = "a" -- enable mouse support
 opt.clipboard = "unnamedplus" -- copy/paste to system clipboard
 opt.swapfile = false -- don't use swapfile
 
+
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
@@ -30,6 +31,7 @@ opt.splitbelow = true -- orizontal split to the bottom
 opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.linebreak = true -- wrap on word boundary
 opt.conceallevel = 0
+opt.modifiable = true
 --g.neovide_cursor_vfx_mode = "railgun"
 
 --devaslife

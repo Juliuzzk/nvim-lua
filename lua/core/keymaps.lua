@@ -8,9 +8,9 @@ local default_opts = { noremap = true, silent = true }
 
 -----------------------------------------------------------
 -- Neovim general keymaps:
+--
 -----------------------------------------------------------
 
---
 -- Move selected line / block of text in visual mode
 map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
 map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
@@ -60,18 +60,6 @@ map("n", "<leader>wq", ":wq<CR>", default_opts)
 map("i", "<S-Tab>", "<C-d>", default_opts)
 
 
-
--- normal copy, paste
--- Don't yank on delete char
---map("n", "x", '"_x', default_opts)
---map("n", "X", '"_X', default_opts)
---map("v", "x", '"_x', default_opts)
---map("v", "X", '"_X', default_opts)
-
--- Don't yank on visual paste
---map("v", "p", '"_dP', default_opts)
-
-
 --" Select with shift + arrows
 
 map("i", "<S-Left>", "<Left><C-o>v", default_opts)
@@ -110,14 +98,12 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 -- Aplicaciones y plugins keymaps:
 -----------------------------------------------------------
 
--- Neo-Tree
-map("n", "<C-n>", ":Neotree toggle<CR>", default_opts) -- open/close
-
 -----------------------------------------------------------
 -- Desactivar algunos keymaps:
 -----------------------------------------------------------
 
--- Desactivar algunos mapping map("", "J", "<nop>", { noremap = true })
+-- Desactivar algunos mapping
+--map("", "J", "<nop>", { noremap = true })
 --[[ map("", "q", "<nop>", { noremap = true }) -- recording ]]
 
 

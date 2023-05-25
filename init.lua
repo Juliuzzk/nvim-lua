@@ -15,15 +15,13 @@ Version: v1.0 - 2022/10/14
 
 	require("core/lazy")
 	-- Settingsk
-	require("settings") -- settings
+	require("core/settings") -- settings
 	-- Keymaps
 	require("core/keymaps") -- keymaps
 	-- Themes
 	require("core/themes/init")
-
-	-- File Explorer
-	require("core/explorer/neo-tree") -- file_browser
-
+	-- Neo Tree
+	require("core/explorer/nvim-tree")
 
 -------------- New Lazy
 

@@ -42,7 +42,7 @@ lualine.setup({
 		globalstatus = true,
 		icons_enabled = true,
 		--[[ theme = "auto", ]]
-		theme = "dracula-nvim",
+		theme = "catppuccin",
 		--Separadores
 		--component_separators = { left = "", right = "" },
 		--section_separators = { left = "", right = "" },
