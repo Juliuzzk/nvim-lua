@@ -27,7 +27,8 @@ local plugins = {
 	  dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	  }
-	}
+	},
+
 
 }
 
