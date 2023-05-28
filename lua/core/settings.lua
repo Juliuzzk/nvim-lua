@@ -69,7 +69,7 @@ cmd([[au BufWritePre * :%s/\s\+$//e]])
 -----------------------------------------------------------
 opt.hidden = true -- enable background buffers
 --opt.history = 100 -- remember n lines in history
-opt.lazyredraw = true -- faster scrolling
+opt.lazyredraw = false -- faster scrolling
 opt.synmaxcol = 1000 -- max column for syntax highlight
 
 -----------------------------------------------------------

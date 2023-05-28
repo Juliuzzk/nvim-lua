@@ -17,11 +17,5 @@ Version: v1.0 - 2022/10/14
 require("core/settings") -- settings
 -- Keymaps
 require("core/keymaps") -- keymaps
-
+-- Lazy Init
 require("core/lazy")
--- Themes
---	require("core/themes/init")
--- Neo Tree
---require("core/explorer/nvim-tree")
-
--------------- New Lazy
