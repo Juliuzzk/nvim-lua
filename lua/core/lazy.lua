@@ -12,6 +12,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+--[[
 local plugins = {
 		-- Plugins a continuacion:
 	-------------------------------------------------------
@@ -31,9 +32,22 @@ local plugins = {
 
 
 }
+]]--
 
-local opts = {}
 
+require("lazy").setup("plugins", {
+	  defaults = {
+		lazy = true,
+	  },
+	  checker = {
+		enabled = true,
+		notify = false,
+		frequency = 86400, -- check for updates once a day
+	  },
+	  change_detection = {
+		enabled = true,
+		notify = false,
+	  }
 
-require("lazy").setup(plugins, opts)
+})
 

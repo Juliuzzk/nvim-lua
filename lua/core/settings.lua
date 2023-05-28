@@ -17,7 +17,6 @@ opt.mouse = "a" -- enable mouse support
 opt.clipboard = "unnamedplus" -- copy/paste to system clipboard
 opt.swapfile = false -- don't use swapfile
 
-
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
@@ -109,3 +108,7 @@ cmd([[au InsertLeave * set nocul ]])
 
 -- Cambia internamente los archivos .json a .jsonc con el fin de poder desactivar diagnosticos de lsp en los commentarios
 cmd([[autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc]])
+
+-- recommended settings from nvim-tree documentation
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

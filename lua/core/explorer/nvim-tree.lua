@@ -14,6 +14,9 @@ vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
 
 -- configure nvim-tree
 nvimtree.setup({
+	filters = {
+		custom = {'.DS_Store','node_modules', '.git'},
+	},
   -- change folder arrow icons
   renderer = {
     icons = {

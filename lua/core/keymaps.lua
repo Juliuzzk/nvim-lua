@@ -59,7 +59,6 @@ map("n", "<leader>wq", ":wq<CR>", default_opts)
 -- back tab
 map("i", "<S-Tab>", "<C-d>", default_opts)
 
-
 --" Select with shift + arrows
 
 map("i", "<S-Left>", "<Left><C-o>v", default_opts)
@@ -78,7 +77,6 @@ map("v", "<Left>", "<Esc>", {})
 map("v", "<Right>", "<Esc><Right>", {})
 map("v", "<Up>", "<Esc><Up>", {})
 map("v", "<Down>", "<Esc><Down>", {})
-
 
 -- Move text up and down
 
@@ -106,8 +104,5 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 --map("", "J", "<nop>", { noremap = true })
 --[[ map("", "q", "<nop>", { noremap = true }) -- recording ]]
 
-
-
-
-
-
+vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
