@@ -1,7 +1,60 @@
 return {
+	-- Theme
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		event = "VimEnter",
+		config = function()
+			require("catppuccin").setup({
+				flavour = "frappe", -- latte, frappe, macchiato, mocha
+				background = {
+					-- :h background
+					light = "latte",
+					dark = "mocha",
+				},
+				open_on_setup = true,
+				transparent_background = true,
+				show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+				term_colors = false,
+				dim_inactive = {
+					enabled = false,
+					shade = "dark",
+					percentage = 0.15,
+				},
+				no_italic = false, -- Force no italic
+				no_bold = false, -- Force no bold
+				no_underline = false, -- Force no underline
+				styles = {
+					comments = { "italic" },
+					conditionals = { "italic" },
+					loops = {},
+					functions = {},
+					keywords = {},
+					strings = {},
+					variables = {},
+					numbers = {},
+					booleans = {},
+					properties = {},
+					types = {},
+					operators = {},
+				},
+				color_overrides = {},
+				custom_highlights = {},
+				integrations = {
+					nvimtree = true,
+					telescope = true,
+					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+				},
+			})
+
+			vim.cmd.colorscheme("catppuccin")
+		end,
+		-- setup must be called before loading
+	},
 	-- Better `vim.notify()`
 	{
 		"rcarriga/nvim-notify",
+		enable = false,
 		keys = {
 			{
 				"<leader>un",
@@ -19,6 +72,7 @@ return {
 			max_width = function()
 				return math.floor(vim.o.columns * 0.75)
 			end,
+			background_colour = "#000000",
 		},
 		init = function()
 			-- when noice is not enabled, install notify on VeryLazy
@@ -57,7 +111,6 @@ return {
 		keys = {
 			{ "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
 			{ "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-			x,
 		},
 		opts = {
 			options = {
@@ -311,68 +364,6 @@ return {
 					"i", "n", "s" }
 			},
 		},
-	},
-
-	-- dashboard
-	{
-		"goolord/alpha-nvim",
-		event = "VimEnter",
-		opts = function()
-			local dashboard = require("alpha.themes.dashboard")
-			local logo = [[
-           ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-           ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z
-           ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z
-           ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z
-           ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
-           ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
-      ]]
-
-			dashboard.section.header.val = vim.split(logo, "\n")
-			dashboard.section.buttons.val = {
-				dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-				dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-				dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-				dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-				dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-				dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
-				dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-				dashboard.button("q", " " .. " Quit", ":qa<CR>"),
-			}
-			for _, button in ipairs(dashboard.section.buttons.val) do
-				button.opts.hl = "AlphaButtons"
-				button.opts.hl_shortcut = "AlphaShortcut"
-			end
-			dashboard.section.header.opts.hl = "AlphaHeader"
-			dashboard.section.buttons.opts.hl = "AlphaButtons"
-			dashboard.section.footer.opts.hl = "AlphaFooter"
-			dashboard.opts.layout[1].val = 8
-			return dashboard
-		end,
-		config = function(_, dashboard)
-			-- close Lazy and re-open when the dashboard is ready
-			if vim.o.filetype == "lazy" then
-				vim.cmd.close()
-				vim.api.nvim_create_autocmd("User", {
-					pattern = "AlphaReady",
-					callback = function()
-						require("lazy").show()
-					end,
-				})
-			end
-
-			require("alpha").setup(dashboard.opts)
-
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "LazyVimStarted",
-				callback = function()
-					local stats = require("lazy").stats()
-					local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-					dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
-					pcall(vim.cmd.AlphaRedraw)
-				end,
-			})
-		end,
 	},
 
 	-- lsp symbol navigation for lualine
