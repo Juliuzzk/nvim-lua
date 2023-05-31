@@ -18,8 +18,7 @@ map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 -- Keep visual mode indenting
 map("v", "<", "<gv", default_opts)
 map("v", ">", ">gv", default_opts)
---  close buffer tab
-map("n", "<leader>bd", ":BufDel<CR>", default_opts)
+
 -- clear search highlighting
 map("n", "<leader>c", ":nohl<CR>", default_opts)
 -- reload configuracion
@@ -52,10 +51,6 @@ map("n", "<C-j>", "<C-w>j", default_opts)
 map("n", "<C-k>", "<C-w>k", default_opts)
 map("n", "<C-l>", "<C-w>l", default_opts)
 
--- close all windows and exit from neovim
-map("n", "<leader>qq", ":quitall<CR>", default_opts)
-map("n", "<leader>wq", ":wq<CR>", default_opts)
-
 -- back tab
 map("i", "<S-Tab>", "<C-d>", default_opts)
 
@@ -84,23 +79,14 @@ map("v", "<Down>", "<Esc><Down>", {})
 map("v", "<A-j>", ":m .+1<CR>==", default_opts)
 map("v", "<A-k>", ":m .-2<CR>==", default_opts)
 map("v", "p", '"_dP', default_opts)
-
--- Visual Block --
--- Move text up and down
 map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", default_opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 
 -----------------------------------------------------------
--- Aplicaciones y plugins keymaps:
------------------------------------------------------------
-
------------------------------------------------------------
 -- Desactivar algunos keymaps:
 -----------------------------------------------------------
-
--- Desactivar algunos mapping
 --map("", "J", "<nop>", { noremap = true })
 --[[ map("", "q", "<nop>", { noremap = true }) -- recording ]]
 

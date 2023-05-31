@@ -29,7 +29,7 @@ return {
 
 		local mason_lspconfig = require("mason-lspconfig")
 		mason_lspconfig.setup({
-			ensure_installed = { "cssls", "html", "jsonls", "tsserver" },
+			ensure_installed = { "dockerls", "gopls", "cssls", "html", "jsonls", "tsserver" },
 		})
 		mason_lspconfig.setup_handlers({
 			-- The first entry (without a key) will be the default handler
@@ -182,6 +182,12 @@ return {
 					i = cmp.mapping.abort(),
 					c = cmp.mapping.close(),
 				}),
+				["<C-e>"] = cmp.mapping.abort(),
+				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+				["<S-CR>"] = cmp.mapping.confirm({
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = true,
+				}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			}),
 			snippet = {
 				expand = function(args)

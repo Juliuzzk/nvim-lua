@@ -1,125 +1,169 @@
-
 local M = {}
 
-function M.contains(list, value)
-  for _, v in pairs(list) do
-    if v == value then
-      return true
-    end
-  end
-  return false
-end
-
--- Run commands (e.g. substitution) and restore previous cursor position
-function M.exec_preserving_cursor_pos(command)
-  local current_view = vim.fn.winsaveview()
-  vim.api.nvim_exec('keeppatterns ' .. command, false)
-  vim.fn.histadd('cmd', command)
-  vim.fn.winrestview(current_view)
-end
-
-function M.highlight(group, options)
-  local opts = { bg = 'none', fg = 'none' }
-  if options then
-    opts = vim.tbl_extend('force', opts, options)
-  end
-  vim.api.nvim_set_hl(0, group, opts)
-end
-
 function M.map(mode, lhs, rhs, opts)
-  local options = { silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
+	local options = { silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
---- Closes the current buffer in a "clever" way.
---
--- This function closes the current buffer and switches to the next buffer or
--- the previous one, depending on its position in the buffer list. If the
--- current buffer is the last listed buffer, it switches to the previous buffer
--- (':bp'). Otherwise, it switches to the next buffer (':bn').
---
--- This behavior is based on the original Vimscript mapping found at
--- reddit.com/em9qvv.
-function M.clever_close()
-  -- Get the current buffer number
-  local current_buf = vim.api.nvim_get_current_buf()
+local defaults = {
+	-- load the default settings
+	defaults = {
+		autocmds = true, -- lazyvim.config.autocmds
+		keymaps = true, -- lazyvim.config.keymaps
+		-- lazyvim.config.options can't be configured here since that's loaded before lazyvim setup
+		-- if you want to disable loading options, add `package.loaded["lazyvim.config.options"] = true` to the top of your init.lua
+	},
+	-- icons used by other plugins
+	icons = {
+		dap = {
+			Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+			Breakpoint = " ",
+			BreakpointCondition = " ",
+			BreakpointRejected = { " ", "DiagnosticError" },
+			LogPoint = ".>",
+		},
+		diagnostics = {
+			Error = " ",
+			Warn = " ",
+			Hint = " ",
+			Info = " ",
+		},
+		git = {
+			added = " ",
+			modified = " ",
+			removed = " ",
+		},
+		kinds = {
+			Array = " ",
+			Boolean = " ",
+			Class = " ",
+			Color = " ",
+			Constant = " ",
+			Constructor = " ",
+			Copilot = " ",
+			Enum = " ",
+			EnumMember = " ",
+			Event = " ",
+			Field = " ",
+			File = " ",
+			Folder = " ",
+			Function = " ",
+			Interface = " ",
+			Key = " ",
+			Keyword = " ",
+			Method = " ",
+			Module = " ",
+			Namespace = " ",
+			Null = " ",
+			Number = " ",
+			Object = " ",
+			Operator = " ",
+			Package = " ",
+			Property = " ",
+			Reference = " ",
+			Snippet = " ",
+			String = " ",
+			Struct = " ",
+			Text = " ",
+			TypeParameter = " ",
+			Unit = " ",
+			Value = " ",
+			Variable = " ",
+		},
+	},
+}
 
-  -- Get the list of all buffer numbers
-  local listed_buffers = vim.api.nvim_list_bufs()
+M.root_patterns = { ".git", "lua" }
 
-  -- Initialize the last listed buffer variable
-  local last_listed_buf = nil
-
-  -- Iterate through the buffer list to find the last listed buffer
-  for _, buf in ipairs(listed_buffers) do
-    if vim.api.nvim_buf_get_option(buf, 'buflisted') then
-      last_listed_buf = buf
-    end
-  end
-
-  -- If the current buffer is the last listed buffer, switch to the previous buffer
-  if current_buf == last_listed_buf then
-    vim.cmd 'bp'
-    -- Otherwise, switch to the next buffer
-  else
-    vim.cmd 'bn'
-  end
-
-  -- Delete the buffer that was originally current
-  vim.cmd 'bd #'
+-- returns the root directory based on:
+-- * lsp workspace folders
+-- * lsp root_dir
+-- * root pattern of filename of the current buffer
+-- * root pattern of cwd
+---@return string
+function M.get_root()
+	---@type string?
+	local path = vim.api.nvim_buf_get_name(0)
+	path = path ~= "" and vim.loop.fs_realpath(path) or nil
+	---@type string[]
+	local roots = {}
+	if path then
+		for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+			local workspace = client.config.workspace_folders
+			local paths = workspace and vim.tbl_map(function(ws)
+				return vim.uri_to_fname(ws.uri)
+			end, workspace) or client.config.root_dir and { client.config.root_dir } or {}
+			for _, p in ipairs(paths) do
+				local r = vim.loop.fs_realpath(p)
+				if path:find(r, 1, true) then
+					roots[#roots + 1] = r
+				end
+			end
+		end
+	end
+	table.sort(roots, function(a, b)
+		return #a > #b
+	end)
+	---@type string?
+	local root = roots[1]
+	if not root then
+		path = path and vim.fs.dirname(path) or vim.loop.cwd()
+		---@type string?
+		root = vim.fs.find(M.root_patterns, { path = path, upward = true })[1]
+		root = root and vim.fs.dirname(root) or vim.loop.cwd()
+	end
+	---@cast root string
+	return root
 end
 
---- Switches to the next or previous buffer based on the given direction.
--- This function switches the buffer `count` times in the specified direction ('next' or 'previous').
--- It sets a mark in the current buffer before switching, allowing you to return to the original buffer
--- with <C-o>. It does nothing if the current buffer's `buftype` is not empty.
--- @param direction string: 'next' or 'previous', indicating the direction to switch the buffer
-function M.switch_buffer(direction)
-  if vim.bo.buftype ~= '' then
-    return
-  end
+-- better telescope function, taken from lazyvim config
+-- this will return a function that calls telescope.
+-- cwd will default to lazyvim.util.get_root
+-- for `files`, git_files or find_files will be chosen depending on .git
+function M.telescope(builtin, opts)
+	local params = { builtin = builtin, opts = opts }
+	return function()
+		builtin = params.builtin
+		opts = params.opts
+		opts = vim.tbl_deep_extend("force", { cwd = M.get_root() }, opts or {})
+		if builtin == "files" then
+			if vim.loop.fs_stat((opts.cwd or vim.loop.cwd()) .. "/.git") then
+				opts.show_untracked = true
+				builtin = "git_files"
+			else
+				builtin = "find_files"
+			end
+		end
+		if opts.cwd and opts.cwd ~= vim.loop.cwd() then
+			opts.attach_mappings = function(_, map)
+				map("i", "<a-c>", function()
+					local action_state = require("telescope.actions.state")
+					local line = action_state.get_current_line()
+					M.telescope(
+						params.builtin,
+						vim.tbl_deep_extend("force", {}, params.opts or {}, { cwd = false, default_text = line })
+					)()
+				end)
+				return true
+			end
+		end
 
-  local count = vim.v.count1 > 0 and vim.v.count1 or 1
-  local bufnr = vim.api.nvim_get_current_buf()
-  local total_buffers = vim.fn.bufnr '$'
-
-  -- Set a mark in the current buffer
-  vim.cmd "normal! m'"
-
-  for _ = 1, count do
-    repeat
-      if direction == 'next' then
-        bufnr = bufnr % total_buffers + 1
-      else
-        bufnr = bufnr - 1
-        if bufnr < 1 then
-          bufnr = total_buffers
-        end
-      end
-    until vim.fn.buflisted(bufnr) == 1
-  end
-
-  vim.cmd('keepjumps ' .. 'buf ' .. bufnr)
+		require("telescope.builtin")[builtin](opts)
+	end
 end
 
---- Highlight an entire row for a specified duration.
--- @param start_row (number): The starting row number to highlight.
--- @param end_row (number): The ending row number to highlight.
--- @param duration (number): The duration in milliseconds for which the row should be highlighted (default: 200).
--- @param hl_group (string): The highlight group to use for highlighting (default: 'Visual').
-function M.flash(start_row, end_row, duration, hl_group)
-  hl_group = hl_group or 'Visual'
-  duration = duration or 200
+local options
 
-  local ns_id = vim.api.nvim_create_namespace 'row_highlight'
-  vim.highlight.range(0, ns_id, hl_group, { start_row, 0 }, { end_row, -1 })
-
-  vim.defer_fn(function()
-    vim.api.nvim_buf_clear_namespace(0, ns_id, start_row, end_row + 1)
-  end, duration)
-end
+setmetatable(M, {
+	__index = function(_, key)
+		if options == nil then
+			return vim.deepcopy(defaults)[key]
+		end
+		return options[key]
+	end,
+})
 
 return M

@@ -41,7 +41,6 @@ return {
 				color_overrides = {},
 				custom_highlights = {},
 				integrations = {
-					nvimtree = true,
 					telescope = true,
 					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 				},
@@ -54,7 +53,7 @@ return {
 	-- Better `vim.notify()`
 	{
 		"rcarriga/nvim-notify",
-		enable = false,
+		enabled = true,
 		keys = {
 			{
 				"<leader>un",
@@ -74,20 +73,12 @@ return {
 			end,
 			background_colour = "#000000",
 		},
-		init = function()
-			-- when noice is not enabled, install notify on VeryLazy
-			local Util = require("util.util")
-			if not Util.has("noice.nvim") then
-				Util.on_very_lazy(function()
-					vim.notify = require("notify")
-				end)
-			end
-		end,
 	},
 
 	-- better vim.ui
 	{
 		"stevearc/dressing.nvim",
+		enable = false,
 		lazy = true,
 		init = function()
 			---@diagnostic disable-next-line: duplicate-set-field
@@ -121,7 +112,7 @@ return {
 				diagnostics = "nvim_lsp",
 				always_show_bufferline = false,
 				diagnostics_indicator = function(_, _, diag)
-					local icons = require("config").icons.diagnostics
+					local icons = require("utils").icons.diagnostics
 					local ret = (diag.error and icons.Error .. diag.error .. " " or "")
 						.. (diag.warning and icons.Warn .. diag.warning or "")
 					return vim.trim(ret)
@@ -141,10 +132,11 @@ return {
 	-- statusline
 	{
 		"nvim-lualine/lualine.nvim",
+		enabled = true,
 		event = "VeryLazy",
 		opts = function()
-			local icons = require("config").icons
-			local Util = require("util.util")
+			local icons = require("utils").icons
+			local Util = require("utils")
 
 			return {
 				options = {
@@ -192,24 +184,20 @@ return {
 								return package.loaded["noice"] and
 									require("noice").api.status.command.has()
 							end,
-							color = Util.fg("Statement"),
 						},
 						-- stylua: ignore
 						{
 							function() return require("noice").api.status.mode.get() end,
 							cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-							color = Util.fg("Constant"),
 						},
 						-- stylua: ignore
 						{
 							function() return "  " .. require("dap").status() end,
 							cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-							color = Util.fg("Debug"),
 						},
 						{
 							require("lazy.status").updates,
 							cond = require("lazy.status").has_updates,
-							color = Util.fg("Special"),
 						},
 						{
 							"diff",
@@ -271,38 +259,26 @@ return {
 	-- noicer ui
 	{
 		"folke/noice.nvim",
+		enabled = true,
 		event = "VeryLazy",
-		dependencies = {
-			-- which key integration
-			{
-				"folke/which-key.nvim",
-				--[[
-				opts = function(_, opts)
-					if require("util").has("noice.nvim") then
-						opts.defaults["<leader>sn"] = { name = "+noice" }
-					end
-				end,
-				]]
-				--
-			},
-		},
+
 		opts = {
 			lsp = {
 				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = true,
+					["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+					["vim.lsp.util.stylize_markdown"] = false,
+					["cmp.entry.get_documentation"] = false,
 				},
 			},
-			routes = {
-				{
-					filter = {
-						event = "msg_show",
-						find = "%d+L, %d+B",
-					},
-					view = "mini",
-				},
-			},
+			-- routes = {
+			-- 	{
+			-- 		filter = {
+			-- 			event = "msg_show",
+			-- 			find = "%d+L, %d+B",
+			-- 		},
+			-- 		view = "mini",
+			-- 	},
+			-- },
 			presets = {
 				bottom_search = true,
 				command_palette = true,
@@ -355,8 +331,6 @@ return {
 			},
 			{
 				"<c-b>",
-				function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end,
-				silent = true,
 				expr = true,
 				desc =
 				"Scroll backward",
@@ -364,28 +338,6 @@ return {
 					"i", "n", "s" }
 			},
 		},
-	},
-
-	-- lsp symbol navigation for lualine
-	{
-		"SmiteshP/nvim-navic",
-		lazy = true,
-		init = function()
-			vim.g.navic_silence = true
-			require("util.util").on_attach(function(client, buffer)
-				if client.server_capabilities.documentSymbolProvider then
-					require("nvim-navic").attach(client, buffer)
-				end
-			end)
-		end,
-		opts = function()
-			return {
-				separator = " ",
-				highlight = true,
-				depth_limit = 5,
-				icons = require("config").icons.kinds,
-			}
-		end,
 	},
 
 	-- icons

@@ -51,7 +51,6 @@ Nvim Personal Config
 - ggVG: seleccionar todo el archivo
 
 #### Vim Surround
-
 - cs\<a\>\<b\>: Cambia bracket a por b, solamenta usado para carecteres de cierre, "'{[(
 - ysiw\<a\>: Encierra una palabra entre a
   -i: Corresponde a la cantidad de palabras a encerrar, i = 1, se puede cambiar por 2,3,4..n
