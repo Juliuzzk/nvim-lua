@@ -6,8 +6,9 @@
   ██║██║╚██╗██║██║   ██║   ██║     ██║   ██║██╔══██║
   ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
-Nvim init file
-Version: v1.0 - 2022/10/14
+Nvim Init File
+Version: v1.1 - 2023/04/01
+Minimalist and personal nvim config, based on LazyVim Config.
 --]]
 -----------------------------------------------------------
 -- Import Lua modules
@@ -16,6 +17,6 @@ Version: v1.0 - 2022/10/14
 -- Settingsk
 require("core/settings") -- settings
 -- Keymaps
-require("core/keymaps") -- keymaps
+require("core/keymaps")  -- keymaps
 -- Lazy Init
 require("core/lazy")
