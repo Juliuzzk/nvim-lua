@@ -64,7 +64,8 @@ return {
 			},
 		},
 		opts = {
-			timeout = 3000,
+			timeout = 500,
+			render = "compact",
 			max_height = function()
 				return math.floor(vim.o.lines * 0.75)
 			end,
@@ -270,15 +271,6 @@ return {
 					["cmp.entry.get_documentation"] = false,
 				},
 			},
-			-- routes = {
-			-- 	{
-			-- 		filter = {
-			-- 			event = "msg_show",
-			-- 			find = "%d+L, %d+B",
-			-- 		},
-			-- 		view = "mini",
-			-- 	},
-			-- },
 			presets = {
 				bottom_search = true,
 				command_palette = true,

@@ -274,7 +274,7 @@ return {
 				diagnostics.jsonlint,
 
 				-- Prettier
-				formatting.prettierd,
+				formatting.prettier,
 
 				-- Shellcheck
 				code_actions.shellcheck,
