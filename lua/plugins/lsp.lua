@@ -66,6 +66,10 @@ return {
 						nmap("<leader>r", vim.lsp.buf.rename, "Rename symbol under cursor")
 						nmap("<leader>ca", vim.lsp.buf.code_action, "Apply Code Action to symbol under cursor")
 
+						-- Format
+
+						nmap("<leader>fo", vim.lsp.buf.format, "Format file")
+
 						-- List commands
 						nmap("<leader>d", require("telescope.builtin").diagnostics, "Show all diagnostics")
 						nmap(

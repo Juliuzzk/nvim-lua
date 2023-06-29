@@ -17,6 +17,6 @@ Minimalist and personal nvim config, based on LazyVim Config.
 -- Settingsk
 require("core/settings") -- settings
 -- Keymaps
-require("core/keymaps")  -- keymaps
+require("core/keymaps") -- keymaps
 -- Lazy Init
 require("core/lazy")

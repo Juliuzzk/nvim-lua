@@ -15,6 +15,14 @@ return {
 				desc = "Explorer NeoTree (root dir)",
 			},
 			{
+				"<leader>fb",
+				function()
+					require("neo-tree.command").execute({ toggle = true, dir = require("utils").get_root() })
+				end,
+				desc = "Explorer NeoTree (root dir)",
+			},
+
+			{
 				"<leader>fE",
 				function()
 					require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
@@ -128,11 +136,6 @@ return {
 			{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
 			{ "<leader>sw", Util.telescope("grep_string"), desc = "Word (root dir)" },
 			{ "<leader>sW", Util.telescope("grep_string", { cwd = false }), desc = "Word (cwd)" },
-			{
-				"<leader>uC",
-				Util.telescope("colorscheme", { enable_preview = true }),
-				desc = "Colorscheme with preview",
-			},
 			{
 				"<leader>ss",
 				Util.telescope("lsp_document_symbols", {
