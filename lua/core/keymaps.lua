@@ -20,9 +20,7 @@ map("v", "<", "<gv", default_opts)
 map("v", ">", ">gv", default_opts)
 
 -- clear search highlighting
-map("n", "<leader>c", ":nohl<CR>", default_opts)
--- reload configuracion
-map("n", "<leader>r", ":source % <CR>", default_opts)
+map("n", "<leader>fc", ":nohl <CR><CR>", default_opts)
 
 -- don't use arrow keys
 --<nop>
@@ -35,10 +33,6 @@ map("i", "<C-h>", "<left>", default_opts)
 map("i", "<C-j>", "<down>", default_opts)
 map("i", "<C-k>", "<up>", default_opts)
 map("i", "<C-l>", "<right>", default_opts)
-
--- fast saving with <leader> and s
-map("n", "<leader>ss", ":w<CR>", default_opts)
---map("i", "<leader>s", "<C-c>:w<CR>", default_opts)
 
 -- move around splits using Ctrl + {h,j,k,l}
 map("n", "<C-h>", "<C-w>h", default_opts)
@@ -55,7 +49,6 @@ map("n", "<C-l>", "<C-w>l", default_opts)
 map("i", "<S-Tab>", "<C-d>", default_opts)
 
 --" Select with shift + arrows
-
 map("i", "<S-Left>", "<Left><C-o>v", default_opts)
 map("i", "<S-Right>", "<C-o>v", default_opts)
 map("i", "<S-Up>", "<Left><C-o>v<Up><Right>", default_opts)
@@ -74,7 +67,6 @@ map("v", "<Up>", "<Esc><Up>", {})
 map("v", "<Down>", "<Esc><Down>", {})
 
 -- Move text up and down
-
 --  A = shift
 map("v", "<A-j>", ":m .+1<CR>==", default_opts)
 map("v", "<A-k>", ":m .-2<CR>==", default_opts)

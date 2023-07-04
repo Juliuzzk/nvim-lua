@@ -31,9 +31,6 @@ opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.linebreak = true -- wrap on word boundary
 opt.conceallevel = 0
 opt.modifiable = true
---g.neovide_cursor_vfx_mode = "railgun"
-
---devaslife
 
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
@@ -46,7 +43,6 @@ opt.showcmd = true
 opt.cmdheight = 1
 opt.laststatus = 2
 opt.scrolloff = 10
-opt.shell = "fish"
 opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 opt.inccommand = "split"
 opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
@@ -59,7 +55,6 @@ opt.wildignore:append({ "*/node_modules/*" })
 
 opt.formatoptions:append({ "r" })
 opt.undofile = true
--- fin devaslife
 
 -- remove whitespace on save
 cmd([[au BufWritePre * :%s/\s\+$//e]])
