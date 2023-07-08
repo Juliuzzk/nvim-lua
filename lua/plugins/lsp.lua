@@ -29,7 +29,7 @@ return {
 
 		local mason_lspconfig = require("mason-lspconfig")
 		mason_lspconfig.setup({
-			ensure_installed = { "dockerls", "gopls", "cssls", "html", "jsonls", "tsserver" },
+			ensure_installed = { "dockerls", "cssls", "html", "jsonls", "tsserver" },
 		})
 		mason_lspconfig.setup_handlers({
 			-- The first entry (without a key) will be the default handler
@@ -259,13 +259,6 @@ return {
 				})
 			end,
 			sources = {
-				-- Eslint
-				--code_actions.eslint_d,
-				--diagnostics.eslint_d.with({
-				--		filter = function(diagnostic)
-				--				return diagnostic.code ~= "prettier/prettier" -- ignore prettier warnings from eslint-plugin-prettier
-				--		end,
-				--	}),
 				formatting.eslint_d,
 
 				-- Fixjson
