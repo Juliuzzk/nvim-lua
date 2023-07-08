@@ -19,6 +19,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"williamboman/mason.nvim",
 		"windwp/nvim-autopairs",
+		"rafamadriz/friendly-snippets",
 	},
 	config = function()
 		local map = require("utils").map
@@ -67,7 +68,6 @@ return {
 						nmap("<leader>ca", vim.lsp.buf.code_action, "Apply Code Action to symbol under cursor")
 
 						-- Format
-
 						nmap("<leader>fo", vim.lsp.buf.format, "Format file")
 
 						-- List commands
