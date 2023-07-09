@@ -139,7 +139,6 @@ return {
 		event = "VeryLazy",
 		opts = function()
 			local icons = require("utils").icons
-			local Util = require("utils")
 
 			return {
 				options = {
