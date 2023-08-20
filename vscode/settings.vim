@@ -29,3 +29,7 @@ nnoremap <silent> <C-w>_ :<C-u>call VSCodeNotify('workbench.action.toggleEditorW
 
 nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
 xnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
+
+nnoremap <silent> <Tab> :call VSCodeNotify('workbench.action.nextEditor')<CR>
+nnoremap <silent> <S-Tab> :call VSCodeNotify('workbench.action.previousEditor')<CR>
+
