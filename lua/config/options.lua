@@ -9,9 +9,9 @@
 -----------------------------------------------------------
 -- Neovim API aliases
 -----------------------------------------------------------
-local cmd = vim.cmd -- execute Vim commands
 local g = vim.g -- global variables
 local opt = vim.opt -- global/buffer/windows-scoped options
+local o = vim.o
 
 -- -----------------------------------------------------------
 -- -- General
@@ -60,9 +60,6 @@ opt.wildignore:append({ "*/node_modules/*" })
 opt.formatoptions:append({ "r" })
 opt.undofile = true
 
--- remove whitespace on save
-cmd([[au BufWritePre * :%s/\s\+$//e]])
-
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
@@ -79,35 +76,12 @@ opt.shiftwidth = 4 -- shift 4 spaces when tab
 opt.tabstop = 4 -- 1 tab == 4 spaces
 opt.smartindent = false -- autoindent new lines
 
--- don't auto commenting new lines
-cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
-
--- remove line lenght marker for selected filetypes
-cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
-
-vim.o.termguicolors = true
-vim.opt.termguicolors = true
-vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
-
+o.termguicolors = true
+opt.termguicolors = true
 opt.list = false
 opt.listchars = "tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»"
-vim.opt.listchars:append("space:?")
-vim.opt.listchars:append("eol:?")
-
-cmd([[au BufWritePre /tmp/* setlocal noundofile]])
-
--- Insert Line
-cmd([[au InsertEnter * set cul ]])
-cmd([[au InsertLeave * set nocul ]])
-
--- Cambia internamente los archivos .json a .jsonc con el fin de poder desactivar diagnosticos de lsp en los commentarios
-cmd([[autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc]])
-
+opt.listchars:append("space:?")
+opt.listchars:append("eol:?")
 -- recommended settings from nvim-tree documentation
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- opt.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1

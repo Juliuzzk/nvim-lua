@@ -23,11 +23,12 @@ map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 map("v", "<", "<gv", default_opts)
 map("v", ">", ">gv", default_opts)
 
--- clear search highlighting
+-- Clear search highlighting
 map("n", "<leader>fc", ":nohl <CR>", default_opts)
 
---Save
+-- Save
 map("n", "<leader>ss", ":w<CR>", default_opts)
+
 -- don't use arrow keys
 --<nop>
 map("", "<up>", "<up>", { noremap = true })
@@ -40,21 +41,21 @@ map("i", "<C-j>", "<down>", default_opts)
 map("i", "<C-k>", "<up>", default_opts)
 map("i", "<C-l>", "<right>", default_opts)
 
--- move around splits using Ctrl + {h,j,k,l}
+-- Move around splits using Ctrl + {h,j,k,l}
 map("n", "<C-h>", "<C-w>h", default_opts)
 map("n", "<C-j>", "<C-w>j", default_opts)
 map("n", "<C-k>", "<C-w>k", default_opts)
 map("n", "<C-l>", "<C-w>l", default_opts)
 
-map("n", "<C-h>", "<C-w>h", default_opts)
-map("n", "<C-j>", "<C-w>j", default_opts)
-map("n", "<C-k>", "<C-w>k", default_opts)
-map("n", "<C-l>", "<C-w>l", default_opts)
+-- map("n", "<C-h>", "<C-w>h", default_opts)
+-- map("n", "<C-j>", "<C-w>j", default_opts)
+-- map("n", "<C-k>", "<C-w>k", default_opts)
+-- map("n", "<C-l>", "<C-w>l", default_opts)
 
--- back tab
+-- Back tab
 map("i", "<S-Tab>", "<C-d>", default_opts)
 
---" Select with shift + arrows
+-- Select with shift + arrows
 map("i", "<S-Left>", "<Left><C-o>v", default_opts)
 map("i", "<S-Right>", "<C-o>v", default_opts)
 map("i", "<S-Up>", "<Left><C-o>v<Up><Right>", default_opts)
@@ -82,6 +83,9 @@ map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", default_opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 
+-- Move between tabs
+map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", default_opts)
+map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", default_opts)
 -----------------------------------------------------------
 -- Desactivar algunos keymaps:
 -----------------------------------------------------------
@@ -90,10 +94,8 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 --map("", "J", "<nop>", { noremap = true })
 --[[ map("", "q", "<nop>", { noremap = true }) -- recording ]]
 
-vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
-vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
+-- Windows
 
--- windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
 map("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
