@@ -15,4 +15,7 @@ return {
   { "noice.nvim", enabled = false },
 
   { "folke/flash.nvim", enabled = false }, -- disable search labels
+
+  -- Auto pairs, disabled
+  { "mini.surround", enabled = false }, -- disable search labels
 }
