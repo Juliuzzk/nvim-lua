@@ -13,6 +13,11 @@ Nvim Personal Config
   - %: todo el archivo
   - '<,'>s: dentro del bloque visual
 
+- Para realizar reemplazo en todos los archivos de mi ruta actual:
+	- :cfdo %s/Antigua/Nueva/g | update
+- Podemos realizar una busqueda masiva de todas las ocurrencias con:
+	- :grep antigua *
+
 #### Ejecutar Comando
 
 - :g/palabra/normal dd
