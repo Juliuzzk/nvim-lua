@@ -9,79 +9,97 @@
 -----------------------------------------------------------
 -- Neovim API aliases
 -----------------------------------------------------------
-local g = vim.g -- global variables
-local opt = vim.opt -- global/buffer/windows-scoped options
+local g = vim.g -- Variables globales
+local opt = vim.opt -- Opciones globales/buffer/ventana
 local o = vim.o
 
--- -----------------------------------------------------------
--- -- General
--- -----------------------------------------------------------
-g.mapleader = " " --change leader to a space
-opt.mouse = "a" -- enable mouse support
-opt.clipboard = "unnamedplus" -- copy/paste to system clipboard
-opt.swapfile = false -- don't use swapfile
-
------------------------------------------------------------
--- Neovim UI
------------------------------------------------------------
-opt.number = true -- show line number
-opt.relativenumber = false -- show line number
-opt.showmatch = true -- highlight matching parenthesis
-opt.foldmethod = "marker" -- enable folding (default 'foldmarker')
-opt.colorcolumn = "80" -- line lenght marker at 80 columns
-opt.splitright = true -- vertical split to the right
-opt.splitbelow = true -- orizontal split to the bottom
-opt.smartcase = true -- ignore lowercase for the whole pattern
-opt.linebreak = true -- wrap on word boundary
+-- Cambia el líder de los atajos de teclado a un espacio
+g.mapleader = " "
+-- Habilita el soporte del mouse en modo normal
+opt.mouse = "a"
+-- Copia y pega en el portapapeles del sistema operativo
+opt.clipboard = "unnamedplus"
+-- Desactiva la creación de archivos de intercambio
+opt.swapfile = false
+-- Muestra el número de línea
+opt.number = true
+-- Desactiva los números de línea relativa
+opt.relativenumber = false
+-- Resalta el paréntesis coincidente
+opt.showmatch = true
+-- Habilita el plegado de código usando marcadores
+opt.foldmethod = "marker"
+-- Coloca un marcador en la columna 80 para indicar la longitud máxima de línea
+opt.colorcolumn = "80"
+-- Divide verticalmente las ventanas a la derecha
+opt.splitright = true
+-- Divide horizontalmente las ventanas en la parte inferior
+opt.splitbelow = true
+-- Ignora la diferencia entre mayúsculas y minúsculas en las búsquedas
+opt.smartcase = true
+-- Divide las líneas en los espacios de palabra
+opt.linebreak = true
+-- Desactiva el nivel de ocultación de caracteres
 opt.conceallevel = 0
+-- Habilita la edición de archivos
 opt.modifiable = true
-
+-- Codificación UTF-8 para entrada/salida de archivos
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
-
+-- Muestra el título de la ventana en la barra de título
 opt.title = true
+-- Ajusta la indentación automáticamente
 opt.autoindent = true
+-- Resalta la búsqueda mientras escribe
 opt.hlsearch = true
+-- Oculta los archivos de respaldo
 opt.backup = false
+-- Muestra los comandos en la barra de estado
 opt.showcmd = true
+-- Altura mínima de la línea de comandos
 opt.cmdheight = 1
+-- Muestra la línea de estado incluso con una sola ventana abierta
 opt.laststatus = 2
+-- Desplazamiento mínimo al final y al inicio de la ventana
 opt.scrolloff = 10
+-- Omite los archivos temporales del control de cambios
 opt.backupskip = { "/tmp/*", "/private/tmp/*" }
+-- Muestra el resultado de los comandos mientras escribes
 opt.inccommand = "split"
-opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
+-- Ignora la diferencia entre mayúsculas y minúsculas en las búsquedas
+opt.ignorecase = true
+-- Utiliza la tecla Tab inteligentemente
 opt.smarttab = true
+-- Indenta los comentarios al dividir líneas
 opt.breakindent = true
-opt.wrap = false -- No Wrap lines
+-- Desactiva el ajuste de líneas automáticas
+opt.wrap = false
+-- Define cómo se comporta la tecla Retroceso
 opt.backspace = { "start", "eol", "indent" }
-opt.path:append({ "**" }) -- Finding files - Search down into subfolders
+-- Busca en subcarpetas al buscar archivos
+opt.path:append({ "**" })
+-- Ignora las carpetas de node_modules al buscar archivos
 opt.wildignore:append({ "*/node_modules/*" })
-
-opt.formatoptions:append({ "r" })
+-- Permite la escritura de archivos de deshacer
 opt.undofile = true
-
------------------------------------------------------------
--- Memory, CPU
------------------------------------------------------------
-opt.hidden = true -- enable background buffers
---opt.history = 100 -- remember n lines in history
-opt.lazyredraw = false -- faster scrolling
-opt.synmaxcol = 1000 -- max column for syntax highlight
-
------------------------------------------------------------
--- Tabs, indent
------------------------------------------------------------
-opt.expandtab = false -- use spaces instead of tabs
-opt.shiftwidth = 4 -- shift 4 spaces when tab
-opt.tabstop = 4 -- 1 tab == 4 spaces
-opt.smartindent = false -- autoindent new lines
-
+-- Habilita los buffers de fondo
+opt.hidden = true
+-- Desactiva el redibujado diferido para un desplazamiento más rápido
+opt.lazyredraw = false
+-- Establece el número máximo de columnas para el resaltado de sintaxis
+opt.synmaxcol = 1000
+-- Utiliza espacios en lugar de tabulaciones
+opt.expandtab = false
+-- Establece la cantidad de espacios para una tabulación
+opt.shiftwidth = 4
+-- Establece el ancho de una tabulación
+opt.tabstop = 4
+-- Desactiva la indentación inteligente automática
+opt.smartindent = false
+-- Activa los colores de terminal verdadero
 o.termguicolors = true
-opt.termguicolors = true
+-- Desactiva la visualización de caracteres especiales
 opt.list = false
-opt.listchars = "tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»"
+-- Agrega caracteres de visualización adicionales
 opt.listchars:append("space:?")
 opt.listchars:append("eol:?")
--- recommended settings from nvim-tree documentation
--- opt.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
