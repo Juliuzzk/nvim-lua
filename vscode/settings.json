@@ -1,0 +1,187 @@
+
+{
+  // Neovim Config
+
+  // Mac Os
+  // "vscode-neovim.neovimExecutablePaths.darwin" : "/usr/local/bin/nvim",
+  // "vscode-neovim.neovimInitVimPaths.darwin" : "$HOME/.config/nvim/init.lua",
+
+  // Windows
+  // If this causes Neovim to crash inside VSCode, try removing the first line.
+  // It worked for me when I removed the executable path for Neovim
+  //   "vscode-neovim.neovimExecutablePaths.win32" : "C:\\Program Files\\Neovim\\bin/nvim-qt.exe",
+  "vscode-neovim.neovimInitVimPaths.win32" : "C:/Users/Julio/AppData/Local/nvim/init.lua",
+
+
+
+  "whichkey.delay": 0,
+  "whichkey.sortOrder": "alphabetically",
+  "whichkey.bindings": [
+      {
+      "key": ";",
+      "name": "commands",
+      "type": "command",
+      "command": "workbench.action.showCommands"
+      },
+      {
+      "key": "k",
+      "name": "Close active editor",
+      "type": "command",
+      "command": "workbench.action.closeActiveEditor"
+      },
+      {
+      "key": "q",
+      "name": "Kill Terminal",
+      "type": "command",
+      "command": "workbench.action.terminal.kill"
+      },
+      {
+      "key": "t",
+      "name": "Toggle Terminal",
+      "type": "command",
+      "command": "workbench.action.togglePanel"
+      },
+      {
+      "key": "b",
+      "name": "Buffers/Editors...",
+      "type": "bindings",
+      "bindings": [
+          {
+          "key": "b",
+          "name": "Show all buffers/editors",
+          "type": "command",
+          "command": "workbench.action.showAllEditors"
+          },
+          {
+          "key": "m",
+          "name": "Close other editors",
+          "type": "command",
+          "command": "workbench.action.closeOtherEditors"
+          },
+          {
+          "key": "u",
+          "name": "Reopen closed editor",
+          "type": "command",
+          "command": "workbench.action.reopenClosedEditor"
+          },
+          {
+          "key": "y",
+          "name": "Copy buffer to clipboard",
+          "type": "commands",
+          "commands": [
+              "editor.action.selectAll",
+              "editor.action.clipboardCopyAction",
+              "cancelSelection"
+          ]
+          }
+      ]
+      },
+      {
+      "key": "e",
+      "name": "Toggle Explorer",
+      "type": "command",
+      "command": "workbench.action.toggleSidebarVisibility"
+      },
+      {
+      "key": "f",
+      "name": "Find & Replace...",
+      "type": "bindings",
+      "bindings": [
+          {
+          "key": "f",
+          "name": "File",
+          "type": "command",
+          "command": "editor.action.startFindReplaceAction"
+          },
+          {
+          "key": "s",
+          "name": "Symbol",
+          "type": "command",
+          "command": "editor.action.rename",
+          "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+          },
+          {
+          "key": "p",
+          "name": "Project",
+          "type": "command",
+          "command": "workbench.action.replaceInFiles"
+          }
+      ]
+      },
+      {
+      "key": "h",
+      "name": "Split Horizontal",
+      "type": "command",
+      "command": "workbench.action.splitEditorDown"
+      },
+      {
+      "key": "s",
+      "name": "Search...",
+      "type": "bindings",
+      "bindings": [
+          {
+          "key": "f",
+          "name": "files",
+          "type": "command",
+          "command": "workbench.action.quickOpen"
+          },
+          {
+          "key": "t",
+          "name": "text",
+          "type": "command",
+          "command": "workbench.action.findInFiles"
+          }
+      ]
+      },
+      {
+      "key": "v",
+      "name": "Split Vertical",
+      "type": "command",
+      "command": "workbench.action.splitEditor"
+      },
+      {
+      "key": "z",
+      "name": "Toggle zen mode",
+      "type": "command",
+      "command": "workbench.action.toggleZenMode"
+      }
+  ],
+  "files.exclude": {
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true
+  },
+  // Fin Neovim Config
+
+
+  // Editor Config
+  "editor.suggestSelection": "first",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.cursorBlinking": "solid",
+  "terminal.external.osxExec": "iTerm.app",
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.formatOnSave": true,
+  "editor.guides.indentation": false,
+  "indenticator.width": 0.1,
+  "editor.matchBrackets": "never",
+  "workbench.activityBar.iconClickBehavior": "toggle",
+
+  "breadcrumbs.enabled": false,
+  "workbench.startupEditor": "none",
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.enabled": false,
+"security.workspace.trust.emptyWindow": false,
+"vscode-neovim.logOutputToConsole": true,
+"vscode-neovim.logPath": "C:\\Users\\Julio\\AppData\\Local\\nvim\\vscode\\",
+"window.zoomLevel": -1,
+"[handlebars]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+
+  // Fin  Editor Config
+}
+
