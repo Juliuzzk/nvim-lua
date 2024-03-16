@@ -1,9 +1,3 @@
-call plug#begin()
-
-
-call plug#end()
-
-
 set clipboard=unnamedplus
 
 " Better copy, paste and cut

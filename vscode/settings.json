@@ -3,6 +3,7 @@
   // Neovim Config
 
   // Mac Os
+  // If this causes Neovim to crash inside VSCode, try removing the first line.
   // "vscode-neovim.neovimExecutablePaths.darwin" : "/usr/local/bin/nvim",
   // "vscode-neovim.neovimInitVimPaths.darwin" : "$HOME/.config/nvim/init.lua",
 
