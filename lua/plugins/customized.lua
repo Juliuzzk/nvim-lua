@@ -5,7 +5,13 @@ return {
       return {}
     end,
   },
-
+  {
+    "rafamadriz/friendly-snippets",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip").filetype_extend("javascriptreact", { "html" })
+    end,
+  },
   {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema

@@ -2,7 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -----------------------------------------------------
---
 -- Keymaps configuration file: keymaps of neovim
 -- and plugins.
 -----------------------------------------------------------
@@ -12,7 +11,6 @@ local default_opts = { noremap = true, silent = true }
 
 -----------------------------------------------------------
 -- Neovim general keymaps:
---
 -----------------------------------------------------------
 
 -- Move selected line / block of text in visual mode
