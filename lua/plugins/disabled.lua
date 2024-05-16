@@ -1,6 +1,6 @@
 return {
   -- UI PLUGINS
-  { "which-key.nvim", enabled = true },
+  { "which-key.nvim", enabled = false },
   { "bufferline.nvim", enabled = true },
   { "lualine.nvim", enabled = true },
   { "indent-blankline.nvim", enabled = true },

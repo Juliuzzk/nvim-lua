@@ -18,7 +18,7 @@ cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
 cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 
 -- Elimina el marcador de longitud de línea para tipos de archivo seleccionados
-cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
+-- cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
 
 -- Elimina los archivos temporales del control de cambios
 cmd([[au BufWritePre /tmp/* setlocal noundofile]])
