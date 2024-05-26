@@ -3,7 +3,7 @@ return {
   { "which-key.nvim", enabled = false },
   { "bufferline.nvim", enabled = true },
   { "lualine.nvim", enabled = true },
-  { "indent-blankline.nvim", enabled = true },
+  { "indent-blankline.nvim", enabled = false },
   { "mini.indentscope", enabled = true },
   { "nvim-web-devicons", enabled = true },
   { "nui.nvim", enabled = true },

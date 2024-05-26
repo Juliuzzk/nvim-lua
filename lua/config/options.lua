@@ -94,8 +94,8 @@ opt.expandtab = false
 opt.shiftwidth = 4
 -- Establece el ancho de una tabulación
 opt.tabstop = 4
--- Desactiva la indentación inteligente automática
-opt.smartindent = false
+-- Indentación inteligente automática
+opt.smartindent = true
 -- Activa los colores de terminal verdadero
 o.termguicolors = true
 -- Desactiva la visualización de caracteres especiales
