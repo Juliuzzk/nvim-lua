@@ -45,11 +45,6 @@ map("n", "<C-j>", "<C-w>j", default_opts)
 map("n", "<C-k>", "<C-w>k", default_opts)
 map("n", "<C-l>", "<C-w>l", default_opts)
 
--- map("n", "<C-h>", "<C-w>h", default_opts)
--- map("n", "<C-j>", "<C-w>j", default_opts)
--- map("n", "<C-k>", "<C-w>k", default_opts)
--- map("n", "<C-l>", "<C-w>l", default_opts)
-
 -- Back tab
 map("i", "<S-Tab>", "<C-d>", default_opts)
 
@@ -87,11 +82,6 @@ map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", default_opts)
 -----------------------------------------------------------
 -- Desactivar algunos keymaps:
 -----------------------------------------------------------
---map("", "y", "<nop>", { noremap = true })
-
---map("", "J", "<nop>", { noremap = true })
---[[ map("", "q", "<nop>", { noremap = true }) -- recording ]]
-
 -- Windows
 
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
