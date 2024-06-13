@@ -1,14 +1,13 @@
 return {
     -- UI PLUGINS
-    { "which-key.nvim", enabled = false },
     { "bufferline.nvim", enabled = true },
     { "lualine.nvim", enabled = true },
-    { "indent-blankline.nvim", enabled = false },
-    { "mini.indentscope", enabled = true },
     { "nvim-web-devicons", enabled = true },
     { "nui.nvim", enabled = true },
-    -- No activar, se pitea la busqueda con /
-    { "stevearc/dressing.nvim", enabled = true },
+
+    -- DISABLED
+    { "indent-blankline.nvim", enabled = false },
+    { "which-key.nvim", enabled = false },
     { "nvim-notify", enabled = false },
     -- { "folke/noice.nvim", enabled = false },
     { "dashboard-nvim", enabled = false },
@@ -16,7 +15,10 @@ return {
 
     { "folke/flash.nvim", enabled = false }, -- disable search labels
     -- Auto pairs, disabled
-    { "mini.surround", enabled = false }, -- disable search labels
+    -- { "mini.surround", enabled = true }, -- disable search labels
+    -- No activar, se pitea la busqueda con /
+    { "stevearc/dressing.nvim", enabled = true },
+    { "mini.indentscope", enabled = false },
 
     -- TESTING
     {
