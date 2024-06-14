@@ -15,6 +15,11 @@ local o = vim.o
 
 -- Cambia el líder de los atajos de teclado a un espacio
 g.mapleader = " "
+
+-- Transparencia del menú emergente de completado automático (0-100)
+opt.pumblend = 0
+-- Transparencia de las ventanas flotantes (0-100)
+opt.winblend = 0
 -- Habilita el soporte del mouse en modo normal
 opt.mouse = "a"
 -- Copia y pega en el portapapeles del sistema operativo
