@@ -74,7 +74,7 @@ opt.inccommand = "split"
 -- Ignora la diferencia entre mayúsculas y minúsculas en las búsquedas
 opt.ignorecase = true
 -- Utiliza la tecla Tab inteligentemente
-opt.smarttab = true
+opt.smarttab = false
 -- Indenta los comentarios al dividir líneas
 opt.breakindent = true
 -- Desactiva el ajuste de líneas automáticas
