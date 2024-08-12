@@ -2,7 +2,7 @@
 
 ## Configuracion personal de Nvim
 
-From 0 to Hero
+From 0 to Testing2
 Nvim Personal Config
 
 ### KeyMaps
@@ -51,6 +51,7 @@ Nvim Personal Config
 - ggVG: seleccionar todo el archivo
 
 #### Vim Surround
+
 - cs\<a\>\<b\>: Cambia bracket a por b, solamenta usado para carecteres de cierre, "'{[(
 - ysiw\<a\>: Encierra una palabra entre a
   -i: Corresponde a la cantidad de palabras a encerrar, i = 1, se puede cambiar por 2,3,4..n
