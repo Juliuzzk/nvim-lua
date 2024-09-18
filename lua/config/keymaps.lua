@@ -24,9 +24,6 @@ map("v", ">", ">gv", default_opts)
 -- Clear search highlighting
 map("n", "<leader>fc", ":nohl <CR>", default_opts)
 
--- Save
-map("n", "<leader>ss", ":w<CR>", default_opts)
-
 -- don't use arrow keys
 --<nop>
 map("", "<up>", "<up>", { noremap = true })

@@ -52,7 +52,7 @@ opt.modifiable = true
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 -- Muestra el título de la ventana en la barra de título
-opt.title = true
+opt.title = false
 -- Ajusta la indentación automáticamente
 opt.autoindent = true
 -- Resalta la búsqueda mientras escribe

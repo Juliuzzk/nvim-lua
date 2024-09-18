@@ -46,7 +46,6 @@ return {
         end,
     },
     -- TokyoNight
-
     {
         "folke/tokyonight.nvim",
         config = function()
