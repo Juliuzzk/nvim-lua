@@ -84,7 +84,7 @@ return {
         end,
 
         templates = {
-            subdir = "templates",
+            subdir = "Templates",
             date_format = "%Y-%m-%d-%a",
             gtime_format = "%H:%M",
             tags = "",
