@@ -1,4 +1,5 @@
 return {
+    -- TESTING
     -- UI PLUGINS
     { "bufferline.nvim", enabled = true },
     { "lualine.nvim", enabled = true },
