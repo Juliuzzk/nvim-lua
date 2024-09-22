@@ -8,7 +8,7 @@ return {
     keys = {
         { "<leader>no", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian" },
         { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "New note" },
-        { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search notes" },
+        -- { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search notes" },
         { "<leader>nt", "<cmd>ObsidianTags<cr>", desc = "List notes by tags" },
         {
             "<leader>nq",
@@ -41,12 +41,6 @@ return {
             template = "note",
         },
         mappings = {
-            ["gd"] = {
-                action = function()
-                    return require("obsidian").util.gf_passthrough()
-                end,
-                opts = { noremap = false, expr = true, buffer = true },
-            },
             -- "Obsidian follow"
             ["<leader>nf"] = {
                 action = function()
@@ -61,19 +55,19 @@ return {
                 end,
                 opts = { buffer = true },
             },
-            -- Create a new newsletter issue
-            ["<leader>nn"] = {
-                action = function()
-                    return require("obsidian").commands.new_note("daily")
-                end,
-                opts = { buffer = true },
-            },
-            ["<leader>nnt"] = {
-                action = function()
-                    return require("obsidian").util.insert_template("daily")
-                end,
-                opts = { buffer = true },
-            },
+            -- -- Create a new newsletter issue
+            -- ["<leader>nn"] = {
+            --     action = function()
+            --         return require("obsidian").commands.new_note("daily")
+            --     end,
+            --     opts = { buffer = true },
+            -- },
+            -- ["<leader>nnt"] = {
+            --     action = function()
+            --         return require("obsidian").util.insert_template("daily")
+            --     end,
+            --     opts = { buffer = true },
+            -- },
         },
         note_frontmatter_func = function(note)
             -- This is equivalent to the default frontmatter function.
