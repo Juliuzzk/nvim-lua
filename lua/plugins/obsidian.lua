@@ -16,18 +16,12 @@ return {
             desc = "Quick switch in obsidian workspace",
         },
         {
-            "<leader>nw",
-            "<cmd>ObsidianWorkspace work<cr>",
-            desc = "Change to workspace work in obsidian",
-        },
-        {
             "<leader>np",
-            "<cmd>ObsidianWorkspace personal<cr>",
-            desc = "Change to workspace home in obsidian",
+            "<cmd>ObsidianWorkspace Notes<cr>",
+            desc = "Change to workspace work in obsidian",
         },
     },
     opts = {
-
         workspaces = {
             {
                 name = "Notes",
@@ -70,13 +64,13 @@ return {
             -- Create a new newsletter issue
             ["<leader>nn"] = {
                 action = function()
-                    return require("obsidian").commands.new_note("Newsletter-Issue")
+                    return require("obsidian").commands.new_note("daily")
                 end,
                 opts = { buffer = true },
             },
             ["<leader>nnt"] = {
                 action = function()
-                    return require("obsidian").util.insert_template("Newsletter-Issue")
+                    return require("obsidian").util.insert_template("daily")
                 end,
                 opts = { buffer = true },
             },
