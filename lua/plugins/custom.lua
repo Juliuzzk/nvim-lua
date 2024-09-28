@@ -13,6 +13,7 @@ return {
         -- Comprobar si la extensión es 'md'
         if file_ext == "md" then
             -- Ejecutar el comando para eliminar el archivo y cerrar el buffer
+            vim.cmd("w")
             vim.cmd("!rm '" .. vim.fn.expand("%:p") .. "'")
             vim.cmd("bd")
         else
