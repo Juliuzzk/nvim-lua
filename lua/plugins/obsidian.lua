@@ -45,7 +45,7 @@ return {
         "nvim-lua/plenary.nvim",
     },
     keys = {
-        { "<leader>no", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian" },
+        -- { "<leader>no", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian" },
         { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "New note" },
         -- { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search notes" },
         { "<leader>nt", "<cmd>ObsidianTags<cr>", desc = "List notes by tags" },
