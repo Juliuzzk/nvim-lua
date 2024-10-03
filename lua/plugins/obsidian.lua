@@ -1,45 +1,10 @@
-local function createNoteWithDefaultTemplate()
-    local TEMPLATE_FILENAME = "daily"
-    local obsidian = require("obsidian").get_client()
-    local utils = require("obsidian.util")
-
-    -- prevent Obsidian.nvim from injecting it's own frontmatter table
-    obsidian.opts.disable_frontmatter = true
-
-    -- prompt for note title
-    -- @see: borrowed from obsidian.command.new
-    local note
-    local title = utils.input("Enter title or path (optional): ")
-    if not title then
-        return
-    elseif title == "" then
-        title = nil
-    end
-
-    note = obsidian:create_note({ title = title, no_write = true })
-
-    if not note then
-        return
-    end
-    -- open new note in a buffer
-    obsidian:open_note(note, { sync = true })
-    -- NOTE: make sure the template folder is configured in Obsidian.nvim opts
-    obsidian:write_note_to_buffer(note, { template = TEMPLATE_FILENAME })
-    -- hack: delete empty lines before frontmatter; template seems to be injected at line 2
-    vim.api.nvim_buf_set_lines(0, 0, 1, false, {})
-end
-
 return {
     "epwalsh/obsidian.nvim",
     enabled = true,
     version = "*", -- recommended, use latest release instead of latest commit
+    ft = "markdown",
     -- init = function()
-    --     vim.keymap.set(
-    --         "n",
-    --         "<leader>nn",
-    --         createNoteWithDefaultTemplate,
-    --         { desc = "[N]ew Obsidian [N]ote" }
-    --     )
+    --
     -- end,
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -55,11 +20,6 @@ return {
             "<cmd>ObsidianQuickSwitch<cr>",
             desc = "Quick switch in obsidian workspace",
         },
-        -- {
-        --     "<leader>np",
-        --     "<cmd>ObsidianWorkspace Notes<cr>",
-        --     desc = "Change to workspace work in obsidian",
-        -- },
     },
     opts = {
         workspaces = {
@@ -72,8 +32,8 @@ return {
             nvim_cmp = true,
             min_chars = 2,
         },
-        notes_subdir = "Varios",
-        new_notes_location = "Varios",
+        notes_subdir = "00-09 Inbox/Quick Notes",
+        new_notes_location = "00-09 Inbox/01 Quick Notes",
         attachments = {
             img_folder = "files",
         },
@@ -162,10 +122,13 @@ return {
         end,
 
         templates = {
-            subdir = "Templates",
+            subdir = "30-39 Resources/31 Templates",
             date_format = "%Y-%m-%d-%a",
             gtime_format = "%H:%M",
             tags = "",
+        },
+        ui = {
+            enable = false,
         },
     },
 }

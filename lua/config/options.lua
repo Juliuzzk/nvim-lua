@@ -45,7 +45,7 @@ opt.smartcase = true
 -- Divide las líneas en los espacios de palabra
 opt.linebreak = true
 -- Desactiva el nivel de ocultación de caracteres
-opt.conceallevel = 1
+opt.conceallevel = 2
 -- Habilita la edición de archivos
 opt.modifiable = true
 -- Codificación UTF-8 para entrada/salida de archivos
