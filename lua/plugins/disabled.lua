@@ -1,9 +1,11 @@
 return {
+    -- TESTING
     -- UI PLUGINS
     { "bufferline.nvim", enabled = true },
     { "lualine.nvim", enabled = true },
     { "nvim-web-devicons", enabled = true },
     { "nui.nvim", enabled = true },
+    { "indent-blankline.nvim", enabled = true },
     { "stevearc/dressing.nvim", enabled = true },
     {
         "noice.nvim",
@@ -57,11 +59,8 @@ return {
     },
 
     -- DISABLED
-    { "indent-blankline.nvim", enabled = false },
     { "which-key.nvim", enabled = false },
     { "nvim-notify", enabled = false },
     { "dashboard-nvim", enabled = false },
     { "folke/flash.nvim", enabled = false }, -- disable search labels
-    -- No activar, se pitea la busqueda con /
-    { "mini.indentscope", enabled = false },
 }

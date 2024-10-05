@@ -45,14 +45,14 @@ opt.smartcase = true
 -- Divide las líneas en los espacios de palabra
 opt.linebreak = true
 -- Desactiva el nivel de ocultación de caracteres
-opt.conceallevel = 0
+opt.conceallevel = 2
 -- Habilita la edición de archivos
 opt.modifiable = true
 -- Codificación UTF-8 para entrada/salida de archivos
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 -- Muestra el título de la ventana en la barra de título
-opt.title = true
+opt.title = false
 -- Ajusta la indentación automáticamente
 opt.autoindent = true
 -- Resalta la búsqueda mientras escribe
