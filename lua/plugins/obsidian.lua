@@ -32,7 +32,7 @@ return {
             nvim_cmp = true,
             min_chars = 2,
         },
-        notes_subdir = "00-09 Inbox/Quick Notes",
+        notes_subdir = "00-09 Inbox/01 Quick Notes",
         new_notes_location = "00-09 Inbox/01 Quick Notes",
         attachments = {
             img_folder = "files",

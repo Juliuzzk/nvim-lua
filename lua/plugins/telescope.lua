@@ -1,7 +1,6 @@
 return {
     {
         "telescope.nvim",
-
         keys = {
             -- Re map Grep
             { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find Words" },
@@ -24,6 +23,7 @@ return {
                     "node_modules",
                     "poetry.lock",
                     "package.lock.json",
+                    ".obsidian",
                 },
             },
         },

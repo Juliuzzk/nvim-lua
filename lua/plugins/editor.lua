@@ -1,5 +1,18 @@
 return {
     {
+        "Exafunction/codeium.nvim",
+        enabled = true,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+
+        config = function()
+            require("codeium").setup({})
+        end,
+    },
+
+    {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
@@ -43,5 +56,25 @@ return {
         config = function()
             require("render-markdown").setup({})
         end,
+    },
+    {
+        "OXY2DEV/markview.nvim",
+        enabled = false,
+        lazy = false, -- Recommended
+        -- ft = "markdown" -- If you decide to lazy-load anyway
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons",
+        },
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        enabled = true,
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
     },
 }
