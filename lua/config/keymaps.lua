@@ -1,6 +1,6 @@
 -- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -----------------------------------------------------
 -- Keymaps configuration file: keymaps of neovim
 -- and plugins.
@@ -24,10 +24,11 @@ map("v", ">", ">gv", default_opts)
 -- Clear search highlighting
 -- map("n", "<leader>fc", ":nohl <CR>", default_opts)
 
-map("", "<up>", "<up>", { noremap = true })
-map("", "<down>", "<down>", { noremap = true })
-map("", "<left>", "<left>", { noremap = true })
-map("", "<right>", "<right>", { noremap = true })
+-- Comentado el dia 20/10
+-- map("", "<up>", "<up>", { noremap = true })
+-- map("", "<down>", "<down>", { noremap = true })
+-- map("", "<left>", "<left>", { noremap = true })
+-- map("", "<right>", "<right>", { noremap = true })
 
 map("i", "<C-h>", "<left>", default_opts)
 map("i", "<C-j>", "<down>", default_opts)
@@ -41,7 +42,8 @@ map("n", "<C-k>", "<C-w>k", default_opts)
 map("n", "<C-l>", "<C-w>l", default_opts)
 
 -- Back tab
-map("i", "<S-Tab>", "<C-d>", default_opts)
+-- Comentado el dia 20/10
+-- map("i", "<S-Tab>", "<C-d>", default_opts)
 
 -- Select with shift + arrows
 map("i", "<S-Left>", "<Left><C-o>v", default_opts)
