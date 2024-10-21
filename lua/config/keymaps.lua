@@ -74,14 +74,3 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 -- Move between tabs
 map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", default_opts)
 map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", default_opts)
------------------------------------------------------------
--- Desactivar algunos keymaps:
------------------------------------------------------------
--- Windows
-
-map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
-map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
-map("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
-map("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })
-map("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
-map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
