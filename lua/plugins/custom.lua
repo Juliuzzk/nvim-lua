@@ -42,4 +42,7 @@ return {
         -- Obtener la extensión del archivo actual
         vim.cmd("!open 'obsidian://open?vault=My Vault'")
     end, { desc = "Open in Obsidian", noremap = true, silent = true }),
+
+    vim.keymap.set("n", '<leader>w"', "<C-W>s", { desc = "Split Window Below" }),
+    vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split Window Right" }),
 }

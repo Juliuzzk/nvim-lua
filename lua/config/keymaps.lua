@@ -1,6 +1,6 @@
 -- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -----------------------------------------------------
 -- Keymaps configuration file: keymaps of neovim
 -- and plugins.
@@ -24,10 +24,11 @@ map("v", ">", ">gv", default_opts)
 -- Clear search highlighting
 -- map("n", "<leader>fc", ":nohl <CR>", default_opts)
 
-map("", "<up>", "<up>", { noremap = true })
-map("", "<down>", "<down>", { noremap = true })
-map("", "<left>", "<left>", { noremap = true })
-map("", "<right>", "<right>", { noremap = true })
+-- Comentado el dia 20/10
+-- map("", "<up>", "<up>", { noremap = true })
+-- map("", "<down>", "<down>", { noremap = true })
+-- map("", "<left>", "<left>", { noremap = true })
+-- map("", "<right>", "<right>", { noremap = true })
 
 map("i", "<C-h>", "<left>", default_opts)
 map("i", "<C-j>", "<down>", default_opts)
@@ -41,7 +42,8 @@ map("n", "<C-k>", "<C-w>k", default_opts)
 map("n", "<C-l>", "<C-w>l", default_opts)
 
 -- Back tab
-map("i", "<S-Tab>", "<C-d>", default_opts)
+-- Comentado el dia 20/10
+-- map("i", "<S-Tab>", "<C-d>", default_opts)
 
 -- Select with shift + arrows
 map("i", "<S-Left>", "<Left><C-o>v", default_opts)
@@ -74,14 +76,3 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 -- Move between tabs
 map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", default_opts)
 map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", default_opts)
------------------------------------------------------------
--- Desactivar algunos keymaps:
------------------------------------------------------------
--- Windows
-
-map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
-map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
-map("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
-map("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })
-map("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
-map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
