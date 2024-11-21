@@ -21,6 +21,7 @@ return {
                 file_ignore_patterns = {
                     ".git/",
                     "node_modules",
+                    "vendor",
                     "poetry.lock",
                     "package.lock.json",
                     ".obsidian",

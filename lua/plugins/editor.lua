@@ -77,4 +77,7 @@ return {
         end,
         ft = { "markdown" },
     },
+    {
+        "LunarVim/bigfile.nvim",
+    },
 }
