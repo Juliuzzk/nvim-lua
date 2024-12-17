@@ -9,6 +9,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
+
     keys = {
         -- { "<leader>no", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian" },
         { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "New note" },

@@ -1,12 +1,19 @@
 return {
+    -- REVISADOS
+    -- SI VAN
+    -- { "bufferline.nvim", enabled = true },
+    -- { "lualine.nvim", enabled = true },
+    -- { "nui.nvim", enabled = true },
+    -- NO VAN
+    -- DESCONTINUADOS
+    -- { "stevearc/dressing.nvim", enabled = true },
+    -- { "nvim-notify", enabled = false },
+    -- FIN REVISADOS
+    -- { "nvim-web-devicons", enabled = true },
     -- TESTING
     -- UI PLUGINS
-    { "bufferline.nvim", enabled = true },
-    { "lualine.nvim", enabled = true },
-    { "nvim-web-devicons", enabled = true },
-    { "nui.nvim", enabled = true },
-    { "indent-blankline.nvim", enabled = true },
-    { "stevearc/dressing.nvim", enabled = true },
+    -- { "indent-blankline.nvim", enabled = false },
+
     {
         "noice.nvim",
         enabled = true,
@@ -60,7 +67,5 @@ return {
 
     -- DISABLED
     { "which-key.nvim", enabled = false },
-    { "nvim-notify", enabled = false },
-    { "dashboard-nvim", enabled = false },
-    { "folke/flash.nvim", enabled = false }, -- disable search labels
+    { "folke/flash.nvim", enabled = true }, -- disable search labels
 }

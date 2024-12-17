@@ -1,5 +1,5 @@
--- LSP keymaps
 return {
+    -- LSP keymaps
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
         local keys = require("lazyvim.plugins.lsp.keymaps").get()
