@@ -81,7 +81,14 @@ map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", default_opts)
 
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
-map("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
+-- map("n", '<leader>w"', "<C-W>s", { desc = "Split window below" })
 map("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })
-map("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
-map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
+map(
+    "n",
+    "<leader><Right>",
+    ":vertical resize +5<CR>",
+    { desc = "Increase window size to the right" }
+)
+map("n", "<leader><Left>", ":vertical resize -5<CR>", { desc = "Decrease window size to the left" })
+map("n", "<leader><Down>", ":resize +5<CR>", { desc = "Increase window size downward" })
+map("n", "<leader><Up>", ":resize -5<CR>", { desc = "Decrease window size upward" })

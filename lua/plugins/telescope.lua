@@ -1,6 +1,7 @@
 return {
     {
         "telescope.nvim",
+        enabled = true,
         keys = {
             -- Re map Grep
             { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find Words" },
