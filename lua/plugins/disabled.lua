@@ -29,7 +29,11 @@ return {
                 view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
             },
             lsp = {
-
+                diagnostics = {
+                    enabled = true, -- controls if the lsp module shows diagnostics
+                    -- show on hover
+                    hover_with_actions = true,
+                },
                 progress = {
                     enabled = false,
                 },
