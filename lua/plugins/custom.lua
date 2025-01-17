@@ -13,8 +13,20 @@ return {
         -- Comprobar si la extensión es 'md'
         if file_ext == "md" then
             -- Ejecutar el comando para eliminar el archivo y cerrar el buffer
+            local current_buf = vim.fn.bufnr()
             vim.cmd("w")
             vim.cmd("!rm '" .. vim.fn.expand("%:p") .. "'")
+
+            -- Moverse al siguiente buffer disponible
+            local next_buf = vim.fn.bufnr("#") -- Obtiene el último buffer usado
+            if next_buf > 0 and vim.fn.buflisted(next_buf) == 1 then
+                vim.cmd("buffer " .. next_buf) -- Cambia al siguiente buffer
+            else
+                vim.cmd("bnext") -- Cambia al siguiente buffer en la lista
+            end
+
+            -- Cerrar el buffer actual
+            vim.cmd("bd " .. current_buf)
             vim.cmd("bd")
         else
             -- Mensaje de advertencia si el archivo no es .md

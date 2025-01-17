@@ -5,7 +5,10 @@ return {
         opts = function(_, opts)
             opts = opts or {}
             opts.diagnostics = opts.diagnostics or {}
+            opts.inlay_hint = opts.inlay_hint or {}
 
+            -- disabled inlay_hint
+            opts.inlay_hint = { enabled = false }
             -- Añadir configuración para diagnostics
             opts.diagnostics.float = {
                 border = "rounded",

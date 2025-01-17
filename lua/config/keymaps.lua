@@ -65,7 +65,7 @@ map("v", "<Down>", "<Esc><Down>", {})
 --  A = shift
 map("v", "<A-j>", ":m .+1<CR>==", default_opts)
 map("v", "<A-k>", ":m .-2<CR>==", default_opts)
-map("v", "p", '"_dP', default_opts)
+-- map("v", "p", '"_dP', default_opts)
 map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", default_opts)
@@ -92,3 +92,12 @@ map(
 map("n", "<leader><Left>", ":vertical resize -5<CR>", { desc = "Decrease window size to the left" })
 map("n", "<leader><Down>", ":resize +5<CR>", { desc = "Increase window size downward" })
 map("n", "<leader><Up>", ":resize -5<CR>", { desc = "Decrease window size upward" })
+
+-- Modo normal: evita sobrescribir el registro cuando borras con `x` o `d`
+
+-- map("n", "x", '"_x', { noremap = true, silent = true })
+map("n", "d", '"_d', { noremap = true, silent = true })
+
+-- Modo visual: evita sobrescribir el registro cuando borras con `d`
+-- map("v", "x", '"_d', { noremap = true, silent = true })
+map("v", "d", '"_d', { noremap = true, silent = true })

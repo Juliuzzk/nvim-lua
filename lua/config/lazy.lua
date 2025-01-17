@@ -5,9 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
-
 -- local custom = require("../custom/register.lua")
-
 require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins
@@ -19,6 +17,7 @@ require("lazy").setup({
         -- import/override with your plugins
         { import = "plugins" },
     },
+    change_detection = { notify = false },
     defaults = {
         -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
         -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
@@ -44,5 +43,8 @@ require("lazy").setup({
                 "zipPlugin",
             },
         },
+    },
+    ui = {
+        border = "rounded",
     },
 })
