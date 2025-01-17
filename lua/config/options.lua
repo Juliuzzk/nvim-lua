@@ -40,8 +40,7 @@ opt.colorcolumn = "80"
 opt.splitright = true
 -- Divide horizontalmente las ventanas en la parte inferior
 opt.splitbelow = true
--- Ignora la diferencia entre mayúsculas y minúsculas en las búsquedas
-opt.smartcase = true
+-- Ignora la diferencia entre mayúsculas y minúsculas en las búsquedas opt.smartcase = true
 -- Divide las líneas en los espacios de palabra
 opt.linebreak = true
 -- Desactiva el nivel de ocultación de caracteres
