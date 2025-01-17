@@ -67,7 +67,7 @@ map("v", "<Down>", "<Esc><Down>", {})
 --  A = shift
 map("v", "<A-j>", ":m .+1<CR>==", default_opts)
 map("v", "<A-k>", ":m .-2<CR>==", default_opts)
-map("v", "p", '"_dP', default_opts)
+-- map("v", "p", '"_dP', default_opts)
 map("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 map("x", "K", ":move '<-2<CR>gv-gv", default_opts)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", default_opts)
@@ -76,3 +76,32 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", default_opts)
 -- Move between tabs
 map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", default_opts)
 map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", default_opts)
+
+-----------------------------------------------------------
+-- Desactivar algunos keymaps:
+-----------------------------------------------------------
+-- Windows
+
+map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
+map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
+-- map("n", '<leader>w"', "<C-W>s", { desc = "Split window below" })
+map("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })
+map(
+    "n",
+    "<leader><Right>",
+    ":vertical resize +5<CR>",
+    { desc = "Increase window size to the right" }
+)
+map("n", "<leader><Left>", ":vertical resize -5<CR>", { desc = "Decrease window size to the left" })
+map("n", "<leader><Down>", ":resize +5<CR>", { desc = "Increase window size downward" })
+map("n", "<leader><Up>", ":resize -5<CR>", { desc = "Decrease window size upward" })
+
+-- Modo normal: evita sobrescribir el registro cuando borras con `x` o `d`
+
+-- map("n", "x", '"_x', { noremap = true, silent = true })
+map("n", "d", '"_d', { noremap = true, silent = true })
+
+-- Modo visual: evita sobrescribir el registro cuando borras con `d`
+-- map("v", "x", '"_d', { noremap = true, silent = true })
+map("v", "d", '"_d', { noremap = true, silent = true })
+

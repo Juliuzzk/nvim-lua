@@ -1,6 +1,7 @@
 return {
     {
         "telescope.nvim",
+        enabled = true,
         keys = {
             -- Re map Grep
             { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find Words" },
@@ -21,6 +22,7 @@ return {
                 file_ignore_patterns = {
                     ".git/",
                     "node_modules",
+                    "vendor",
                     "poetry.lock",
                     "package.lock.json",
                     ".obsidian",

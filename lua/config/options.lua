@@ -83,7 +83,7 @@ opt.backspace = { "start", "eol", "indent" }
 -- Busca en subcarpetas al buscar archivos
 opt.path:append({ "**" })
 -- Ignora las carpetas de node_modules al buscar archivos
-opt.wildignore:append({ "*/node_modules/*" })
+opt.wildignore:append({ "*/node_modules/*", "*/vendor/*" })
 -- Permite la escritura de archivos de deshacer
 opt.undofile = true
 -- Habilita los buffers de fondo

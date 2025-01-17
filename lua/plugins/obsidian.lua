@@ -9,9 +9,28 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
+
     keys = {
         -- { "<leader>no", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian" },
-        { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "New note" },
+        {
+            "<leader>nn",
+            function()
+                -- Verificar si estás en un buffer de neo-tree
+                if vim.bo.filetype == "neo-tree" then
+                    -- Cambiar al último buffer activo antes de abrir uno nuevo
+                    vim.cmd("wincmd p") -- Cambia a la ventana previa
+                    vim.cmd("enew") -- Abre un buffer nuevo
+                    vim.cmd("ObsidianNew") -- Ejecuta el comando para crear una nueva nota
+                else
+                    -- Si no estás en neo-tree, abre un buffer nuevo directamente
+                    vim.cmd("enew")
+                    vim.cmd("ObsidianNew")
+                end
+            end,
+            desc = "Open a new buffer and create a new note",
+        },
+
+        -- { "<leader>nn", "<cmd>ObsidianNew<cr>", desc = "New note" },
         -- { "<leader>ns", "<cmd>ObsidianSearch<cr>", desc = "Search notes" },
         { "<leader>nt", "<cmd>ObsidianTags<cr>", desc = "List notes by tags" },
         -- { "<leader>nn", "createNoteWithDefaultTemplate", desc = "[N]ew Obsidian [N]ote" },
@@ -24,8 +43,8 @@ return {
     opts = {
         workspaces = {
             {
-                name = "Notes",
                 path = "/Users/Julio/Library/Mobile Documents/iCloud~md~obsidian/Documents/My Vault",
+                name = "Notes",
             },
         },
         completion = {
