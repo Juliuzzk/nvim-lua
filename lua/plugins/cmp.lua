@@ -14,6 +14,7 @@ return {
     },
     {
         "hrsh7th/nvim-cmp",
+        enabled = true,
         ---@param opts cmp.ConfigSchema
         opts = function(_, opts)
             table.insert(opts.sources, 1, {
