@@ -8,7 +8,7 @@ return {
             opts.inlay_hint = opts.inlay_hint or {}
 
             -- disabled inlay_hint
-            opts.inlay_hint = { enabled = false }
+            opts.inlay_hints = { enabled = false }
             -- Añadir configuración para diagnostics
             opts.diagnostics.float = {
                 border = "rounded",
