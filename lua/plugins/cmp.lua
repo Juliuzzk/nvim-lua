@@ -18,7 +18,7 @@ return {
         ---@param opts cmp.ConfigSchema
         opts = function(_, opts)
             table.insert(opts.sources, 1, {
-                name = "codeium",
+                name = "windsurf",
                 group_index = 1,
                 priority = 100,
             })
