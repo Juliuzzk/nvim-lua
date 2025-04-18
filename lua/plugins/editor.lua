@@ -12,24 +12,24 @@ return {
         end,
     },
 
-    -- {
-    --     "kylechui/nvim-surround",
-    --     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    --     event = "VeryLazy",
-    --     config = function()
-    --         require("nvim-surround").setup({
-    --             -- Configuration here, or leave empty to use defaults
-    --         })
-    --     end,
-    --
-    --     -- surr*ound_words             ysiw)           (surround_words)
-    --     -- *make strings               ys$"            "make strings"
-    --     -- [delete ar*ound me!]        ds]             delete around me!
-    --     -- remove <b>HTML t*ags</b>    dst             remove HTML tags
-    --     -- 'change quot*es'            cs'"            "change quotes"
-    --     -- <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
-    --     -- delete(functi*on calls)     dsf             function calls
-    -- },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end,
+
+        -- surr*ound_words             ysiw)           (surround_words)
+        -- *make strings               ys$"            "make strings"
+        -- [delete ar*ound me!]        ds]             delete around me!
+        -- remove <b>HTML t*ags</b>    dst             remove HTML tags
+        -- 'change quot*es'            cs'"            "change quotes"
+        -- <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
+        -- delete(functi*on calls)     dsf             function calls
+    },
     {
         "mbbill/undotree",
         config = function()
@@ -99,5 +99,39 @@ return {
                 enabled = false, -- enables the Noice popupmenu UI
             },
         },
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            highlight = {
+                enable = true,
+                disable = function(lang, buf)
+                    if lang == "markdown" then
+                        return vim.api.nvim_get_mode().mode == "i" -- Desactiva Treesitter solo en Insert Mode
+                    end
+                    return false
+                end,
+            },
+        },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+
+            -- Desactivar Treesitter en Insert Mode
+            vim.api.nvim_create_autocmd("InsertEnter", {
+                pattern = "*.md",
+                callback = function()
+                    vim.treesitter.stop()
+                end,
+            })
+
+            -- Reactivar Treesitter en Normal Mode
+            vim.api.nvim_create_autocmd("InsertLeave", {
+                pattern = "*.md",
+                callback = function()
+                    vim.treesitter.start()
+                end,
+            })
+        end,
     },
 }

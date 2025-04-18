@@ -1,4 +1,27 @@
 return {
+    -- Configure LazyVim to load gruvbox
+    {
+        "LazyVim/LazyVim",
+        opts = {
+            colorscheme = "catppuccin",
+        },
+    },
+
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        opts = {},
+
+        config = function()
+            require("rose-pine").setup({
+                styles = {
+                    bold = true,
+                    italic = true,
+                    transparency = false,
+                },
+            })
+        end,
+    },
     -- Catppucinn
     {
         "catppuccin/nvim",
@@ -40,7 +63,6 @@ return {
                     treesitter = true,
                     treesitter_context = true,
                     which_key = true,
-                    -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
                 },
             })
         end,
@@ -57,14 +79,5 @@ return {
                 },
             })
         end,
-    },
-
-    -- Configure LazyVim to load gruvbox
-    {
-        "LazyVim/LazyVim",
-        opts = {
-            -- colorscheme = "catppuccin",
-            colorschame = "tokyonight",
-        },
     },
 }

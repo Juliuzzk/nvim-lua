@@ -14,4 +14,4 @@ cmd([[autocmd BufEnter * set fo-=c fo-=r fo-=o]])
 cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
 
 -- Establece conceallevel en 0 para archivos Markdown (muestra todo el texto sin ocultar caracteres especiales)
-cmd([[autocmd FileType markdown setlocal conceallevel=0]])
+-- cmd([[autocmd FileType markdown setlocal conceallevel=0]])
