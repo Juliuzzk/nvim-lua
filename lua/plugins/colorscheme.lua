@@ -6,22 +6,6 @@ return {
             colorscheme = "catppuccin",
         },
     },
-
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        opts = {},
-
-        config = function()
-            require("rose-pine").setup({
-                styles = {
-                    bold = true,
-                    italic = true,
-                    transparency = false,
-                },
-            })
-        end,
-    },
     -- Catppucinn
     {
         "catppuccin/nvim",
@@ -63,19 +47,6 @@ return {
                     treesitter = true,
                     treesitter_context = true,
                     which_key = true,
-                },
-            })
-        end,
-    },
-    -- TokyoNight
-    {
-        "folke/tokyonight.nvim",
-        config = function()
-            require("tokyonight").setup({
-                transparent = true,
-                styles = {
-                    sidebars = "transparent",
-                    floats = "transparent",
                 },
             })
         end,

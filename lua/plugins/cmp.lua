@@ -1,18 +1,5 @@
 return {
     {
-        "L3MON4D3/LuaSnip",
-        keys = function()
-            return {}
-        end,
-    },
-    {
-        "rafamadriz/friendly-snippets",
-        config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-            require("luasnip").filetype_extend("javascriptreact", { "html" })
-        end,
-    },
-    {
         "hrsh7th/nvim-cmp",
         enabled = true,
         ---@param opts cmp.ConfigSchema
@@ -33,7 +20,6 @@ return {
                         == nil
             end
 
-            local luasnip = require("luasnip")
             local cmp = require("cmp")
 
             opts.window = {
@@ -48,8 +34,6 @@ return {
                         cmp.select_next_item()
                     -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
                     -- this way you will only jump inside the snippet region
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
                     else
@@ -59,8 +43,6 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
                     else
                         fallback()
                     end

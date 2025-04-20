@@ -17,7 +17,8 @@ return {
             -- Añadir configuración para keymaps
             local keys = require("lazyvim.plugins.lsp.keymaps").get()
             keys[#keys + 1] = { "<c-k>", false, mode = "i" }
-            -- keys[#keys + 1] = { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>" }
+            keys[#keys + 1] =
+                { "<leader>fw", LazyVim.pick("live_grep"), desc = "Find Word Grep (Root Dir)" }
 
             -- Devuelve las opciones combinadas
             return opts
