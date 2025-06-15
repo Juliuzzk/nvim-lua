@@ -17,7 +17,7 @@ return {
                 },
             },
             copilot = {
-                model = "claude-3.7-sonnet", -- o1-preview | o1-mini | claude-3.7-sonnet
+                -- model = "claude-3.7-sonnet", -- o1-preview | o1-mini | claude-3.7-sonnet
             },
         },
         behaviour = {

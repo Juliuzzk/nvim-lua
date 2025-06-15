@@ -1,64 +1,44 @@
-# Nvim-Lua
+# Nvim-Lua Config
 
-## Configuracion personal de Nvim
+Configuración personal de Neovim para desarrollo, productividad y toma de notas, optimizada para macOS.
 
-From 0 to Hero
-Nvim Personal Config
+---
 
-### KeyMaps
+## 🚀 Instalación rápida en macOS
 
-#### Reemplazar
+1. **Clona este repositorio en tu configuración de Neovim:**
 
-- :%s/palabra/reemplazo
-  - %: todo el archivo
-  - '<,'>s: dentro del bloque visual
+   ```sh
+   git clone https://github.com/tu-usuario/tu-repo-nvim.git ~/.config/nvim
+   ```
 
-#### Ejecutar Comando
+2. **Instala Neovim (si no lo tienes):**
 
-- :g/palabra/normal dd
-  - :g! <- busca en todo lo contrario
+   ```sh
+   brew install neovim
+   ```
 
-##### Borrar desde puntero hasta letra
+3. **Abre Neovim para instalar los plugins automáticamente:**
+   ```sh
+   nvim
+   ```
 
-- df \<letra\>
-- diw: Elimina palabra bajo el cursor
-- dw: Elimina desde cursor hasta el final de la palabra
+---
 
-#### Borrar entre medio de corchetes, parentesis
+## ✨ Características principales
 
-- di\<caracter\>: Elimina lo que este entremedio
+- **Basado en [LazyVim](https://www.lazyvim.org/):** inicio rápido, modular y moderno.
+- **Integración avanzada con Obsidian:** flujos de trabajo para notas Markdown.
+- **Soporte para LSP, DAP y autocompletado:** desarrollo en múltiples lenguajes.
+- **Plugins para productividad:** fzf, surround, undotree, treesitter, entre otros.
+- **Atajos personalizados:** edición y navegación eficiente.
 
-#### Buscar desde punto hasta letra
+## 📄 Notas
 
-- f \<letra\>: buscar hacia adelante
-- \<shift\>f: buscar hacia atras
+- Personaliza los atajos y plugins en `lua/config/` y `lua/plugins/`.
+- Si usas Obsidian, ajusta la ruta del vault en la configuración del plugin.
+- Requiere [Homebrew](https://brew.sh/) para instalar Neovim fácilmente.
 
-#### Saltar entre cambios
+---
 
-- <CTRL>o: vuelve hacia atras
-
-#### Insertar
-
-- \<shift\> i: Insertar al principio de la linea
-- \<shift\> a: Insertar al final de la linea
-- \<shift\> o: Crear una linea antes y entrar en modo insertar
-- o: Crear una linea despues y entrar en modo insertar
-
-#### Seleccionar
-
-- gv: volver a seleccionar ultima
-- vip: seleccionar todo el parrafo
-- ggVG: seleccionar todo el archivo
-
-#### Vim Surround
-
-- cs\<a\>\<b\>: Cambia bracket a por b, solamenta usado para carecteres de cierre, "'{[(
-- ysiw\<a\>: Encierra una palabra entre a
-  -i: Corresponde a la cantidad de palabras a encerrar, i = 1, se puede cambiar por 2,3,4..n
-- yss\<a\>: Encierra la linea completa en a
-- ds\<a\>: Borra a que encierren al punto en donde se encuentre el cursor
-- S\<a\>: Encierra seleccion en a
-
-##### Notas:
-
-- \<shift\> + letra: letra en mayuscula
+¡Listo! Abre Neovim y disfruta de una experiencia de desarrollo y toma de notas optimizada 🚀
