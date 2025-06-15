@@ -1,5 +1,4 @@
 return {
-
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -10,13 +9,21 @@ return {
             })
         end,
 
-        -- surr*ound_words             ysiw)           (surround_words)
-        -- *make strings               ys$"            "make strings"
-        -- [delete ar*ound me!]        ds]             delete around me!
-        -- remove <b>HTML t*ags</b>    dst             remove HTML tags
-        -- 'change quot*es'            cs'"            "change quotes"
-        -- <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
-        -- delete(functi*on calls)     dsf             function calls
+        -- Usage examples:
+        -- Surround words with characters:
+        --   ysiw)           -> Surround the word under the cursor with parentheses.
+        -- Surround strings with characters:
+        --   ys$"            -> Surround the current line with double quotes.
+        -- Delete surrounding characters:
+        --   ds]             -> Remove the surrounding brackets from the text.
+        -- Remove HTML tags:
+        --   dst             -> Delete HTML tags around the selected text.
+        -- Change surrounding quotes:
+        --   cs'"            -> Change single quotes to double quotes around the selected text.
+        -- Change surrounding tags:
+        --   csth1<CR>       -> Change the surrounding tag to <h1> for the selected text.
+        -- Delete function calls:
+        --   dsf             -> Remove the function call surrounding the cursor.
     },
     {
         "mbbill/undotree",

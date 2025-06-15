@@ -3,8 +3,8 @@ return {
         "mfussenegger/nvim-dap",
         config = function()
             local dap = require("dap")
-
             -- 1. Configuración del adaptador para TypeScript/Next.js (usa js-debug-adapter)
+
             dap.adapters["pwa-node"] = {
                 type = "server",
                 host = "localhost",
